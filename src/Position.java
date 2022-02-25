@@ -34,4 +34,5 @@ public class Position {
     public int bas() {
     	y=y-1;
     }
+    
 }
