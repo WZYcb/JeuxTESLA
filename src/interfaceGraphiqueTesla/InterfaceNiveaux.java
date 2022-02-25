@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.GridLayout;
 
 public class InterfaceNiveaux extends JFrame {
 
@@ -39,20 +41,21 @@ public class InterfaceNiveaux extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panel = new JPanelImage("fond_jeu_tesla.jpg");
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new BorderLayout(0, 0));
+		JPanel panelImageFond = new JPanelImage("fond_jeu_tesla.jpg");
+		contentPane.add(panelImageFond, BorderLayout.CENTER);
+		panelImageFond.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setOpaque(false);
-		panel.add(panel_1, BorderLayout.NORTH);
+		JPanel panelTitre = new JPanel();
+		panelTitre.setOpaque(false);
+		panelImageFond.add(panelTitre, BorderLayout.NORTH);
 		
-		JButton btnNewButton = new JButton("New button");
-		panel_1.add(btnNewButton);
+		JLabel lblNewLabel = new JLabel("Tesla Intergalactique");
+		panelTitre.add(lblNewLabel);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setOpaque(false);
-		panel.add(panel_2, BorderLayout.CENTER);
+		JPanel grilleBoutonsNiveaux = new JPanel();
+		grilleBoutonsNiveaux.setOpaque(false);
+		panelImageFond.add(grilleBoutonsNiveaux, BorderLayout.CENTER);
+		grilleBoutonsNiveaux.setLayout(new GridLayout(1, 0, 0, 0));
 	}
 
 }
