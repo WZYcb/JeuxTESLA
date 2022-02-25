@@ -46,6 +46,10 @@ public class Tesla {
     }
     
     public void recupererRecharge() {
+    	if (contactRecharge()==true) {
+    		
+    	}
+    	
     	
     }
     
