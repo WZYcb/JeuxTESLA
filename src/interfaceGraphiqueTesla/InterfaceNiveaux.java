@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
 public class InterfaceNiveaux extends JFrame {
 
@@ -38,8 +39,20 @@ public class InterfaceNiveaux extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.NORTH);
+		JPanel panel = new JPanelImage("fond_jeu_tesla.jpg");
+		contentPane.add(panel, BorderLayout.CENTER);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setOpaque(false);
+		panel.add(panel_1, BorderLayout.NORTH);
+		
+		JButton btnNewButton = new JButton("New button");
+		panel_1.add(btnNewButton);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setOpaque(false);
+		panel.add(panel_2, BorderLayout.CENTER);
 	}
 
 }
