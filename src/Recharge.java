@@ -4,6 +4,9 @@ public class Recharge {
 	private int diamate;
 	private Position positionRecharge;
 	
+	public void recharge() {
+		
+	}
 	
 
 	public static void main(String[] args) {

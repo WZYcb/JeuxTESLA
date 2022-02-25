@@ -11,10 +11,31 @@ public class Niveau {
 	private Position tailleNiveau;
 	private int duree;
 	
+	public Niveau(int idNiveau,String nom,int nbAsterides,int nbObjetsGravitationnels,int nbRecharges,
+			int nbBonus,Position pointDepart,Position pointArrivee,Position tailleNiveau,int duree) {
+		
+	}
 	
-	
-	
-	
+    public void placerAsteroides() {
+    	
+    }
+    
+    public void placerObjetGravitationnel() {
+    	
+    }
+    
+    public void placerRecharges() {
+    	
+    }
+    
+    public void placerBonus() {
+    	
+    }
+    
+    public void placerTesla() {
+    	
+    }
+    
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

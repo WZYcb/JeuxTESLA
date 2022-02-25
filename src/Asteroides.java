@@ -5,6 +5,13 @@ public class Asteroides {
 	private Position positionAsteroide;
 	private Vitesse vitesseAsteroide;
 	
+	public Asteroides(int idAsteroides,int diametre,Position positionAsteroide,Vitesse vitesseAsteroide) {
+		
+	}
+	
+	public void mouvement() {
+		
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
