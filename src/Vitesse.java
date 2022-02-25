@@ -45,7 +45,7 @@ public class Vitesse {
     
     
 	public void amplitude() {
-		if()
+		
 		
 		
 	}
