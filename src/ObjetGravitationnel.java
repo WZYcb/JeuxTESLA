@@ -11,10 +11,4 @@ public class ObjetGravitationnel {
 			Position positionObjetGravitationnel,float coeffGravite) {
 		
 	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
