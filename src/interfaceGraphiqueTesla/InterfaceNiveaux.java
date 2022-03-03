@@ -19,6 +19,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.FlowLayout;
 
 public class InterfaceNiveaux extends JFrame {
 
@@ -64,18 +66,16 @@ public class InterfaceNiveaux extends JFrame {
 		
 		JPanel panelImageFond = new JPanelImage("fond_jeu_tesla.jpg");
 		contentPane.add(panelImageFond, BorderLayout.CENTER);
-		panelImageFond.setLayout(new BorderLayout(0, 0));
+		panelImageFond.setLayout(new BoxLayout(panelImageFond, BoxLayout.Y_AXIS));//box layout permet d'empiler les panels verticalement
 		
-		JPanel panelTitre = new JPanel();
-		panelTitre.setOpaque(false);
-		panelImageFond.add(panelTitre, BorderLayout.NORTH);
-		
-		JLabel lblNewLabel = new JLabel("Tesla Intergalactique");
-		panelTitre.add(lblNewLabel);
+		JPanel panelTitre = new JPanelImage("titre_jeu.png");
+		panelTitre.setOpaque(false);//rend le panel transparent
+		panelImageFond.add(panelTitre);
+		panelTitre.setLayout(new BorderLayout(0, 0));
 		
 		JPanel grilleBoutonsNiveaux = new JPanel();
 		grilleBoutonsNiveaux.setOpaque(false);
-		panelImageFond.add(grilleBoutonsNiveaux, BorderLayout.CENTER);
+		panelImageFond.add(grilleBoutonsNiveaux);
 		GridBagLayout gbl_grilleBoutonsNiveaux = new GridBagLayout();
 		gbl_grilleBoutonsNiveaux.columnWidths = new int[]{89, 89, 89, 89, 0};
 		gbl_grilleBoutonsNiveaux.rowHeights = new int[]{98, 23, 0, 0, 0};
