@@ -41,7 +41,6 @@ public class InterfaceNiveaux extends JFrame {
 	 * @wbp.nonvisual location=-406,209
 	 */
 	private final JTextArea txtNiveauxDeJeu;
-	private JProgressBar progressBar;
 	private JButton btnNewButton;
 
 	/**
@@ -101,15 +100,16 @@ public class InterfaceNiveaux extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Ouvrir niveaux
+				JFrame f = new JFrame("ouvrir un niveau");
 				
-				progressBar.setValue(progressBar.getValue()+100);
+				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+100);
 			}
 		});
 		
 		JButton btnNewButton_1_1 = new JButton("Niveau 2");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				progressBar.setValue(progressBar.getValue()+100);
+				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+100);
 			}
 		});
 		btnNewButton_1_1.setForeground(Color.MAGENTA);
@@ -119,7 +119,7 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_1_2 = new JButton("Niveau 3");
 		btnNewButton_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				progressBar.setValue(progressBar.getValue()+50);
+				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
 		});
 		btnNewButton_1_2.setForeground(Color.MAGENTA);
@@ -128,7 +128,7 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_4 = new JButton("Niveau 4");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				progressBar.setValue(progressBar.getValue()+50);
+				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
 		});
 		btnNewButton_4.setForeground(Color.MAGENTA);
@@ -137,7 +137,7 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_5 = new JButton("Niveau 5");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				progressBar.setValue(progressBar.getValue()+50);
+				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
 		});
 		btnNewButton_5.setForeground(Color.MAGENTA);
@@ -146,7 +146,7 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_7 = new JButton("Niveau 6");
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				progressBar.setValue(progressBar.getValue()+50);
+				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
 		});
 		btnNewButton_7.setForeground(Color.MAGENTA);
@@ -216,17 +216,17 @@ public class InterfaceNiveaux extends JFrame {
 		grilleBoutonsNiveaux.add(btnNewButton_10);
 		grilleBoutonsNiveaux.add(btnNewButton_11);
 		
-		JProgressBar progressBar = new JProgressBar();
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, progressBar, 25, SpringLayout.SOUTH, btnNewButton_8);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, progressBar, 10, SpringLayout.WEST, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.SOUTH, progressBar, -10, SpringLayout.SOUTH, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, progressBar, -242, SpringLayout.EAST, grilleBoutonsNiveaux);
-		progressBar.setForeground(Color.GREEN);
-		grilleBoutonsNiveaux.add(progressBar);
+		JProgressBar avanceeNiveaux = new JProgressBar();
+		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, avanceeNiveaux, 25, SpringLayout.SOUTH, btnNewButton_8);
+		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, avanceeNiveaux, 10, SpringLayout.WEST, grilleBoutonsNiveaux);
+		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.SOUTH, avanceeNiveaux, -10, SpringLayout.SOUTH, grilleBoutonsNiveaux);
+		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, avanceeNiveaux, -242, SpringLayout.EAST, grilleBoutonsNiveaux);
+		avanceeNiveaux.setForeground(Color.GREEN);
+		grilleBoutonsNiveaux.add(avanceeNiveaux);
 	}
 	
 	protected void clicNiveau7() {
 		// TODO Auto-generated method stub
-		progressBar.setValue(progressBar.getValue()+50);
+		avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 	}
 }
