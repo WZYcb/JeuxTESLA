@@ -78,10 +78,8 @@ public class Tesla {
     	int positionx = positionTesla.getx()+5;
     	int positiony = positionTesla.gety()+5; 	
     }
-    	
+    
     public void rechargerTesla() {
-    	Position positionrecaherge= 
-        if (positionTesla==);
     	
     	
     		
