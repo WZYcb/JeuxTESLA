@@ -1,9 +1,11 @@
+import ihm.MonInterface;
 
 public class ClasseP {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		InterfaceJeu mjf = new InterfaceJeu();
+		mjf.setVisible(true);
 	}
+
 
 }

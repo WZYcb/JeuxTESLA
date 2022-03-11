@@ -22,7 +22,7 @@ public class TrouBlanc {
 			   this.positionObjetGravitationnel=positionObjetGravitationnel;
 			   
 		}
-		public int getidObjetGravitationnel() {
+		public int getidTrouBlanc() {
 			return idObjetGravitationnel;
 		}
 		
@@ -43,7 +43,7 @@ public class TrouBlanc {
 	    public float getcoeffGravite() {
 	    	return coeffGravite;
 	    }
-	    public void setidObjetGravitationnel(int idObjetGravitationnel) {
+	    public void setidTrouBlanc(int idObjetGravitationnel) {
 	    	this.idObjetGravitationnel=idObjetGravitationnel;
 	    	
 	    }
@@ -56,7 +56,7 @@ public class TrouBlanc {
 	    public void setdiaminfluence(int diaminfluence) {
 	    	this.diaminfluence=diaminfluence;
 	    }
-	    public void setpositionObjetGravitationnel(Position positionObjetGravitationnel) {
+	    public void setpositionTrouBlanc(Position positionObjetGravitationnel) {
 	        this.positionObjetGravitationnel=positionObjetGravitationnel;
 	}
 	    public void setcoeffGravite(float coeffGravite) {
