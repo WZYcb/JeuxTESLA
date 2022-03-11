@@ -2,7 +2,7 @@
 public class Niveau {
 	private int idNiveau;
 	private String nom;
-	private int nbAsterides;
+	private int nbAsteroides;
 	private int nbObjetsGravitationnels;
 	private int nbRecharges;
 	private int nbBonus;
@@ -11,11 +11,11 @@ public class Niveau {
 	private Position tailleNiveau;
 	private int duree;
 	
-	public Niveau(int idNiveau,String nom,int nbAsterides,int nbObjetsGravitationnels,int nbRecharges,
+	public Niveau(int idNiveau,String nom,int nbAsteroides,int nbObjetsGravitationnels,int nbRecharges,
 			int nbBonus,Position pointDepart,Position pointArrivee,Position tailleNiveau,int duree) {
 		this.idNiveau=idNiveau;
 		this.nom=nom;
-		this.nbAsterides=nbAsterides;
+		this.nbAsteroides=nbAsteroides;
 		this.nbObjetsGravitationnels=nbObjetsGravitationnels;
 		this.nbRecharges=nbRecharges;
 		this.nbBonus=nbBonus;
@@ -31,8 +31,8 @@ public class Niveau {
     public String getnom() {
     	return nom;
     }
-    public int getnbAsterides() {
-    	return nbAsterides;
+    public int getnbAsteroides() {
+    	return nbAsteroides;
     }
     public int getnbObjetsGravitationnels() {
     	return nbObjetsGravitationnels;
@@ -62,8 +62,8 @@ public class Niveau {
     public void setnom(String nom) {
     	this.nom=nom;
     }
-    public void setnbAsterides(int nbAsterides) {
-    	this.nbAsterides=nbAsterides;
+    public void setnbAsteroides(int nbAsteroides) {
+    	this.nbAsteroides=nbAsteroides;
     }
     public void setnbObjetsGravitationnels(int nbObjetsGravitationnels) {
     	this.nbObjetsGravitationnels=nbObjetsGravitationnels;

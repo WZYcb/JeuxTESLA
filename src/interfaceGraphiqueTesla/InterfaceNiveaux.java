@@ -45,6 +45,7 @@ public class InterfaceNiveaux extends JFrame {
 	
 	private JProgressBar avanceeNiveaux;
 
+
 	/**
 	 * Launch the application.
 	 */
@@ -108,6 +109,8 @@ public class InterfaceNiveaux extends JFrame {
 				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+100);
 			}
 		});
+		
+		
 		
 		JButton btnNewButton_1_1 = new JButton("Niveau 2");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
