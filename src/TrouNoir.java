@@ -1,29 +1,26 @@
 
-
-
-
-public class ObjetGravitationnel {
+public class TrouNoir {
 		//variable
-		private int idObjetGravitationnel;
+		private int idTrouNoir;
 		private String nom;
 		private int diametre;
 		private int diaminfluence;
-		private Position positionObjetGravitationnel;
+		private Position positionTrouNoir;
 		private float coeffGravite;
 		
 		//constructeur
-		public ObjetGravitationnel(int idObjetGravitationnel,String nom,int diametre,int diaminfluence,
-				Position positionObjetGravitationnel,float coeffGravite) {
-			   this.idObjetGravitationnel=idObjetGravitationnel;
+		public TrouNoir(int idTrouNoir,String nom,int diametre,int diaminfluence,
+				Position positionTrouNoir,float coeffGravite) {
+			   this.idTrouNoir=idTrouNoir;
 			   this.coeffGravite=coeffGravite;
 			   this.diametre=diametre;
 			   this.diaminfluence=diaminfluence;
 			   this.nom=nom;
-			   this.positionObjetGravitationnel=positionObjetGravitationnel;
+			   this.positionTrouNoir=positionTrouNoir;
 			   
 		}
-		public int getidObjetGravitationnel() {
-			return idObjetGravitationnel;
+		public int getidTrouNoir() {
+			return idTrouNoir;
 		}
 		
 	    public String getnom() {
@@ -37,14 +34,14 @@ public class ObjetGravitationnel {
 	    public int getdiaminfluence() {
 	    	return diaminfluence;
 	    }
-	    public Position getpositionObjetGravitationnel() {
-	    	return positionObjetGravitationnel;
+	    public Position getpositionTrouNoir() {
+	    	return positionTrouNoir;
 	    }
 	    public float getcoeffGravite() {
 	    	return coeffGravite;
 	    }
-	    public void setidObjetGravitationnel(int idObjetGravitationnel) {
-	    	this.idObjetGravitationnel=idObjetGravitationnel;
+	    public void setidTrouNoir(int idTrouNoir) {
+	    	this.idTrouNoir=idTrouNoir;
 	    	
 	    }
 	    public void setnom(String nom) {
@@ -56,12 +53,13 @@ public class ObjetGravitationnel {
 	    public void setdiaminfluence(int diaminfluence) {
 	    	this.diaminfluence=diaminfluence;
 	    }
-	    public void setpositionObjetGravitationnel(Position positionObjetGravitationnel) {
-	        this.positionObjetGravitationnel=positionObjetGravitationnel;
+	    public void setpositionTrouNoir(Position positionTrouNoir) {
+	        this.positionTrouNoir=positionTrouNoir;
 	}
 	    public void setcoeffGravite(float coeffGravite) {
 	    	this.coeffGravite=coeffGravite;
 	    }
 	 
+	    
 	    
 	}
