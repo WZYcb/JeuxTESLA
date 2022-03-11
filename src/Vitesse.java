@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Vitesse {
 	private int x;
@@ -9,6 +10,25 @@ public class Vitesse {
     	this.x=x;
     	this.y=y;
 	}
+    public int getx()
+	{
+		return x;
+	}
+	
+    public int gety()
+	{
+		return y;
+	}
+    
+	
+    public int getyVitesse()
+	{
+		return yVitesse;
+	}
+    public int getxVitesse()
+   	{
+   		return xVitesse;
+   	}
     
     public int directionAngle() {
     	Random random= new Random();
@@ -24,9 +44,26 @@ public class Vitesse {
     		   return haut();
     	   case 3:
     		   return bas();   	   
-    	}		
     	}
-		
+		return num;		
+    	}
+    public int gauche() {
+    	return x=x-1;
+    }
+    
+    public int droite() {
+    	return x=x+1;
+    }
+
+    public int haut() {
+    	return y=y+1;
+    }
+	
+    public int bas() {
+    	return y=y-1;
+    }
+    
+    
    public void leftMove() {
 	   xVitesse=-5;
    }

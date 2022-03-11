@@ -19,20 +19,5 @@ public class Position {
 		return y;
 	}
     
-    public void gauche() {
-    	x=x-1;
-    }
-    
-    public void droite() {
-    	x=x+1;
-    }
-
-    public void haut() {
-    	y=y+1;
-    }
-	
-    public void bas() {
-    	y=y-1;
-    }
     
 }
