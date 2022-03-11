@@ -17,6 +17,8 @@ import java.awt.Dimension;
 public class InterfaceJeu extends JFrame {
 
 	private JPanel contentPane;
+	private boolean niveauReussi = false;
+	
 
 	/**
 	 * Launch the application.
@@ -90,10 +92,23 @@ public class InterfaceJeu extends JFrame {
 		}
 		infosEnJeu.add(panelBonusActif);
 		
+		JPanel mapJeu = new JPanelImage();
+		mapJeu.setOpaque(false);
+		affichageJeu.add(mapJeu, BorderLayout.CENTER);
+		
 	}
 	public void clicRetourMenu() {
-		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// créer la frame du menu avec les niveaux 
+		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// créer la frame du menu avec les niveaux
+		this.setNiveauReussi(false);//indiquer que le niveau n'est pas réussi car on retourne au menu avant
 		menuNiveaux.setVisible(true);// l'ouvrir
 		this.dispose();//ferme la frame
+	}
+
+	public boolean isNiveauReussi() {
+		return niveauReussi;
+	}
+
+	public void setNiveauReussi(boolean niveauReussi) {
+		this.niveauReussi = niveauReussi;
 	}
 }
