@@ -63,4 +63,5 @@ public class ObjetGravitationnel {
 	    	this.coeffGravite=coeffGravite;
 	    }
 	 
+	    
 	}
