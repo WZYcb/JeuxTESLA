@@ -3,7 +3,8 @@ public class Niveau {
 	private int idNiveau;
 	private String nom;
 	private int nbAsteroides;
-	private int nbObjetsGravitationnels;
+	private int nbTrouNoir;
+	private int nbTrouBlanc;
 	private int nbRecharges;
 	private int nbBonus;
 	private Position pointDepart;
@@ -11,12 +12,13 @@ public class Niveau {
 	private Position tailleNiveau;
 	private int duree;
 	
-	public Niveau(int idNiveau,String nom,int nbAsteroides,int nbObjetsGravitationnels,int nbRecharges,
+	public Niveau(int idNiveau,String nom,int nbAsteroides,int nbTrouNoir,int nbTrouBlanc,int nbRecharges,
 			int nbBonus,Position pointDepart,Position pointArrivee,Position tailleNiveau,int duree) {
 		this.idNiveau=idNiveau;
 		this.nom=nom;
 		this.nbAsteroides=nbAsteroides;
-		this.nbObjetsGravitationnels=nbObjetsGravitationnels;
+		this.nbTrouNoir=nbTrouNoir;
+		this.nbTrouBlanc=nbTrouBlanc;
 		this.nbRecharges=nbRecharges;
 		this.nbBonus=nbBonus;
 		this.pointDepart=pointDepart;
@@ -34,8 +36,11 @@ public class Niveau {
     public int getnbAsteroides() {
     	return nbAsteroides;
     }
-    public int getnbObjetsGravitationnels() {
-    	return nbObjetsGravitationnels;
+    public int getnbTrouNoir() {
+    	return nbTrouNoir;
+    }
+    public int getnbTrouBlanc() {
+    	return nbTrouBlanc;
     }
     public int getnbRecharges() {
     	return nbRecharges;
@@ -65,8 +70,11 @@ public class Niveau {
     public void setnbAsteroides(int nbAsteroides) {
     	this.nbAsteroides=nbAsteroides;
     }
-    public void setnbObjetsGravitationnels(int nbObjetsGravitationnels) {
-    	this.nbObjetsGravitationnels=nbObjetsGravitationnels;
+    public void setnbTrouNoir(int nbTrouNoir) {
+    	this.nbTrouNoir=nbTrouNoir;
+    }
+    public void setnbTrouBlanc(int nbTrouBlanc) {
+    	this.nbTrouBlanc=nbTrouBlanc;
     }
     public void setnbRecharges(int nbRecharges) {
     	this.nbRecharges=nbRecharges;
@@ -88,6 +96,8 @@ public class Niveau {
     }
 	
     public void placerAsteroides() {
+    	
+    	
     	
     }
     
