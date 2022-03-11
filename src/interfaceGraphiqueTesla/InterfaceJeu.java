@@ -95,6 +95,7 @@ public class InterfaceJeu extends JFrame {
 		JPanel mapJeu = new JPanelImage();
 		mapJeu.setOpaque(false);
 		affichageJeu.add(mapJeu, BorderLayout.CENTER);
+		mapJeu.
 		
 	}
 	public void clicRetourMenu() {
