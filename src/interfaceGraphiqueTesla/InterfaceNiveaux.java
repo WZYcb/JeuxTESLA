@@ -41,7 +41,9 @@ public class InterfaceNiveaux extends JFrame {
 	 * @wbp.nonvisual location=-406,209
 	 */
 	private final JTextArea txtNiveauxDeJeu;
-	private JButton btnNewButton;
+	private JButton btnNewButton; 
+	
+	private JProgressBar avanceeNiveaux;
 
 	/**
 	 * Launch the application.
@@ -91,16 +93,17 @@ public class InterfaceNiveaux extends JFrame {
 		grilleBoutonsNiveaux.setOpaque(false);
 		panelImageFond.add(grilleBoutonsNiveaux, BorderLayout.CENTER);
 		
-		JPanel panel = new JPanel();
-		
 		btnNewButton = new JButton("Niveau 1");
 		btnNewButton.setForeground(Color.MAGENTA);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton.setBackground(Color.GRAY);
 		btnNewButton.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
-				//Ouvrir niveaux
-				JFrame f = new JFrame("ouvrir un niveau");
+				
+				InterfaceJeu niveau1 = new InterfaceJeu();//cree une frame
+				niveau1.setVisible(true);
+				// TODO Auto-generated method stub
 				
 				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+100);
 			}
@@ -109,7 +112,7 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("Niveau 2");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+100);
+				clicNiveau2();
 			}
 		});
 		btnNewButton_1_1.setForeground(Color.MAGENTA);
@@ -119,6 +122,8 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_1_2 = new JButton("Niveau 3");
 		btnNewButton_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				InterfaceJeu niveau3 = new InterfaceJeu();//cree une frame
+				niveau3.setVisible(true);
 				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
 		});
@@ -128,6 +133,8 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_4 = new JButton("Niveau 4");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				InterfaceJeu niveau4 = new InterfaceJeu();//cree une frame
+				niveau4.setVisible(true);
 				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
 		});
@@ -137,6 +144,8 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_5 = new JButton("Niveau 5");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				InterfaceJeu niveau5 = new InterfaceJeu();//cree une frame
+				niveau5.setVisible(true);
 				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
 		});
@@ -146,6 +155,8 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_7 = new JButton("Niveau 6");
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				InterfaceJeu niveau6 = new InterfaceJeu();//cree une frame
+				niveau6.setVisible(true);
 				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
 		});
@@ -165,19 +176,25 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_10 = new JButton("Niveau 8");
 		btnNewButton_10.setForeground(Color.MAGENTA);
 		btnNewButton_10.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
+				InterfaceJeu niveau8 = new InterfaceJeu();//cree une frame
+				niveau8.setVisible(true);
+				// TODO Auto-generated method stub
 			}
 		});
 		btnNewButton_10.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton_10.setBackground(Color.GRAY);
-		btnNewButton_10.setEnabled(false);
 		JButton btnNewButton_11 = new JButton("Niveau 9");
 		btnNewButton_11.setForeground(Color.MAGENTA);
 		btnNewButton_11.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnNewButton_11.setBackground(Color.LIGHT_GRAY);
-		btnNewButton_11.setEnabled(false);
+		btnNewButton_11.setBackground(Color.GRAY);
 		btnNewButton_11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
+				InterfaceJeu niveau9 = new InterfaceJeu();//cree une frame
+				niveau9.setVisible(true);
+				// TODO Auto-generated method stub
 				
 				JButton b = new JButton("New Button", new ImageIcon("Cadena.jpg"));
 			}
@@ -202,10 +219,7 @@ public class InterfaceNiveaux extends JFrame {
 		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, btnNewButton, 44, SpringLayout.NORTH, grilleBoutonsNiveaux);
 		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, btnNewButton_1_1, 0, SpringLayout.NORTH, btnNewButton);
 		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, btnNewButton, 23, SpringLayout.WEST, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, panel, 11, SpringLayout.NORTH, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, panel, 8, SpringLayout.WEST, grilleBoutonsNiveaux);
 		grilleBoutonsNiveaux.setLayout(sl_grilleBoutonsNiveaux);
-		grilleBoutonsNiveaux.add(panel);
 		grilleBoutonsNiveaux.add(btnNewButton);
 		grilleBoutonsNiveaux.add(btnNewButton_1_1);
 		grilleBoutonsNiveaux.add(btnNewButton_1_2);
@@ -216,16 +230,26 @@ public class InterfaceNiveaux extends JFrame {
 		grilleBoutonsNiveaux.add(btnNewButton_10);
 		grilleBoutonsNiveaux.add(btnNewButton_11);
 		
-		JProgressBar avanceeNiveaux = new JProgressBar();
+	 avanceeNiveaux = new JProgressBar();
 		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, avanceeNiveaux, 25, SpringLayout.SOUTH, btnNewButton_8);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, avanceeNiveaux, 10, SpringLayout.WEST, grilleBoutonsNiveaux);
+		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, avanceeNiveaux, 8, SpringLayout.WEST, grilleBoutonsNiveaux);
 		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.SOUTH, avanceeNiveaux, -10, SpringLayout.SOUTH, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, avanceeNiveaux, -242, SpringLayout.EAST, grilleBoutonsNiveaux);
+		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, avanceeNiveaux, -244, SpringLayout.EAST, grilleBoutonsNiveaux);
 		avanceeNiveaux.setForeground(Color.GREEN);
 		grilleBoutonsNiveaux.add(avanceeNiveaux);
 	}
+	public void clicNiveau2() {
+		InterfaceJeu niveau2 = new InterfaceJeu();//cree une frame
+		niveau2.setVisible(true);
+		this.dispose();//ferme la frame actuelle
+		// TODO Auto-generated method stub
+		avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
+	}
 	
-	protected void clicNiveau7() {
+	public void clicNiveau7() {
+		InterfaceJeu niveau7 = new InterfaceJeu();//cree une frame
+		niveau7.setVisible(true);
+		this.dispose();//ferme la frame actuelle
 		// TODO Auto-generated method stub
 		avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 	}
