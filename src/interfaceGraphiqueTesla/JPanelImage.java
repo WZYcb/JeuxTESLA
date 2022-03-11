@@ -9,13 +9,21 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import calcul.Simulateur;
+
 public class JPanelImage extends JPanel {
 	
 	private static final long serialVersionUID = 3641337531772753865L;
 	private String sNomImage;
 	private Image image=null;
-
+	private Simulateur simul;
 	
+	public Simulateur getSimul() {
+		return simul;
+	}
+	public void setSimul(Simulateur simul) {
+		this.simul = simul;
+	}
 	public JPanelImage() {
 		super();
 		sNomImage=null;
@@ -49,5 +57,9 @@ public class JPanelImage extends JPanel {
 		if(image!=null) {
 			 g.drawImage(image, 0, 0, this.getWidth(),this.getHeight(), null);
 		}
-	}	
+		if(simul!=null) {
+			
+		}
+	}
+	
 }

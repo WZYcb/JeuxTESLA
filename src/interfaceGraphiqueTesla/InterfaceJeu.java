@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import calcul.Simulateur;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
@@ -92,10 +95,12 @@ public class InterfaceJeu extends JFrame {
 		}
 		infosEnJeu.add(panelBonusActif);
 		
-		JPanel mapJeu = new JPanelImage();
+		JPanelImage mapJeu = new JPanelImage();
 		mapJeu.setOpaque(false);
 		affichageJeu.add(mapJeu, BorderLayout.CENTER);
-		mapJeu.
+		Simulateur simul = new Simulateur(this);
+		simul.start();
+		
 		
 	}
 	public void clicRetourMenu() {
