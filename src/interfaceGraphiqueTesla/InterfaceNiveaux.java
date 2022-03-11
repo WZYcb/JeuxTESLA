@@ -100,6 +100,8 @@ public class InterfaceNiveaux extends JFrame {
 		btnNewButton.setBackground(Color.GRAY);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Ouvrir niveaux
+				
 				progressBar.setValue(progressBar.getValue()+100);
 			}
 		});
@@ -214,29 +216,13 @@ public class InterfaceNiveaux extends JFrame {
 		grilleBoutonsNiveaux.add(btnNewButton_10);
 		grilleBoutonsNiveaux.add(btnNewButton_11);
 		
-		progressBar = new JProgressBar();
+		JProgressBar progressBar = new JProgressBar();
 		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, progressBar, 25, SpringLayout.SOUTH, btnNewButton_8);
 		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, progressBar, 10, SpringLayout.WEST, grilleBoutonsNiveaux);
 		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.SOUTH, progressBar, -10, SpringLayout.SOUTH, grilleBoutonsNiveaux);
 		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, progressBar, -242, SpringLayout.EAST, grilleBoutonsNiveaux);
 		progressBar.setForeground(Color.GREEN);
 		grilleBoutonsNiveaux.add(progressBar);
-		
-		JButton btnNewButton_1 = new JButton("Quitter");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JButton btn = new JButton("Cliquer pour fermer!");
-			}
-		});
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, btnNewButton_1, 0, SpringLayout.NORTH, progressBar);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, btnNewButton_1, -111, SpringLayout.EAST, grilleBoutonsNiveaux);
-		btnNewButton_1.setForeground(Color.BLUE);
-		btnNewButton_1.setBackground(Color.GRAY);
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnNewButton_1.setToolTipText("");
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.SOUTH, btnNewButton_1, -10, SpringLayout.SOUTH, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, btnNewButton_1, -10, SpringLayout.EAST, grilleBoutonsNiveaux);
-		grilleBoutonsNiveaux.add(btnNewButton_1);
 	}
 	
 	protected void clicNiveau7() {
