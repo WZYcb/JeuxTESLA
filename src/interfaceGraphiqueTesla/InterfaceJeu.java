@@ -95,7 +95,7 @@ public class InterfaceJeu extends JFrame {
 		}
 		infosEnJeu.add(panelBonusActif);
 		
-		JPanelImage mapJeu = new JPanelImage();
+		JPanelDessin mapJeu = new JPanelDessin();
 		mapJeu.setOpaque(false);
 		affichageJeu.add(mapJeu, BorderLayout.CENTER);
 		Simulateur simul = new Simulateur(this);

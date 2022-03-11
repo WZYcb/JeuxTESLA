@@ -48,7 +48,7 @@ public class Simulateur extends Thread{
 	}
 	
 	public void faireUneEtape() {
-		System.out.println("hello world");
+	
 	}
 
 	public void arret() {
