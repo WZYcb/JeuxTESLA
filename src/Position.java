@@ -19,19 +19,19 @@ public class Position {
 		return y;
 	}
     
-    public int gauche() {
+    public void gauche() {
     	x=x-1;
     }
     
-    public int droite() {
+    public void droite() {
     	x=x+1;
     }
 
-    public int haut() {
+    public void haut() {
     	y=y+1;
     }
 	
-    public int bas() {
+    public void bas() {
     	y=y-1;
     }
     
