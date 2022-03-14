@@ -13,6 +13,8 @@ import calcul.Simulateur;
 public class JPanelDessin extends JPanel {
 	private static final long serialVersionUID = -4704888296894874299L;
 	private Simulateur simul = new Simulateur(this);
+	private int lambdaX;//coefficients lambda entre la taille du niveau dans le simulateur et la taille de la fenêtre
+	private int lambdaY;
 	private Image voitureImg= null;
 	private Image trouNoirImg= null;
 	private Image trouBlancImg=null;
@@ -26,6 +28,22 @@ public class JPanelDessin extends JPanel {
 
 	public void setSimul(Simulateur simul) {
 		this.simul = simul;
+	}
+
+	public int getLambdaX() {
+		return lambdaX;
+	}
+
+	public void setLambdaX(int lambdaX) {
+		this.lambdaX = lambdaX;
+	}
+
+	public int getLambdaY() {
+		return lambdaY;
+	}
+
+	public void setLambdaY(int lambdaY) {
+		this.lambdaY = lambdaY;
 	}
 
 	public Image getVoitureImg() {
@@ -61,8 +79,12 @@ public class JPanelDessin extends JPanel {
 	}
 	
 	
-	public JPanelDessin(int nTrouNoir, int nTrouBlanc) {
+	public JPanelDessin() {
+		int nTrouNoir=simul.getNiveau().getNbTrouNoir();
+		int nTrouBlanc=simul.getNiveau().getNbTrouBlanc();
 		String sNomFile=".\\images\\"+"voiture_vue_dessus.png";
+		lambdaX=this.getWidth()/simul.getNiveau().getTailleNiveau().getX();
+		lambdaY=this.getHeight()/simul.getNiveau().getTailleNiveau().getY();
 		try {                
 	          voitureImg = ImageIO.read(new File(sNomFile));
 	       } catch (IOException ex) {
@@ -96,6 +118,7 @@ public class JPanelDessin extends JPanel {
 			i=i+1;
 		}
 		this.repaint();
+		simul.start();
 	}
 	
 
@@ -105,10 +128,10 @@ public class JPanelDessin extends JPanel {
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(voitureImg, simul.getTesla().getPositionTesla().getX() , simul.getTesla().getPositionTesla().getY(),this.getWidth()/25,this.getHeight()/50, null);
-		g.drawImage(planeteLivraisonImg, this.getWidth()-(this.getWidth()/20)-20, this.getHeight()-(this.getHeight()/20)-20,this.getWidth()/20,this.getHeight()/20, null);
-		g.drawImage(trouNoirImg,this.getWidth()/4, this.getHeight()/2,this.getWidth()/20,this.getHeight()/20, null);
-		g.drawImage(trouBlancImg, this.getWidth()/2, this.getHeight()/4,this.getWidth()/20,this.getHeight()/20, null);
+		g.drawImage(voitureImg, simul.getTesla().getPositionTesla().getX()*lambdaX,simul.getTesla().getPositionTesla().getY()*lambdaY,this.getWidth()/25,this.getHeight()/50, null);
+		g.drawImage(planeteLivraisonImg, simul.getNiveau().getPointArrivee().getX()*lambdaX, simul.getNiveau().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+		g.drawImage(trouNoirImg, simul.getTrouNoir().getPositionTrouNoir().getX()*lambdaX , simul.getTrouNoir().getPositionTrouNoir().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+		g.drawImage(trouBlancImg, simul.getTrouBlanc().getPositionTrouBlanc().getX()*lambdaX , simul.getTrouBlanc().getPositionTrouBlanc().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
 	}
 	
 }

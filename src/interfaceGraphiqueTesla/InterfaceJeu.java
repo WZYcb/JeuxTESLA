@@ -95,10 +95,10 @@ public class InterfaceJeu extends JFrame {
 		}
 		infosEnJeu.add(panelBonusActif);
 		
-		JPanelDessin mapJeu = new JPanelDessin(1,1);
+		JPanelDessin mapJeu = new JPanelDessin();
 		mapJeu.setOpaque(false);
 		affichageJeu.add(mapJeu, BorderLayout.CENTER);
-		mapJeu.getSimul().start();
+		//mapJeu.getSimul().start();
 		
 		
 	}

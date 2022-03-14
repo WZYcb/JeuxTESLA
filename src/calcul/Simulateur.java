@@ -10,6 +10,7 @@ public class Simulateur extends Thread{
 	
 	
 	private JPanelDessin mjf;
+	private Niveau niveau;
 	private Tesla tesla;
 	private TrouNoir trouNoir;
 	private TrouBlanc trouBlanc;
@@ -20,12 +21,21 @@ public class Simulateur extends Thread{
 		mjf = mjfParam;
 	}
 	
+	
 	public JPanelDessin getMjf() {
 		return mjf;
 	}
 
 	public void setMjf(JPanelDessin mjf) {
 		this.mjf = mjf;
+	}
+
+	public Niveau getNiveau() {
+		return niveau;
+	}
+
+	public void setNiveau(Niveau niveau) {
+		this.niveau = niveau;
 	}
 
 	public Tesla getTesla() {
