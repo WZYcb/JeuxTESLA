@@ -28,75 +28,142 @@ public class Niveau {
 		this.duree=duree;
 		
 	}
-	public int getidNiveau() {
+	
+	
+	
+    public int getIdNiveau() {
 		return idNiveau;
 	}
-    public String getnom() {
-    	return nom;
-    }
-    public int getnbAsteroides() {
-    	return nbAsteroides;
-    }
-    public int getnbTrouNoir() {
-    	return nbTrouNoir;
-    }
-    public int getnbTrouBlanc() {
-    	return nbTrouBlanc;
-    }
-    public int getnbRecharges() {
-    	return nbRecharges;
-    
-    }
-    public int getnbBonus() {
-    	return nbBonus;
-    }
-    public Position getpointDepart() {
-    	return pointDepart;
-    }
-    public Position getpointArrivee() {
-    	return pointArrivee;
-    }
-    public Position gettailleNiveau() {
-    	return tailleNiveau;
-    }
-    public int getduree() {
-    	return duree;
-    }
-    public void setidNiveau(int idNiveau) {
-    	this.idNiveau=idNiveau;
-    }
-    public void setnom(String nom) {
-    	this.nom=nom;
-    }
-    public void setnbAsteroides(int nbAsteroides) {
-    	this.nbAsteroides=nbAsteroides;
-    }
-    public void setnbTrouNoir(int nbTrouNoir) {
-    	this.nbTrouNoir=nbTrouNoir;
-    }
-    public void setnbTrouBlanc(int nbTrouBlanc) {
-    	this.nbTrouBlanc=nbTrouBlanc;
-    }
-    public void setnbRecharges(int nbRecharges) {
-    	this.nbRecharges=nbRecharges;
-    }
-    public void setnbBonus(int nbBonus) {
-    	this.nbBonus=nbBonus;
-    }
-    public void setpointDepart(Position pointDepart) {
-    	this.pointDepart=pointDepart;
-    }
-    public void pointArrivee(Position pointArrivee) {
-    	this.pointArrivee=pointArrivee;
-    }
-    public void settailleNiveau(Position tailleNiveau) {
-    	this.tailleNiveau=tailleNiveau;
-    }
-    public void setduree(int duree) {
-    	this.duree=duree;
-    }
-	
-    public void placerAsteroides() {
+
+
+
+	public void setIdNiveau(int idNiveau) {
+		this.idNiveau = idNiveau;
+	}
+
+
+
+	public String getNom() {
+		return nom;
+	}
+
+
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+
+
+	public int getNbAsteroides() {
+		return nbAsteroides;
+	}
+
+
+
+	public void setNbAsteroides(int nbAsteroides) {
+		this.nbAsteroides = nbAsteroides;
+	}
+
+
+
+	public int getNbTrouNoir() {
+		return nbTrouNoir;
+	}
+
+
+
+	public void setNbTrouNoir(int nbTrouNoir) {
+		this.nbTrouNoir = nbTrouNoir;
+	}
+
+
+
+	public int getNbTrouBlanc() {
+		return nbTrouBlanc;
+	}
+
+
+
+	public void setNbTrouBlanc(int nbTrouBlanc) {
+		this.nbTrouBlanc = nbTrouBlanc;
+	}
+
+
+
+	public int getNbRecharges() {
+		return nbRecharges;
+	}
+
+
+
+	public void setNbRecharges(int nbRecharges) {
+		this.nbRecharges = nbRecharges;
+	}
+
+
+
+	public int getNbBonus() {
+		return nbBonus;
+	}
+
+
+
+	public void setNbBonus(int nbBonus) {
+		this.nbBonus = nbBonus;
+	}
+
+
+
+	public Position getPointDepart() {
+		return pointDepart;
+	}
+
+
+
+	public void setPointDepart(Position pointDepart) {
+		this.pointDepart = pointDepart;
+	}
+
+
+
+	public Position getPointArrivee() {
+		return pointArrivee;
+	}
+
+
+
+	public void setPointArrivee(Position pointArrivee) {
+		this.pointArrivee = pointArrivee;
+	}
+
+
+
+	public Position getTailleNiveau() {
+		return tailleNiveau;
+	}
+
+
+
+	public void setTailleNiveau(Position tailleNiveau) {
+		this.tailleNiveau = tailleNiveau;
+	}
+
+
+
+	public int getDuree() {
+		return duree;
+	}
+
+
+
+	public void setDuree(int duree) {
+		this.duree = duree;
+	}
+
+
+
+	public void placerAsteroides() {
     	
     	
     	

@@ -11,22 +11,22 @@ public class Vitesse {
     	this.x=x;
     	this.y=y;
 	}
-    public int getx()
+    public int getX()
 	{
 		return x;
 	}
 	
-    public int gety()
+    public int getY()
 	{
 		return y;
 	}
     
 	
-    public int getyVitesse()
+    public int getYVitesse()
 	{
 		return yVitesse;
 	}
-    public int getxVitesse()
+    public int getXVitesse()
    	{
    		return xVitesse;
    	}

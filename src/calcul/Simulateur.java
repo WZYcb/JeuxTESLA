@@ -8,8 +8,7 @@ import interfaceGraphiqueTesla.JPanelDessin;
 
 public class Simulateur extends Thread{
 	
-	private int iPosX;
-	private int iPosY;
+	
 	private JPanelDessin mjf;
 	private Tesla tesla;
 	private TrouNoir trouNoir;
@@ -18,18 +17,49 @@ public class Simulateur extends Thread{
 	
 	public Simulateur(JPanelDessin mjfParam) {
 		stop=false;
-		iPosX = 50;
-		iPosY = 50;
 		mjf = mjfParam;
 	}
 	
-	public int getX() {
-		return iPosX;
+	public JPanelDessin getMjf() {
+		return mjf;
 	}
 
-	public int getY() {
-		return iPosY;
+	public void setMjf(JPanelDessin mjf) {
+		this.mjf = mjf;
 	}
+
+	public Tesla getTesla() {
+		return tesla;
+	}
+
+	public void setTesla(Tesla tesla) {
+		this.tesla = tesla;
+	}
+
+	public TrouNoir getTrouNoir() {
+		return trouNoir;
+	}
+
+	public void setTrouNoir(TrouNoir trouNoir) {
+		this.trouNoir = trouNoir;
+	}
+
+	public TrouBlanc getTrouBlanc() {
+		return trouBlanc;
+	}
+
+	public void setTrouBlanc(TrouBlanc trouBlanc) {
+		this.trouBlanc = trouBlanc;
+	}
+
+	public boolean isStop() {
+		return stop;
+	}
+
+	public void setStop(boolean stop) {
+		this.stop = stop;
+	}
+
 	
 	public void run() {
 		int iCpt=0;

@@ -24,54 +24,54 @@ public class Tesla {
     	
     }
     
-    public int getidTesla() {
+    public int getIdTesla() {
     	return idTesla;
     }
-    public int getnivBattrie() {
+    public int getNivBattrie() {
     	return nivBattrie;
     }
-    public float getvMax() {
+    public float getVMax() {
     	return vMax;
     }
-    public String getcouleur() {
+    public String getCouleur() {
     	return couleur;
     }
-    public float getcouple() {
+    public float getCouple() {
     	return couple;
     }
-    public String getnom() {
+    public String getNom() {
     	return nom;
     }
-    public Position getpositionTesla() {
+    public Position getPositionTesla() {
     	return positionTesla;
     }
     public Vitesse getVitesseTesla() {
     	return vitesseTesla;
     }
     
-    public void setidTesla(int idTesla) {
+    public void setIdTesla(int idTesla) {
     	this.idTesla=idTesla;
     }
-    public void setnivBattrie(int nivBattrie) {
+    public void setNivBattrie(int nivBattrie) {
     	this.nivBattrie=nivBattrie;
     }
-    public void setnvMax(float vMax) {
+    public void setVMax(float vMax) {
     	this.vMax=vMax;
     }
-    public void setcouple(float couple) {
+    public void setCouple(float couple) {
     	this.couple=couple;
     }
-    public void setnom(String nom) {
+    public void setNom(String nom) {
     	this.nom=nom;
     }
-    public void setcouleur(String couleur) {
+    public void setCouleur(String couleur) {
     	this.couleur=couleur;
     }
-    public void setpositionTesla(Position positionTesla) {
+    public void setPositionTesla(Position positionTesla) {
     	this.positionTesla=positionTesla;
     }
     
-    public void setvitesseTesla(Vitesse vitesseTesla) {
+    public void setVitesseTesla(Vitesse vitesseTesla) {
     	this.vitesseTesla=vitesseTesla;
     }
     

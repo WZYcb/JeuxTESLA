@@ -105,7 +105,7 @@ public class JPanelDessin extends JPanel {
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(voitureImg, 20 , 20,this.getWidth()/25,this.getHeight()/50, null);
+		g.drawImage(voitureImg, simul.getTesla().getPositionTesla().getX() , simul.getTesla().getPositionTesla().getY(),this.getWidth()/25,this.getHeight()/50, null);
 		g.drawImage(planeteLivraisonImg, this.getWidth()-(this.getWidth()/20)-20, this.getHeight()-(this.getHeight()/20)-20,this.getWidth()/20,this.getHeight()/20, null);
 		g.drawImage(trouNoirImg,this.getWidth()/4, this.getHeight()/2,this.getWidth()/20,this.getHeight()/20, null);
 		g.drawImage(trouBlancImg, this.getWidth()/2, this.getHeight()/4,this.getWidth()/20,this.getHeight()/20, null);
