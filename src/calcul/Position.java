@@ -1,3 +1,4 @@
+package calcul;
 
 public class Position {
 	private int x;

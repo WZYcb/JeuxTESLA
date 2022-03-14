@@ -1,3 +1,4 @@
+package calcul;
 
 public class Niveau {
 	private int idNiveau;

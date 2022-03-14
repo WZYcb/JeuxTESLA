@@ -1,3 +1,4 @@
+package calcul;
 
 public class Asteroides {
 	private int idAsteroides;

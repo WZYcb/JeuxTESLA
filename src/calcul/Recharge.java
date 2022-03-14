@@ -1,4 +1,4 @@
-
+package calcul;
 public class Recharge {
 	private int idRecharge;
 	private int diametre;

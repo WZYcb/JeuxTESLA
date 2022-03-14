@@ -1,3 +1,4 @@
+package calcul;
 import java.util.Random;
 
 public class Vitesse {

@@ -1,29 +1,26 @@
-
-
-
-
-public class TrouBlanc {
+package calcul;
+public class TrouNoir {
 		//variable
-		private int idTrouBlanc;
+		private int idTrouNoir;
 		private String nom;
 		private int diametre;
 		private int diaminfluence;
-		private Position positionTrouBlanc;
+		private Position positionTrouNoir;
 		private float coeffGravite;
 		
 		//constructeur
-		public TrouBlanc(int idTrouBlanc,String nom,int diametre,int diaminfluence,
-				Position positionTrouBlanc,float coeffGravite) {
-			   this.idTrouBlanc=idTrouBlanc;
+		public TrouNoir(int idTrouNoir,String nom,int diametre,int diaminfluence,
+				Position positionTrouNoir,float coeffGravite) {
+			   this.idTrouNoir=idTrouNoir;
 			   this.coeffGravite=coeffGravite;
 			   this.diametre=diametre;
 			   this.diaminfluence=diaminfluence;
 			   this.nom=nom;
-			   this.positionTrouBlanc=positionTrouBlanc;
+			   this.positionTrouNoir=positionTrouNoir;
 			   
 		}
-		public int getidTrouBlanc() {
-			return idTrouBlanc;
+		public int getidTrouNoir() {
+			return idTrouNoir;
 		}
 		
 	    public String getnom() {
@@ -37,14 +34,14 @@ public class TrouBlanc {
 	    public int getdiaminfluence() {
 	    	return diaminfluence;
 	    }
-	    public Position getpositionTrouBlanc() {
-	    	return positionTrouBlanc;
+	    public Position getpositionTrouNoir() {
+	    	return positionTrouNoir;
 	    }
 	    public float getcoeffGravite() {
 	    	return coeffGravite;
 	    }
-	    public void setidTrouBlanc(int idTrouBlanc) {
-	    	this.idTrouBlanc=idTrouBlanc;
+	    public void setidTrouNoir(int idTrouNoir) {
+	    	this.idTrouNoir=idTrouNoir;
 	    	
 	    }
 	    public void setnom(String nom) {
@@ -56,12 +53,13 @@ public class TrouBlanc {
 	    public void setdiaminfluence(int diaminfluence) {
 	    	this.diaminfluence=diaminfluence;
 	    }
-	    public void setpositionTrouBlanc(Position positionTrouBlanc) {
-	        this.positionTrouBlanc=positionTrouBlanc;
+	    public void setpositionTrouNoir(Position positionTrouNoir) {
+	        this.positionTrouNoir=positionTrouNoir;
 	}
 	    public void setcoeffGravite(float coeffGravite) {
 	    	this.coeffGravite=coeffGravite;
 	    }
 	 
+	    
 	    
 	}
