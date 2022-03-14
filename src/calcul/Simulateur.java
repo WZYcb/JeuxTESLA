@@ -3,16 +3,20 @@ import java.util.Random;
 
 import interfaceGraphiqueTesla.InterfaceJeu;
 import interfaceGraphiqueTesla.InterfaceNiveaux;
+import interfaceGraphiqueTesla.JPanelDessin;
 
 
 public class Simulateur extends Thread{
 	
 	private int iPosX;
 	private int iPosY;
-	private InterfaceJeu mjf;
+	private JPanelDessin mjf;
+	private Tesla tesla;
+	private TrouNoir trouNoir;
+	private TrouBlanc trouBlanc;
 	private boolean stop;
 	
-	public Simulateur(InterfaceJeu mjfParam) {
+	public Simulateur(JPanelDessin mjfParam) {
 		stop=false;
 		iPosX = 50;
 		iPosY = 50;
