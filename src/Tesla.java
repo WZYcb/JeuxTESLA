@@ -1,3 +1,4 @@
+import java.awt.event.*;
 
 public class Tesla {
 	
@@ -74,21 +75,29 @@ public class Tesla {
     	this.vitesseTesla=vitesseTesla;
     }
     
-    public void deplacerTesla() {
-        	
+    public void deplacerTesla(KeyEvent event) {
+    	if (event.getKeyCode() == KeyEvent.VK_UP) {
+    		int positiony = positionTesla.gety()+5;
+    	}
+    	if (event.getKeyCode() == KeyEvent.VK_DOWN) {
+    		int positiony = positionTesla.gety()-5;
+    	}
+    	if (event.getKeyCode() == KeyEvent.VK_RIGHT) {
+    		int positionx = positionTesla.getx()+5;
+    	}
+    	if (event.getKeyCode() == KeyEvent.VK_LEFT) {
+    		int positionx = positionTesla.getx()-5;
+    	}
+    	
     }
     
     public void rechargerTesla() {
-        
-    	
-    		
-    	
-    	
+    	nivBattrie=nivBattrie+20;
     }
     
 
     public void dechargerTesla() {
-    	
+    	nivBattrie=nivBattrie-1;
     }
     
 
