@@ -15,7 +15,7 @@ import calcul.Simulateur;
 
 public class JPanelDessin extends JPanel {
 	private static final long serialVersionUID = -4704888296894874299L;
-	private Simulateur simul = new Simulateur(this);
+	private Simulateur simul;
 	private int lambdaX;//coefficients lambda entre la taille du niveau dans le simulateur et la taille de la fenêtre
 	private int lambdaY;
 	private Image voitureImg= null;
@@ -25,13 +25,7 @@ public class JPanelDessin extends JPanel {
 	
 	
 	
-	public int getKey() {
-		return key;
-	}
 
-	public void setKey(int key) {
-		this.key = key;
-	}
 
 	public LinkedList<Image> getListeTrouImg() {
 		return listeTrouImg;
@@ -106,6 +100,9 @@ public class JPanelDessin extends JPanel {
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		if (simul!=null) {
+			
+		}
 		//g.drawImage(voitureImg, simul.getTesla().getPositionTesla().getX()*lambdaX,simul.getTesla().getPositionTesla().getY()*lambdaY,this.getWidth()/25,this.getHeight()/50, null);
 		//g.drawImage(planeteLivraisonImg, simul.getNiveau().getPointArrivee().getX()*lambdaX, simul.getNiveau().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
 		//g.drawImage(trouNoirImg1, simul.getTrouNoir().getPositionTrouNoir().getX()*lambdaX , simul.getTrouNoir().getPositionTrouNoir().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
@@ -114,21 +111,6 @@ public class JPanelDessin extends JPanel {
 	}
 	
 
-	public void keyPressed(KeyEvent event) {
-		int key=-1;
-		if (event.getKeyCode()==KeyEvent.VK_UP) {
-			key=KeyEvent.VK_UP;
-		}
-		else if (event.getKeyCode()==KeyEvent.VK_DOWN) {
-			key=KeyEvent.VK_DOWN;
-		}
-		else if (event.getKeyCode()==KeyEvent.VK_RIGHT) {
-			key=KeyEvent.VK_RIGHT;
-		}
-		else if (event.getKeyCode()==KeyEvent.VK_LEFT) {
-			key=KeyEvent.VK_LEFT;
-		}
-	}
-
+	
 	
 }

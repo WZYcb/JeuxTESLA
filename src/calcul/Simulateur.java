@@ -11,15 +11,15 @@ import interfaceGraphiqueTesla.JPanelDessin;
 public class Simulateur extends Thread{
 	
 
-	private JPanelDessin mjf;
+	private InterfaceJeu mjf;
 	private boolean stop;
-	private int key;
+	private int key = -1;
 	private Niveau niv;
 	
-	public Simulateur(JPanelDessin mjfParam) {
+	public Simulateur(InterfaceJeu interfaceJeu) {
 		stop=false;
 
-		mjf = mjfParam;
+		mjf = interfaceJeu;
 	}
 	
 	
@@ -53,8 +53,15 @@ public class Simulateur extends Thread{
 	}
 	
 	public void faireUneEtape() {
+		// deplacer voiture en fonction de la touche et des trous
+		//etape 1 : touches
+		if (key!=-1) {
+			niv.getTesla().action(key);		
+			key=-1;
+			}
+		// etape 2 : trous noirs
 		
-		niv.getTesla().action(mjf.getKey());
+		//deplacement des objets
 			
 	}
 
