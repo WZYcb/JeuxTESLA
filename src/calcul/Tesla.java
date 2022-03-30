@@ -1,5 +1,7 @@
 package calcul;
 
+import java.awt.event.KeyEvent;
+
 public class Tesla {
 	
 	private int idTesla;
@@ -9,10 +11,10 @@ public class Tesla {
     private String nom;
 	private String couleur;
     private Position positionTesla;
-    private Vitesse vitesseTesla;
+    private int vitesseTesla;
     
     public Tesla(int idTesla,int nivBattrie,float vMax, float couple,String nom,String couleur,
-    		Position positionTesla,Vitesse vitesseTesla) {
+    		Position positionTesla,int vitesseTesla) {
     	this.idTesla=idTesla;
     	this.nivBattrie=nivBattrie;
     	this.vMax=vMax;
@@ -45,7 +47,7 @@ public class Tesla {
     public Position getPositionTesla() {
     	return positionTesla;
     }
-    public Vitesse getVitesseTesla() {
+    public int getVitesseTesla() {
     	return vitesseTesla;
     }
     
@@ -71,7 +73,7 @@ public class Tesla {
     	this.positionTesla=positionTesla;
     }
     
-    public void setVitesseTesla(Vitesse vitesseTesla) {
+    public void setVitesseTesla(int vitesseTesla) {
     	this.vitesseTesla=vitesseTesla;
     }
     
@@ -122,6 +124,22 @@ public class Tesla {
     public void recupererBonus() {
     	
     }
+    
+    void action(int numeroTouche) { 
+        if ( numeroTouche== KeyEvent.VK_UP) { 
+        	positionTesla.setX(positionTesla.getX()+vitesseTesla);
+        } 
+        else if (numeroTouche == KeyEvent.VK_DOWN) { 
+        	positionTesla.setX(positionTesla.getX()-vitesseTesla);
+        } 
+        else if (numeroTouche == KeyEvent.VK_RIGHT) { 
+        	positionTesla.setY(positionTesla.getY()+vitesseTesla);
+        } 
+        else if (numeroTouche == KeyEvent.VK_LEFT) { 
+        	positionTesla.setY(positionTesla.getY()-vitesseTesla);
+        } 
+        
+    }  
     
 
 }
