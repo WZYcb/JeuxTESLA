@@ -114,7 +114,7 @@ public class JPanelDessin extends JPanel {
 		//g.drawImage(listeTrouImg.get(0),0, 0,this.getWidth()/20,this.getHeight()/20, null);
 	}
 	
-	public int keyPressed(KeyEvent event) {
+	public void keyPressed(KeyEvent event) {
 		key=-1;
 		if (event.getKeyCode()==KeyEvent.VK_UP) {
 			key=KeyEvent.VK_UP;
@@ -128,7 +128,6 @@ public class JPanelDessin extends JPanel {
 		else if (event.getKeyCode()==KeyEvent.VK_LEFT) {
 			key=KeyEvent.VK_LEFT;
 		}
-		return key;
 	}
 
 	
