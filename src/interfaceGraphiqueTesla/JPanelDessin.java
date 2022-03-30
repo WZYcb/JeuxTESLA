@@ -2,6 +2,7 @@ package interfaceGraphiqueTesla;
 
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -9,6 +10,7 @@ import java.util.LinkedList;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import calcul.Niveau;
 import calcul.Simulateur;
 
 public class JPanelDessin extends JPanel {
@@ -80,91 +82,12 @@ public class JPanelDessin extends JPanel {
 	
 	
 	public JPanelDessin() {
-		int nTrouNoir=simul.getNiveau().getNbTrouNoir();
-		int nTrouBlanc=simul.getNiveau().getNbTrouBlanc();
-		int nRecharge=simul.getNiveau().getNbRecharges();
-		String sNomFile=".\\images\\"+"voiture_vue_dessus.png";
-		lambdaX=this.getWidth()/simul.getNiveau().getTailleNiveau().getX();
-		lambdaY=this.getHeight()/simul.getNiveau().getTailleNiveau().getY();
+		String sNomFile=".\\images\\"+"trou_noir.png";
 		try {                
-	          voitureImg = ImageIO.read(new File(sNomFile));
+	         listeTrouImg.add(ImageIO.read(new File(sNomFile)));
 	       } catch (IOException ex) {
-	    	   voitureImg=null;
+	    	   listeTrouImg=null;
 	       }
-		sNomFile=".\\images\\"+"planete_livraison.png";
-		try {                
-	          planeteLivraisonImg = ImageIO.read(new File(sNomFile));
-	       } catch (IOException ex) {
-	    	   planeteLivraisonImg=null;
-	       }	
-		sNomFile=".\\images\\"+"trou_noir.png";
-		if(nTrouNoir>0) {
-			try {                
-		          trouNoirImg1 = ImageIO.read(new File(sNomFile));
-		       } catch (IOException ex) {
-		    	   trouNoirImg1=null;
-		       }
-			if(nTrouNoir>1) {
-				try {                
-			          trouNoirImg2 = ImageIO.read(new File(sNomFile));
-			       } catch (IOException ex) {
-			    	   trouNoirImg2=null;
-			       }
-				if(nTrouNoir>2) {
-					try {                
-				          trouNoirImg3 = ImageIO.read(new File(sNomFile));
-				       } catch (IOException ex) {
-				    	   trouNoirImg3=null;
-				       }
-				}
-			}
-		}
-		sNomFile=".\\images\\"+"trou_blanc.png";
-		if(nTrouBlanc>0) {
-			try {                
-		          trouBlancImg1 = ImageIO.read(new File(sNomFile));
-		       } catch (IOException ex) {
-		    	   trouBlancImg1=null;
-		       }
-			if(nTrouBlanc>1) {
-				try {                
-			          trouBlancImg2 = ImageIO.read(new File(sNomFile));
-			       } catch (IOException ex) {
-			    	   trouBlancImg2=null;
-			       }
-				if(nTrouBlanc>2) {
-					try {                
-				          trouBlancImg3 = ImageIO.read(new File(sNomFile));
-				       } catch (IOException ex) {
-				    	   trouBlancImg3=null;
-				       }
-				}
-			}
-		}
-		sNomFile=".\\images\\"+"supercharger_tesla.png";
-		if(nRecharge>0) {
-			try {                
-		          superchargerImg1 = ImageIO.read(new File(sNomFile));
-		       } catch (IOException ex) {
-		    	   superchargerImg1=null;
-		       }
-			if(nRecharge>1) {
-				try {                
-			          superchargerImg2 = ImageIO.read(new File(sNomFile));
-			       } catch (IOException ex) {
-			    	   superchargerImg2=null;
-			       }
-				if(nRecharge>2) {
-					try {                
-				          superchargerImg3 = ImageIO.read(new File(sNomFile));
-				       } catch (IOException ex) {
-				    	   superchargerImg3=null;
-				       }
-				}
-			}
-		}
-		this.repaint();
-		simul.start();
 	}
 	
 
@@ -178,8 +101,26 @@ public class JPanelDessin extends JPanel {
 		//g.drawImage(planeteLivraisonImg, simul.getNiveau().getPointArrivee().getX()*lambdaX, simul.getNiveau().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
 		//g.drawImage(trouNoirImg1, simul.getTrouNoir().getPositionTrouNoir().getX()*lambdaX , simul.getTrouNoir().getPositionTrouNoir().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
 		//g.drawImage(trouBlancImg1, simul.getTrouBlanc().getPositionTrouBlanc().getX()*lambdaX , simul.getTrouBlanc().getPositionTrouBlanc().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
-		//g.drawImage(listeTrou.get(0),0, 0,this.getWidth()/20,this.getHeight()/20, null);
+		//g.drawImage(listeTrouImg.get(0),0, 0,this.getWidth()/20,this.getHeight()/20, null);
 		// discuter avec Eliott de comment gérer plusieurs objets de même classe (plusieurs trous noirs par exemple)
 	}
+	
+	public int keyPressed(KeyEvent event) {
+		int key=-1;
+		if (event.getKeyCode()==KeyEvent.VK_UP) {
+			key=KeyEvent.VK_UP;
+		}
+		else if (event.getKeyCode()==KeyEvent.VK_DOWN) {
+			key=KeyEvent.VK_DOWN;
+		}
+		else if (event.getKeyCode()==KeyEvent.VK_RIGHT) {
+			key=KeyEvent.VK_RIGHT;
+		}
+		else if (event.getKeyCode()==KeyEvent.VK_LEFT) {
+			key=KeyEvent.VK_LEFT;
+		}
+		return key;
+	}
+
 	
 }
