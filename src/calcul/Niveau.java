@@ -12,6 +12,10 @@ public class Niveau {
 	private Position pointArrivee;
 	private Position tailleNiveau;
 	private int duree;
+	private Position positionAsteroides;
+	private Position positionObjetGravitationnel;
+	private Position positionRecharges;
+	private Position positionBonus;
 	
 	public Niveau(int idNiveau,String nom,int nbAsteroides,int nbTrouNoir,int nbTrouBlanc,int nbRecharges,
 			int nbBonus,Position pointDepart,Position pointArrivee,Position tailleNiveau,int duree) {
@@ -162,26 +166,124 @@ public class Niveau {
 	}
 
 
-
+    public void niveau1() {
+    	setIdNiveau(1);
+    	setNbAsteroides(3);
+    	setNbTrouNoir(3);
+    	setNbTrouBlanc(3);
+    	setNbRecharges(3);
+    	setNbBonus(0);
+    	setDuree(120);
+    	
+    	
+    }
+    public void niveau2() {
+    	setIdNiveau(2);
+    	setNbAsteroides(5);
+    	setNbTrouNoir(5);
+    	setNbTrouBlanc(5);
+    	setNbRecharges(5);
+    	setNbBonus(1);
+    	setDuree(100);
+    	
+    	
+    }
+    public void niveau3() {
+    	setIdNiveau(3);
+    	setNbAsteroides(5);
+    	setNbTrouNoir(5);
+    	setNbTrouBlanc(5);
+    	setNbRecharges(3);
+    	setNbBonus(2);
+    	setDuree(90);
+    	
+    	
+    }
+    public void niveau4() {
+    	setIdNiveau(4);
+    	setNbAsteroides(6);
+    	setNbTrouNoir(7);
+    	setNbTrouBlanc(7);
+    	setNbRecharges(7);
+    	setNbBonus(3);
+    	setDuree(80);
+    	
+    	
+    }
+    public void niveau5() {
+    	setIdNiveau(5);
+    	setNbAsteroides(7);
+    	setNbTrouNoir(9);
+    	setNbTrouBlanc(9);
+    	setNbRecharges(9);
+    	setNbBonus(4);
+    	setDuree(70);
+    	
+    	
+    }
+    public void niveau6() {
+    	setIdNiveau(6);
+    	setNbAsteroides(9);
+    	setNbTrouNoir(11);
+    	setNbTrouBlanc(11);
+    	setNbRecharges(11);
+    	setNbBonus(5);
+    	setDuree(60);
+    	
+    	
+    }
+    public void niveau7() {
+    	setIdNiveau(7);
+    	setNbAsteroides(11);
+    	setNbTrouNoir(11);
+    	setNbTrouBlanc(11);
+    	setNbRecharges(11);
+    	setNbBonus(5);
+    	setDuree(60);
+    	
+    	
+    }
+    public void niveau8() {
+    	setIdNiveau(8);
+    	setNbAsteroides(13);
+    	setNbTrouNoir(13);
+    	setNbTrouBlanc(13);
+    	setNbRecharges(13);
+    	setNbBonus(6);
+    	setDuree(50);
+    	
+    	
+    }
+    public void niveau9() {
+    	setIdNiveau(9);
+    	setNbAsteroides(13);
+    	setNbTrouNoir(15);
+    	setNbTrouBlanc(15);
+    	setNbRecharges(15);
+    	setNbBonus(7);
+    	setDuree(70);
+    	
+    	
+    }
 	public void placerAsteroides() {
-    	
-    	
+		positionAsteroides.positioninitiale();
     	
     }
     
     public void placerObjetGravitationnel() {
-    	
+    	positionObjetGravitationnel.positioninitiale();
     }
     
     public void placerRecharges() {
-    	
+    	positionRecharges.positioninitiale();
     }
     
     public void placerBonus() {
-    	
+    	positionBonus.positioninitiale();
     }
     
-    public void placerTesla() {
+    public void placerTesla() {/////probleme
+    	pointDepart.positionTesla(0, 0);
     	
     }
     

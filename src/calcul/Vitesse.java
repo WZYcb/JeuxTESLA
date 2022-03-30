@@ -4,15 +4,18 @@ import java.util.Random;
 public class Vitesse {
 	private int x;
 	private int y;
-	private int xVitesse;
-	private int yVitesse;
+	private int Vitesse;
+	private Direction direction = Direction.STOP;
+    enum Direction {
+			U, D, L, R, LU, LD, RU, RD, STOP
+		};
 	
     public void vitesse(int x,int y) {
     	this.x=x;
     	this.y=y;
 	}
     public int getX()
-	{
+	{ 
 		return x;
 	}
 	
@@ -20,16 +23,18 @@ public class Vitesse {
 	{
 		return y;
 	}
-    
-	
-    public int getYVitesse()
-	{
-		return yVitesse;
+    public Direction getDirection() {
+		return direction;
 	}
-    public int getXVitesse()
-   	{
-   		return xVitesse;
-   	}
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
+	
+    public int getVitesse()
+	{
+		return Vitesse;
+	}
+  
     
     public int directionAngle() {
     	Random random= new Random();
@@ -65,25 +70,56 @@ public class Vitesse {
     }
     
     
-   public void leftMove() {
-	   xVitesse=-5;
-   }
-   public void rightMove() {
-	   xVitesse=5;
-   }
+  
    
-   public void upMove() {
-	   yVitesse=5;
-   }
-   public void downMove() {
-	   yVitesse=-5;
-   }
    
-    
+	
+   public void deplacer() {
+	   Vitesse=3;
+	  
+	   switch (direction) {
+	   
+		case U:
+			y -= Vitesse;
+			break;
+		case D:
+			y += Vitesse;
+			break;
+		case L:
+			x -= Vitesse;
+			break;
+		case R:
+			x += Vitesse;
+			break;
+		case LU:
+			x -= Vitesse;
+			y -= Vitesse;
+			break;
+		case LD:
+			x -= Vitesse;
+			y += Vitesse;
+			break;
+		case RU:
+			x += Vitesse;
+			y -= Vitesse;
+			break;
+		case RD:
+			x += Vitesse;
+			y += Vitesse;
+			break;
+		case STOP:
+			break;
+		}
+	   
+	   
+   }
+	
+	
 	public void amplitude() {
 		
 		
 		
 	}
+	
 	
 }

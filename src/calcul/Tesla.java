@@ -76,15 +76,14 @@ public class Tesla {
     }
     
     public void deplacerTesla() {
+    	  vitesseTesla.deplacer();
+    
+    }		
         	
-    }
+    
     
     public void rechargerTesla() {
-        
-    	
-    		
-    	
-    	
+        	
     }
     
 
@@ -94,6 +93,7 @@ public class Tesla {
     
 
     public boolean contactAsteroide() {
+    	
 		return false;
     	
     	
