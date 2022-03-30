@@ -4,6 +4,7 @@ package interfaceGraphiqueTesla;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -16,17 +17,27 @@ public class JPanelDessin extends JPanel {
 	private int lambdaX;//coefficients lambda entre la taille du niveau dans le simulateur et la taille de la fenêtre
 	private int lambdaY;
 	private Image voitureImg= null;
-	private Image trouNoirImg1= null;
-	private Image trouNoirImg2= null;
-	private Image trouNoirImg3= null;
-	private Image trouBlancImg1=null;
-	private Image trouBlancImg2=null;
-	private Image trouBlancImg3=null;
 	private Image planeteLivraisonImg=null;
-	private Image superchargerImg1=null;
-	private Image superchargerImg2=null;
-	private Image superchargerImg3=null;
+	private LinkedList<Image> listeTrouImg= new LinkedList<Image>();
+	private LinkedList<Image> listeSuperchargerImg= new LinkedList<Image>();
 	
+	
+	public LinkedList<Image> getListeTrouImg() {
+		return listeTrouImg;
+	}
+
+	public void setListeTrouImg(LinkedList<Image> listeTrouImg) {
+		this.listeTrouImg = listeTrouImg;
+	}
+
+	public LinkedList<Image> getListeSuperchargerImg() {
+		return listeSuperchargerImg;
+	}
+
+	public void setListeSuperchargerImg(LinkedList<Image> listeSuperchargerImg) {
+		this.listeSuperchargerImg = listeSuperchargerImg;
+	}
+
 	public Simulateur getSimul() {
 		return simul;
 	}
@@ -57,78 +68,6 @@ public class JPanelDessin extends JPanel {
 
 	public void setVoitureImg(Image voitureImg) {
 		this.voitureImg = voitureImg;
-	}
-
-	public Image getTrouNoirImg1() {
-		return trouNoirImg1;
-	}
-
-	public void setTrouNoirImg1(Image trouNoirImg1) {
-		this.trouNoirImg1 = trouNoirImg1;
-	}
-
-	public Image getTrouBlancImg1() {
-		return trouBlancImg1;
-	}
-
-	public void setTrouBlancImg1(Image trouBlancImg1) {
-		this.trouBlancImg1 = trouBlancImg1;
-	}
-
-	public Image getTrouNoirImg2() {
-		return trouNoirImg2;
-	}
-
-	public void setTrouNoirImg2(Image trouNoirImg2) {
-		this.trouNoirImg2 = trouNoirImg2;
-	}
-
-	public Image getTrouNoirImg3() {
-		return trouNoirImg3;
-	}
-
-	public void setTrouNoirImg3(Image trouNoirImg3) {
-		this.trouNoirImg3 = trouNoirImg3;
-	}
-
-	public Image getTrouBlancImg2() {
-		return trouBlancImg2;
-	}
-
-	public void setTrouBlancImg2(Image trouBlancImg2) {
-		this.trouBlancImg2 = trouBlancImg2;
-	}
-
-	public Image getTrouBlancImg3() {
-		return trouBlancImg3;
-	}
-
-	public void setTrouBlancImg3(Image trouBlancImg3) {
-		this.trouBlancImg3 = trouBlancImg3;
-	}
-
-	public Image getSuperchargerImg1() {
-		return superchargerImg1;
-	}
-
-	public void setSuperchargerImg1(Image superchargerImg1) {
-		this.superchargerImg1 = superchargerImg1;
-	}
-
-	public Image getSuperchargerImg2() {
-		return superchargerImg2;
-	}
-
-	public void setSuperchargerImg2(Image superchargerImg2) {
-		this.superchargerImg2 = superchargerImg2;
-	}
-
-	public Image getSuperchargerImg3() {
-		return superchargerImg3;
-	}
-
-	public void setSuperchargerImg3(Image superchargerImg3) {
-		this.superchargerImg3 = superchargerImg3;
 	}
 
 	public Image getPlaneteLivraisonImg() {
@@ -235,10 +174,11 @@ public class JPanelDessin extends JPanel {
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(voitureImg, simul.getTesla().getPositionTesla().getX()*lambdaX,simul.getTesla().getPositionTesla().getY()*lambdaY,this.getWidth()/25,this.getHeight()/50, null);
-		g.drawImage(planeteLivraisonImg, simul.getNiveau().getPointArrivee().getX()*lambdaX, simul.getNiveau().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
-		g.drawImage(trouNoirImg1, simul.getTrouNoir().getPositionTrouNoir().getX()*lambdaX , simul.getTrouNoir().getPositionTrouNoir().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
-		g.drawImage(trouBlancImg1, simul.getTrouBlanc().getPositionTrouBlanc().getX()*lambdaX , simul.getTrouBlanc().getPositionTrouBlanc().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+		//g.drawImage(voitureImg, simul.getTesla().getPositionTesla().getX()*lambdaX,simul.getTesla().getPositionTesla().getY()*lambdaY,this.getWidth()/25,this.getHeight()/50, null);
+		//g.drawImage(planeteLivraisonImg, simul.getNiveau().getPointArrivee().getX()*lambdaX, simul.getNiveau().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+		//g.drawImage(trouNoirImg1, simul.getTrouNoir().getPositionTrouNoir().getX()*lambdaX , simul.getTrouNoir().getPositionTrouNoir().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+		//g.drawImage(trouBlancImg1, simul.getTrouBlanc().getPositionTrouBlanc().getX()*lambdaX , simul.getTrouBlanc().getPositionTrouBlanc().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+		//g.drawImage(listeTrou.get(0),0, 0,this.getWidth()/20,this.getHeight()/20, null);
 		// discuter avec Eliott de comment gérer plusieurs objets de même classe (plusieurs trous noirs par exemple)
 	}
 	
