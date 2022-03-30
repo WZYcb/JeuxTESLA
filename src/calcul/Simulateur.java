@@ -14,6 +14,7 @@ public class Simulateur extends Thread{
 	private JPanelDessin mjf;
 	private boolean stop;
 	private int key;
+	private Niveau niv;
 	
 	public Simulateur(JPanelDessin mjfParam) {
 		stop=false;
@@ -51,22 +52,10 @@ public class Simulateur extends Thread{
 
 	}
 	
-	public void faireUneEtape(KeyEvent event) {
-		int key=-1;
-		if (event.getKeyCode()==KeyEvent.VK_UP) {
-			key=KeyEvent.VK_UP;
-		}
-		else if (event.getKeyCode()==KeyEvent.VK_DOWN) {
-			key=KeyEvent.VK_DOWN;
-		}
-		else if (event.getKeyCode()==KeyEvent.VK_RIGHT) {
-			key=KeyEvent.VK_RIGHT;
-		}
-		else if (event.getKeyCode()==KeyEvent.VK_LEFT) {
-			key=KeyEvent.VK_LEFT;
-		}
-		Niveau.getTesla.action(key);
-	
+	public void faireUneEtape() {
+		
+		niv.getTesla().action(mjf.getKey());
+			
 	}
 
 	public void arret() {
