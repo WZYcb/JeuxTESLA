@@ -32,6 +32,18 @@ public class Simulateur extends Thread{
 		this.key = key;
 	}
 
+	public Niveau getNiv() {
+		return niv;
+	}
+
+
+
+	public void setNiv(Niveau niv) {
+		this.niv = niv;
+	}
+
+
+
 	public void run() {
 		int iCpt=0;
 		while(!stop) {
