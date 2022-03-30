@@ -25,8 +25,8 @@ public class Position {
 	{
 		return y;
 	}
-    public void setY(int YParam) {
-		y=YParam;
+    public void setY(int yParam) {
+		y=yParam;
 	}
     public void positioninitiale(){
 		
