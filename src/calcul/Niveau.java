@@ -282,8 +282,8 @@ public class Niveau {
     	positionBonus.positioninitiale();
     }
     
-    public void placerTesla() {/////probleme
-    	pointDepart.positionTesla(0, 0);
+    public void placerTesla() {
+    	pointDepart.position(0, 0);
     	
     }
     

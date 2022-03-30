@@ -13,11 +13,7 @@ public class Position {
 		
 	}
 	
-	public void positionTesla(int x,int y){
-		x=0;
-		y=0;
-		
-	}
+	
 	
 	public int getX()
 	{
