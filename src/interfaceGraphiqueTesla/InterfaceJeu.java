@@ -2,6 +2,8 @@ package interfaceGraphiqueTesla;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -21,7 +24,8 @@ public class InterfaceJeu extends JFrame {
 
 	private JPanel contentPane;
 	private boolean niveauReussi = false;
-	
+	private Simulateur simul;
+
 
 	/**
 	 * Launch the application.
@@ -99,7 +103,12 @@ public class InterfaceJeu extends JFrame {
 		mapJeu.setOpaque(false);
 		affichageJeu.add(mapJeu, BorderLayout.CENTER);
 		//mapJeu.getSimul().start();
+		simul = new Simulateur(this);
+		mapJeu.setSimul(simul);
+
 		
+		KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+		manager.addKeyEventDispatcher(new MyDispatcher());
 		
 	}
 	public void clicRetourMenu() {
@@ -116,4 +125,21 @@ public class InterfaceJeu extends JFrame {
 	public void setNiveauReussi(boolean niveauReussi) {
 		this.niveauReussi = niveauReussi;
 	}
+	public void clicClavier(KeyEvent arg0) {
+		// Valeur de la touche
+		simul.setKey(arg0.getKeyCode());
+		}
+	private class MyDispatcher implements KeyEventDispatcher {
+		@Override
+		public boolean dispatchKeyEvent(KeyEvent e) {
+		if (e.getID() == KeyEvent.KEY_PRESSED) {
+		clicClavier(e);
+		} else if (e.getID() == KeyEvent.KEY_RELEASED) {
+		//System.out.println("RELEASED");
+		} else if (e.getID() == KeyEvent.KEY_TYPED) {
+		//System.out.println("TYPED");
+		}
+		return false;
+		}
+		}
 }

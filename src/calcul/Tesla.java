@@ -11,7 +11,7 @@ public class Tesla {
     private String nom;
 	private String couleur;
     private Position positionTesla;
-    private int vitesseTesla;
+    private int vitesseTesla = 5;
     
     public Tesla(int idTesla,int nivBattrie,float vMax, float couple,String nom,String couleur,
     		Position positionTesla,int vitesseTesla) {
