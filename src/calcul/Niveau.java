@@ -26,14 +26,11 @@ public class Niveau {
 	
 	
 	public Niveau(int idNiveau) {
-		Tesla tesla=new Tesla(1);
+		pointDepart= new Position(500,500);
+		tesla=new Tesla(1);
 		tesla.setPositionTesla(pointDepart);
 		if (idNiveau==1) {
-		   trou.add(new Trou(2,10,5));
-		   trou.add(new Trou(3,10,5));
-		   recharge.add(new Recharge(2,10));
-		   recharge.add(new Recharge(3,10));
-		   setDuree(120);	
+		this.idNiveau = idNiveau;
 		}
 		if (idNiveau==2) {
 			trou.add(new Trou(2,10,5));

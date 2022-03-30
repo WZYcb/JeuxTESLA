@@ -11,7 +11,7 @@ public class Tesla {
     private String nom;
 	private String couleur;
     private Position positionTesla;
-    private int vitesseTesla = 5;
+    private int vitesseTesla = 20;
     
     public Tesla(int idTesla,int nivBattrie,float vMax, float couple,String nom,String couleur,
     		Position positionTesla,int vitesseTesla) {
@@ -132,16 +132,16 @@ public class Tesla {
     
     void action(int numeroTouche) { 
         if ( numeroTouche== KeyEvent.VK_UP) { 
-        	positionTesla.setX(positionTesla.getX()+vitesseTesla);
-        } 
-        else if (numeroTouche == KeyEvent.VK_DOWN) { 
-        	positionTesla.setX(positionTesla.getX()-vitesseTesla);
-        } 
-        else if (numeroTouche == KeyEvent.VK_RIGHT) { 
         	positionTesla.setY(positionTesla.getY()+vitesseTesla);
         } 
-        else if (numeroTouche == KeyEvent.VK_LEFT) { 
+        else if (numeroTouche == KeyEvent.VK_DOWN) { 
         	positionTesla.setY(positionTesla.getY()-vitesseTesla);
+        } 
+        else if (numeroTouche == KeyEvent.VK_RIGHT) { 
+        	positionTesla.setX(positionTesla.getX()+vitesseTesla);
+        } 
+        else if (numeroTouche == KeyEvent.VK_LEFT) { 
+        	positionTesla.setX(positionTesla.getX()-vitesseTesla);
         } 
         
     }  

@@ -56,7 +56,7 @@ public class Simulateur extends Thread{
 
 			try {
 				// Mise en pause pendant 250ms
-				Thread.sleep(250);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

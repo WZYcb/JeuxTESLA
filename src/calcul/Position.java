@@ -7,14 +7,9 @@ public class Position {
 	private int x;
 	private int y;
 		
-	public void position(int x,int y){
+	public Position(int x,int y){
 		this.x=x;
 		this.y=y;		
-	}
-	
-	public void positionTesla(int x,int y){
-		x=0;
-		y=0;	
 	}
 	
 	public int getX()

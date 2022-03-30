@@ -102,9 +102,9 @@ public class InterfaceJeu extends JFrame {
 		JPanelDessin mapJeu = new JPanelDessin();
 		mapJeu.setOpaque(false);
 		affichageJeu.add(mapJeu, BorderLayout.CENTER);
-		//mapJeu.getSimul().start();
 		simul = new Simulateur(this);
 		mapJeu.setSimul(simul);
+		simul.start();
 
 		
 		KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
