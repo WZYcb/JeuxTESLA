@@ -21,11 +21,23 @@ import java.awt.Insets;
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
+import java.awt.Cursor;
+import java.awt.ComponentOrientation;
+import net.miginfocom.swing.MigLayout;
+import javax.swing.SpringLayout;
+import java.awt.GridLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class InterfaceGameOver extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtGameOver;
+	private JPanel panel;
 
 	/**
 	 * Launch the application.
@@ -54,7 +66,7 @@ public class InterfaceGameOver extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel.setForeground(Color.GRAY);
 		panel.setBackground(Color.BLACK);
@@ -66,19 +78,23 @@ public class InterfaceGameOver extends JFrame {
 				clicRetourMenu();
 			}
 		});
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 17));
-		btnNewButton.setForeground(Color.DARK_GRAY);
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
+		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.setBackground(Color.RED);
-		panel.add(btnNewButton);
 		
 		txtGameOver = new JTextField();
-		txtGameOver.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 46));
+		txtGameOver.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		txtGameOver.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+		txtGameOver.setSelectedTextColor(Color.GRAY);
+		txtGameOver.setSelectionColor(Color.RED);
+		txtGameOver.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 44));
 		txtGameOver.setBackground(Color.BLACK);
-		txtGameOver.setForeground(Color.WHITE);
+		txtGameOver.setForeground(Color.GRAY);
 		txtGameOver.setText("GAME OVER");
-		panel.add(txtGameOver);
 		txtGameOver.setColumns(10);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel.add(btnNewButton);
+		panel.add(txtGameOver);
 	}
 
 	public void clicRetourMenu() {
