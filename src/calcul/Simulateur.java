@@ -18,7 +18,7 @@ public class Simulateur extends Thread{
 	
 	public Simulateur(InterfaceJeu interfaceJeu) {
 		stop=false;
-
+		niv= new Niveau(1);
 		mjf = interfaceJeu;
 	}
 	

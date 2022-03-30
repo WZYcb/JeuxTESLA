@@ -85,11 +85,11 @@ public class JPanelDessin extends JPanel {
 	
 	
 	public JPanelDessin() {
-		String sNomFile=".\\images\\"+"trou_noir.png";
+		String sNomFile=".\\images\\"+"voiture_vue_dessus.png";
 		try {                
-	         listeTrouImg.add(ImageIO.read(new File(sNomFile)));
+	         voitureImg=ImageIO.read(new File(sNomFile));
 	       } catch (IOException ex) {
-	    	   listeTrouImg=null;
+	    	   voitureImg=null;
 	       }
 	}
 	
@@ -101,9 +101,10 @@ public class JPanelDessin extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		if (simul!=null) {
-			
+			lambdaX=this.getWidth()/1000;
+			lambdaY=this.getHeight()/1000;
+			g.drawImage(voitureImg, simul.getNiv().getTesla().getPositionTesla().getX()*lambdaX,simul.getNiv().getTesla().getPositionTesla().getY()*lambdaY,this.getWidth()/25,this.getHeight()/50, null);
 		}
-		//g.drawImage(voitureImg, simul.getTesla().getPositionTesla().getX()*lambdaX,simul.getTesla().getPositionTesla().getY()*lambdaY,this.getWidth()/25,this.getHeight()/50, null);
 		//g.drawImage(planeteLivraisonImg, simul.getNiveau().getPointArrivee().getX()*lambdaX, simul.getNiveau().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
 		//g.drawImage(trouNoirImg1, simul.getTrouNoir().getPositionTrouNoir().getX()*lambdaX , simul.getTrouNoir().getPositionTrouNoir().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
 		//g.drawImage(trouBlancImg1, simul.getTrouBlanc().getPositionTrouBlanc().getX()*lambdaX , simul.getTrouBlanc().getPositionTrouBlanc().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
