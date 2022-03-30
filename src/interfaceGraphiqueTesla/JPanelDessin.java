@@ -16,6 +16,7 @@ import calcul.Simulateur;
 public class JPanelDessin extends JPanel {
 	private static final long serialVersionUID = -4704888296894874299L;
 	private Simulateur simul = new Simulateur(this);
+	private int key=-1;
 	private int lambdaX;//coefficients lambda entre la taille du niveau dans le simulateur et la taille de la fenêtre
 	private int lambdaY;
 	private Image voitureImg= null;
@@ -24,6 +25,15 @@ public class JPanelDessin extends JPanel {
 	private LinkedList<Image> listeSuperchargerImg= new LinkedList<Image>();
 	
 	
+	
+	public int getKey() {
+		return key;
+	}
+
+	public void setKey(int key) {
+		this.key = key;
+	}
+
 	public LinkedList<Image> getListeTrouImg() {
 		return listeTrouImg;
 	}
@@ -102,11 +112,10 @@ public class JPanelDessin extends JPanel {
 		//g.drawImage(trouNoirImg1, simul.getTrouNoir().getPositionTrouNoir().getX()*lambdaX , simul.getTrouNoir().getPositionTrouNoir().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
 		//g.drawImage(trouBlancImg1, simul.getTrouBlanc().getPositionTrouBlanc().getX()*lambdaX , simul.getTrouBlanc().getPositionTrouBlanc().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
 		//g.drawImage(listeTrouImg.get(0),0, 0,this.getWidth()/20,this.getHeight()/20, null);
-		// discuter avec Eliott de comment gérer plusieurs objets de même classe (plusieurs trous noirs par exemple)
 	}
 	
 	public int keyPressed(KeyEvent event) {
-		int key=-1;
+		key=-1;
 		if (event.getKeyCode()==KeyEvent.VK_UP) {
 			key=KeyEvent.VK_UP;
 		}
