@@ -1,4 +1,4 @@
-
+package calcul;
 public class Recharge {
 	private int idRecharge;
 	private int diametre;
@@ -11,22 +11,22 @@ public class Recharge {
 		
 	}
 	
-    public int idRecharge() {
+    public int getIdRecharge() {
     	return idRecharge;
     }
-    public int diametre() {
+    public int getDiametre() {
     	return diametre;
     }
-    public Position positionRecharge() {
+    public Position getPositionRecharge() {
     	return positionRecharge;
     }
-    public void setidRecharge(int idRecharge) {
+    public void setIdRecharge(int idRecharge) {
     	this.idRecharge=idRecharge;
     }
-    public void setdiametre(int diametre) {
+    public void setDiametre(int diametre) {
     	this.diametre=diametre;
     }
-    public void setpositionRecharge(Position positionRecharge) {
+    public void setPositionRecharge(Position positionRecharge) {
     	this.positionRecharge=positionRecharge;
     }
     

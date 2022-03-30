@@ -1,3 +1,4 @@
+package calcul;
 import interfaceGraphiqueTesla.InterfaceNiveaux;
 public class Jeu {
 	

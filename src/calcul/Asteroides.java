@@ -1,3 +1,4 @@
+package calcul;
 
 public class Asteroides {
 	private int idAsteroides;
@@ -12,28 +13,28 @@ public class Asteroides {
 		this.vitesseAsteroide=vitesseAsteroide;
 		
 	}
-	public int getidAsteroides() {
+	public int getIdAsteroides() {
 		return idAsteroides;
 	}
-	public int getdiametre() {
+	public int getDiametre() {
 		return diametre;
 	}
-	public Position getpositionAsteroide() {
+	public Position getPositionAsteroide() {
 		return positionAsteroide;
 	}
-	public Vitesse getvitesseAsteroide() {
+	public Vitesse getVitesseAsteroide() {
 		return vitesseAsteroide;
 	}
-	public void setidAsteroides(int idAsteroides) {
+	public void setIdAsteroides(int idAsteroides) {
 		this.idAsteroides=idAsteroides;
 	}
-	public void setdiametre(int diametre) {
+	public void setDiametre(int diametre) {
 		this.diametre=diametre;
 	}
-	public void setpositionAsteroide(Position positionAsteroide) {
+	public void setPositionAsteroide(Position positionAsteroide) {
 		this.positionAsteroide=positionAsteroide;
 	}
-	public void setvitesseAsteroide(Vitesse vitesseAsteroide) {
+	public void setVitesseAsteroide(Vitesse vitesseAsteroide) {
 		this.vitesseAsteroide=vitesseAsteroide;
 	}
 	 public int mouvement() {

@@ -38,8 +38,8 @@ public class Simulateur extends Thread{
 			mjf.repaint();
 
 			try {
-				// Mise en pause pendant 1000ms
-				Thread.sleep(1000);
+				// Mise en pause pendant 250ms
+				Thread.sleep(250);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -48,6 +48,8 @@ public class Simulateur extends Thread{
 	}
 	
 	public void faireUneEtape() {
+		iPosX = Tesla.getx();
+		iPosY = Tesla.gety();
 	
 	}
 

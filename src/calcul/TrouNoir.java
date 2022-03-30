@@ -1,62 +1,62 @@
-
+package calcul;
 public class TrouNoir {
 		//variable
 		private int idTrouNoir;
 		private String nom;
 		private int diametre;
-		private int diaminfluence;
+		private int diamInfluence;
 		private Position positionTrouNoir;
 		private float coeffGravite;
 		
 		//constructeur
-		public TrouNoir(int idTrouNoir,String nom,int diametre,int diaminfluence,
+		public TrouNoir(int idTrouNoir,String nom,int diametre,int diamInfluence,
 				Position positionTrouNoir,float coeffGravite) {
 			   this.idTrouNoir=idTrouNoir;
 			   this.coeffGravite=coeffGravite;
 			   this.diametre=diametre;
-			   this.diaminfluence=diaminfluence;
+			   this.diamInfluence=diamInfluence;
 			   this.nom=nom;
 			   this.positionTrouNoir=positionTrouNoir;
 			   
 		}
-		public int getidTrouNoir() {
+		public int getIdTrouNoir() {
 			return idTrouNoir;
 		}
 		
-	    public String getnom() {
+	    public String getNom() {
 	    	return nom;
 	    }
 	    
-	    public int getdiametre() {
+	    public int getDiametre() {
 	    	return diametre;
 	    	
 	    }
-	    public int getdiaminfluence() {
-	    	return diaminfluence;
+	    public int getDiamInfluence() {
+	    	return diamInfluence;
 	    }
-	    public Position getpositionTrouNoir() {
+	    public Position getPositionTrouNoir() {
 	    	return positionTrouNoir;
 	    }
-	    public float getcoeffGravite() {
+	    public float getCoeffGravite() {
 	    	return coeffGravite;
 	    }
-	    public void setidTrouNoir(int idTrouNoir) {
+	    public void setIdTrouNoir(int idTrouNoir) {
 	    	this.idTrouNoir=idTrouNoir;
 	    	
 	    }
-	    public void setnom(String nom) {
+	    public void setNom(String nom) {
 	    	this.nom=nom;
 	    }
-	    public void setdiametre(int diametre) {
+	    public void setDiametre(int diametre) {
 	    	this.diametre=diametre;
 	    }
-	    public void setdiaminfluence(int diaminfluence) {
-	    	this.diaminfluence=diaminfluence;
+	    public void setDiamInfluence(int diamInfluence) {
+	    	this.diamInfluence=diamInfluence;
 	    }
-	    public void setpositionTrouNoir(Position positionTrouNoir) {
+	    public void setPositionTrouNoir(Position positionTrouNoir) {
 	        this.positionTrouNoir=positionTrouNoir;
 	}
-	    public void setcoeffGravite(float coeffGravite) {
+	    public void setCoeffGravite(float coeffGravite) {
 	    	this.coeffGravite=coeffGravite;
 	    }
 	 

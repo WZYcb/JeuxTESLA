@@ -1,35 +1,245 @@
 package interfaceGraphiqueTesla;
 
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.JPanel;
+
+import calcul.Simulateur;
 
 public class JPanelDessin extends JPanel {
 	private static final long serialVersionUID = -4704888296894874299L;
-	private Image voiture= null;
-//	private Image trouNoir=ImageIO.read(new File(".\\images\\trou_noir.png"));
-//	private Image trouBlanc=ImageIO.read(new File(".\\images\\trou_blanc.png"));
-//	private Image planeteLivraison=ImageIO.read(new File(".\\images\\planete_livraison.png"));
-//	private Image supercharger=ImageIO.read(new File(".\\images\\supercharger_tesla.png"));
+	private Simulateur simul = new Simulateur(this);
+	private int lambdaX;//coefficients lambda entre la taille du niveau dans le simulateur et la taille de la fenêtre
+	private int lambdaY;
+	private Image voitureImg= null;
+	private Image trouNoirImg1= null;
+	private Image trouNoirImg2= null;
+	private Image trouNoirImg3= null;
+	private Image trouBlancImg1=null;
+	private Image trouBlancImg2=null;
+	private Image trouBlancImg3=null;
+	private Image planeteLivraisonImg=null;
+	private Image superchargerImg1=null;
+	private Image superchargerImg2=null;
+	private Image superchargerImg3=null;
 	
-	public JPanelDessin() {
-		String sNomFile=".\\images\\"+"voiture_vue_dessus.png";
-		try {                
-	          voiture = ImageIO.read(new File(sNomFile));
-	       } catch (IOException ex) {
-	    	   voiture=null;
-	       }
+	public Simulateur getSimul() {
+		return simul;
+	}
+
+	public void setSimul(Simulateur simul) {
+		this.simul = simul;
+	}
+
+	public int getLambdaX() {
+		return lambdaX;
+	}
+
+	public void setLambdaX(int lambdaX) {
+		this.lambdaX = lambdaX;
+	}
+
+	public int getLambdaY() {
+		return lambdaY;
+	}
+
+	public void setLambdaY(int lambdaY) {
+		this.lambdaY = lambdaY;
+	}
+
+	public Image getVoitureImg() {
+		return voitureImg;
+	}
+
+	public void setVoitureImg(Image voitureImg) {
+		this.voitureImg = voitureImg;
+	}
+
+	public Image getTrouNoirImg1() {
+		return trouNoirImg1;
+	}
+
+	public void setTrouNoirImg1(Image trouNoirImg1) {
+		this.trouNoirImg1 = trouNoirImg1;
+	}
+
+	public Image getTrouBlancImg1() {
+		return trouBlancImg1;
+	}
+
+	public void setTrouBlancImg1(Image trouBlancImg1) {
+		this.trouBlancImg1 = trouBlancImg1;
+	}
+
+	public Image getTrouNoirImg2() {
+		return trouNoirImg2;
+	}
+
+	public void setTrouNoirImg2(Image trouNoirImg2) {
+		this.trouNoirImg2 = trouNoirImg2;
+	}
+
+	public Image getTrouNoirImg3() {
+		return trouNoirImg3;
+	}
+
+	public void setTrouNoirImg3(Image trouNoirImg3) {
+		this.trouNoirImg3 = trouNoirImg3;
+	}
+
+	public Image getTrouBlancImg2() {
+		return trouBlancImg2;
+	}
+
+	public void setTrouBlancImg2(Image trouBlancImg2) {
+		this.trouBlancImg2 = trouBlancImg2;
+	}
+
+	public Image getTrouBlancImg3() {
+		return trouBlancImg3;
+	}
+
+	public void setTrouBlancImg3(Image trouBlancImg3) {
+		this.trouBlancImg3 = trouBlancImg3;
+	}
+
+	public Image getSuperchargerImg1() {
+		return superchargerImg1;
+	}
+
+	public void setSuperchargerImg1(Image superchargerImg1) {
+		this.superchargerImg1 = superchargerImg1;
+	}
+
+	public Image getSuperchargerImg2() {
+		return superchargerImg2;
+	}
+
+	public void setSuperchargerImg2(Image superchargerImg2) {
+		this.superchargerImg2 = superchargerImg2;
+	}
+
+	public Image getSuperchargerImg3() {
+		return superchargerImg3;
+	}
+
+	public void setSuperchargerImg3(Image superchargerImg3) {
+		this.superchargerImg3 = superchargerImg3;
+	}
+
+	public Image getPlaneteLivraisonImg() {
+		return planeteLivraisonImg;
+	}
+
+	public void setPlaneteLivraisonImg(Image planeteLivraisonImg) {
+		this.planeteLivraisonImg = planeteLivraisonImg;
 	}
 	
+	
+	public JPanelDessin() {
+		int nTrouNoir=simul.getNiveau().getNbTrouNoir();
+		int nTrouBlanc=simul.getNiveau().getNbTrouBlanc();
+		int nRecharge=simul.getNiveau().getNbRecharges();
+		String sNomFile=".\\images\\"+"voiture_vue_dessus.png";
+		lambdaX=this.getWidth()/simul.getNiveau().getTailleNiveau().getX();
+		lambdaY=this.getHeight()/simul.getNiveau().getTailleNiveau().getY();
+		try {                
+	          voitureImg = ImageIO.read(new File(sNomFile));
+	       } catch (IOException ex) {
+	    	   voitureImg=null;
+	       }
+		sNomFile=".\\images\\"+"planete_livraison.png";
+		try {                
+	          planeteLivraisonImg = ImageIO.read(new File(sNomFile));
+	       } catch (IOException ex) {
+	    	   planeteLivraisonImg=null;
+	       }	
+		sNomFile=".\\images\\"+"trou_noir.png";
+		if(nTrouNoir>0) {
+			try {                
+		          trouNoirImg1 = ImageIO.read(new File(sNomFile));
+		       } catch (IOException ex) {
+		    	   trouNoirImg1=null;
+		       }
+			if(nTrouNoir>1) {
+				try {                
+			          trouNoirImg2 = ImageIO.read(new File(sNomFile));
+			       } catch (IOException ex) {
+			    	   trouNoirImg2=null;
+			       }
+				if(nTrouNoir>2) {
+					try {                
+				          trouNoirImg3 = ImageIO.read(new File(sNomFile));
+				       } catch (IOException ex) {
+				    	   trouNoirImg3=null;
+				       }
+				}
+			}
+		}
+		sNomFile=".\\images\\"+"trou_blanc.png";
+		if(nTrouBlanc>0) {
+			try {                
+		          trouBlancImg1 = ImageIO.read(new File(sNomFile));
+		       } catch (IOException ex) {
+		    	   trouBlancImg1=null;
+		       }
+			if(nTrouBlanc>1) {
+				try {                
+			          trouBlancImg2 = ImageIO.read(new File(sNomFile));
+			       } catch (IOException ex) {
+			    	   trouBlancImg2=null;
+			       }
+				if(nTrouBlanc>2) {
+					try {                
+				          trouBlancImg3 = ImageIO.read(new File(sNomFile));
+				       } catch (IOException ex) {
+				    	   trouBlancImg3=null;
+				       }
+				}
+			}
+		}
+		sNomFile=".\\images\\"+"supercharger_tesla.png";
+		if(nRecharge>0) {
+			try {                
+		          superchargerImg1 = ImageIO.read(new File(sNomFile));
+		       } catch (IOException ex) {
+		    	   superchargerImg1=null;
+		       }
+			if(nRecharge>1) {
+				try {                
+			          superchargerImg2 = ImageIO.read(new File(sNomFile));
+			       } catch (IOException ex) {
+			    	   superchargerImg2=null;
+			       }
+				if(nRecharge>2) {
+					try {                
+				          superchargerImg3 = ImageIO.read(new File(sNomFile));
+				       } catch (IOException ex) {
+				    	   superchargerImg3=null;
+				       }
+				}
+			}
+		}
+		this.repaint();
+		simul.start();
+	}
+	
+
 	/**
 	 * redéfinition de la methode paintComponent
 	 * @param g
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(voiture, 0, 0, null);
+		g.drawImage(voitureImg, simul.getTesla().getPositionTesla().getX()*lambdaX,simul.getTesla().getPositionTesla().getY()*lambdaY,this.getWidth()/25,this.getHeight()/50, null);
+		g.drawImage(planeteLivraisonImg, simul.getNiveau().getPointArrivee().getX()*lambdaX, simul.getNiveau().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+		g.drawImage(trouNoirImg1, simul.getTrouNoir().getPositionTrouNoir().getX()*lambdaX , simul.getTrouNoir().getPositionTrouNoir().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+		g.drawImage(trouBlancImg1, simul.getTrouBlanc().getPositionTrouBlanc().getX()*lambdaX , simul.getTrouBlanc().getPositionTrouBlanc().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+		// discuter avec Eliott de comment gérer plusieurs objets de même classe (plusieurs trous noirs par exemple)
 	}
+	
 }
