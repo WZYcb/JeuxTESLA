@@ -16,7 +16,6 @@ import calcul.Simulateur;
 public class JPanelDessin extends JPanel {
 	private static final long serialVersionUID = -4704888296894874299L;
 	private Simulateur simul = new Simulateur(this);
-	private int key=-1;
 	private int lambdaX;//coefficients lambda entre la taille du niveau dans le simulateur et la taille de la fenêtre
 	private int lambdaY;
 	private Image voitureImg= null;
@@ -115,7 +114,7 @@ public class JPanelDessin extends JPanel {
 	}
 	
 	public int keyPressed(KeyEvent event) {
-		key=-1;
+		int key=-1;
 		if (event.getKeyCode()==KeyEvent.VK_UP) {
 			key=KeyEvent.VK_UP;
 		}
