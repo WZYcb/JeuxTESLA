@@ -11,6 +11,10 @@ public class Recharge {
 		
 	}
 	
+	public Recharge(int idRecharge,int diametre) {
+		this.idRecharge=idRecharge;
+		this.diametre=diametre;
+	}
     public int getIdRecharge() {
     	return idRecharge;
     }

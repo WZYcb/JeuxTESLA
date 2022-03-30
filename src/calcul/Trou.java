@@ -1,7 +1,7 @@
 package calcul;
 
 public class Trou {
-	//variable
+	
 	private int idTrou;
 	private String nom;
 	private int diametre;
@@ -9,16 +9,12 @@ public class Trou {
 	private Position positionTrou;
 	private float coeffGravite;
 	
-	//constructeur
-	public Trou(int idTrou,String nom,int diametre,int diamInfluence,
-			Position positionTrou,float coeffGravite) {
+	
+	public Trou(int idTrou,int diametre,Position positionTrou
+			) {
 		   this.idTrou=idTrou;
-		   this.coeffGravite=coeffGravite;
 		   this.diametre=diametre;
-		   this.diamInfluence=diamInfluence;
-		   this.nom=nom;
-		   this.positionTrou=positionTrou;
-		   
+		   positionTrou.positioninitiale();
 	}
 	public int getIdTrou() {
 		return idTrou;

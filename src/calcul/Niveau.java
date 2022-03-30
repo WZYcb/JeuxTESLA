@@ -1,35 +1,41 @@
 package calcul;
 
+import java.util.LinkedList;
+
 public class Niveau {
 	private int idNiveau;
 	private String nom;
-	private int nbAsteroides;
-	private int nbTrouNoir;
-	private int nbTrouBlanc;
 	private int nbRecharges;
 	private int nbBonus;
+	private Tesla tesla;
 	private Position pointDepart;
 	private Position pointArrivee;
-	private Position tailleNiveau;
 	private int duree;
-	private Position positionAsteroides;
-	private Position positionObjetGravitationnel;
 	private Position positionRecharges;
-	private Position positionBonus;
+	private Position positionTrou;
 	
-	public Niveau(int idNiveau,String nom,int nbAsteroides,int nbTrouNoir,int nbTrouBlanc,int nbRecharges,
-			int nbBonus,Position pointDepart,Position pointArrivee,Position tailleNiveau,int duree) {
-		this.idNiveau=idNiveau;
-		this.nom=nom;
-		this.nbAsteroides=nbAsteroides;
-		this.nbTrouNoir=nbTrouNoir;
-		this.nbTrouBlanc=nbTrouBlanc;
-		this.nbRecharges=nbRecharges;
-		this.nbBonus=nbBonus;
-		this.pointDepart=pointDepart;
-		this.pointArrivee=pointArrivee;
-		this.tailleNiveau=tailleNiveau;
-		this.duree=duree;
+	private LinkedList<Trou> trou = new LinkedList<Trou>();
+	{
+		trou.add(new Trou(1,10,Position.positioninitiale()));
+		
+	}
+	
+	private LinkedList<Recharge> recharge = new LinkedList<Recharge>();
+	{
+		recharge.add(new Recharge(1,10));
+		
+	}
+	
+	
+	public Niveau(int idNiveau) {
+		idNiveau=1;
+		
+		trou.add(new Trou(2,10,Position.positioninitiale() ));
+		trou.add(new Trou(3,10, Position.positioninitiale()));
+		recharge.add(new Recharge(2,10));
+		recharge.add(new Recharge(3,10));
+		setDuree(120);
+		
 		
 	}
 	
@@ -55,42 +61,6 @@ public class Niveau {
 
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-
-
-
-	public int getNbAsteroides() {
-		return nbAsteroides;
-	}
-
-
-
-	public void setNbAsteroides(int nbAsteroides) {
-		this.nbAsteroides = nbAsteroides;
-	}
-
-
-
-	public int getNbTrouNoir() {
-		return nbTrouNoir;
-	}
-
-
-
-	public void setNbTrouNoir(int nbTrouNoir) {
-		this.nbTrouNoir = nbTrouNoir;
-	}
-
-
-
-	public int getNbTrouBlanc() {
-		return nbTrouBlanc;
-	}
-
-
-
-	public void setNbTrouBlanc(int nbTrouBlanc) {
-		this.nbTrouBlanc = nbTrouBlanc;
 	}
 
 
@@ -143,18 +113,7 @@ public class Niveau {
 
 
 
-	public Position getTailleNiveau() {
-		return tailleNiveau;
-	}
-
-
-
-	public void setTailleNiveau(Position tailleNiveau) {
-		this.tailleNiveau = tailleNiveau;
-	}
-
-
-
+	
 	public int getDuree() {
 		return duree;
 	}
@@ -166,11 +125,9 @@ public class Niveau {
 	}
 
 
-    public void niveau1() {
+    public void niveau() {
     	setIdNiveau(1);
-    	setNbAsteroides(3);
-    	setNbTrouNoir(3);
-    	setNbTrouBlanc(3);
+    	
     	setNbRecharges(3);
     	setNbBonus(0);
     	setDuree(120);
@@ -179,9 +136,7 @@ public class Niveau {
     }
     public void niveau2() {
     	setIdNiveau(2);
-    	setNbAsteroides(5);
-    	setNbTrouNoir(5);
-    	setNbTrouBlanc(5);
+    	
     	setNbRecharges(5);
     	setNbBonus(1);
     	setDuree(100);
@@ -190,9 +145,7 @@ public class Niveau {
     }
     public void niveau3() {
     	setIdNiveau(3);
-    	setNbAsteroides(5);
-    	setNbTrouNoir(5);
-    	setNbTrouBlanc(5);
+    	
     	setNbRecharges(3);
     	setNbBonus(2);
     	setDuree(90);
@@ -201,9 +154,7 @@ public class Niveau {
     }
     public void niveau4() {
     	setIdNiveau(4);
-    	setNbAsteroides(6);
-    	setNbTrouNoir(7);
-    	setNbTrouBlanc(7);
+    	
     	setNbRecharges(7);
     	setNbBonus(3);
     	setDuree(80);
@@ -212,9 +163,7 @@ public class Niveau {
     }
     public void niveau5() {
     	setIdNiveau(5);
-    	setNbAsteroides(7);
-    	setNbTrouNoir(9);
-    	setNbTrouBlanc(9);
+    	
     	setNbRecharges(9);
     	setNbBonus(4);
     	setDuree(70);
@@ -255,7 +204,7 @@ public class Niveau {
     	
     }
     public void niveau9() {
-    	setIdNiveau(9);
+    	this.setIdNiveau(9);
     	setNbAsteroides(13);
     	setNbTrouNoir(15);
     	setNbTrouBlanc(15);
@@ -265,14 +214,7 @@ public class Niveau {
     	
     	
     }
-	public void placerAsteroides() {
-		positionAsteroides.positioninitiale();
-    	
-    }
-    
-    public void placerObjetGravitationnel() {
-    	positionObjetGravitationnel.positioninitiale();
-    }
+	
     
     public void placerRecharges() {
     	positionRecharges.positioninitiale();
@@ -286,6 +228,18 @@ public class Niveau {
     	pointDepart.position(0, 0);
     	
     }
+
+
+
+	public Tesla getTesla() {
+		return tesla;
+	}
+
+
+
+	public void setTesla(Tesla tesla) {
+		this.tesla = tesla;
+	}
     
     
 
