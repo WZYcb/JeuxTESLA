@@ -83,12 +83,14 @@ public class Tesla {
     
     
     public void rechargerTesla() {
-        	
+    	nivBattrie=nivBattrie+20;
+
     }
     
 
     public void dechargerTesla() {
-    	
+    	nivBattrie=nivBattrie-1;
+
     }
     
 

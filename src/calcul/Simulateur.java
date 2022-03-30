@@ -1,5 +1,5 @@
 package calcul;
-import java.util.Random;
+
 
 import interfaceGraphiqueTesla.InterfaceJeu;
 import interfaceGraphiqueTesla.InterfaceNiveaux;
@@ -48,8 +48,7 @@ public class Simulateur extends Thread{
 	}
 	
 	public void faireUneEtape() {
-		iPosX = Tesla.getx();
-		iPosY = Tesla.gety();
+	
 	
 	}
 
