@@ -10,7 +10,7 @@ public class Bonus {
 		this.idBonus=idBonus;
 		this.nom=nom;
 		this.diametre=diametre;
-		this.positionBonus=positionBonus;
+		positionBonus.positioninitiale();
 		
 	}
 	public String getNom() {

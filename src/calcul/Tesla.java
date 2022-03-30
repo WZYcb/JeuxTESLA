@@ -26,6 +26,11 @@ public class Tesla {
     	
     }
     
+    public Tesla(int idTesla) {
+    	this.idTesla=idTesla;
+    	
+    	
+    }
     public int getIdTesla() {
     	return idTesla;
     }
@@ -78,7 +83,7 @@ public class Tesla {
     }
     
     public void deplacerTesla() {
-    	  vitesseTesla.deplacer();
+    	
     
     }		
         	

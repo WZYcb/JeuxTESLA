@@ -11,12 +11,10 @@ public class Niveau {
 	private Position pointDepart;
 	private Position pointArrivee;
 	private int duree;
-	private Position positionRecharges;
-	private Position positionTrou;
 	
 	private LinkedList<Trou> trou = new LinkedList<Trou>();
 	{
-		trou.add(new Trou(1,10,Position.positioninitiale()));
+		trou.add(new Trou(1,10,5));
 		
 	}
 	
@@ -28,16 +26,165 @@ public class Niveau {
 	
 	
 	public Niveau(int idNiveau) {
-		idNiveau=1;
-		
-		trou.add(new Trou(2,10,Position.positioninitiale() ));
-		trou.add(new Trou(3,10, Position.positioninitiale()));
-		recharge.add(new Recharge(2,10));
-		recharge.add(new Recharge(3,10));
-		setDuree(120);
-		
-		
+		Tesla tesla=new Tesla(1);
+		tesla.setPositionTesla(pointDepart);
+		if (idNiveau==1) {
+		   trou.add(new Trou(2,10,5));
+		   trou.add(new Trou(3,10,5));
+		   recharge.add(new Recharge(2,10));
+		   recharge.add(new Recharge(3,10));
+		   setDuree(120);	
+		}
+		if (idNiveau==2) {
+			trou.add(new Trou(2,10,5));
+			trou.add(new Trou(3,10,5));
+		    trou.add(new Trou(4,10,10));
+		    recharge.add(new Recharge(2,10));
+			recharge.add(new Recharge(3,10));
+			recharge.add(new Recharge(4,10));
+			setDuree(110);
+			
+		}
+		if (idNiveau==3) {
+			trou.add(new Trou(2,10,5));
+			trou.add(new Trou(3,10,5));
+		    trou.add(new Trou(4,10,10));
+		    trou.add(new Trou(5,10,10));
+		    trou.add(new Trou(6,10,10));
+		    recharge.add(new Recharge(2,10));
+			recharge.add(new Recharge(3,10));
+			recharge.add(new Recharge(4,10));
+			recharge.add(new Recharge(5,10));
+			recharge.add(new Recharge(6,10));
+			setDuree(100);
+			
+		}
+		if (idNiveau==4) {
+			trou.add(new Trou(2,10,5));
+			trou.add(new Trou(3,10,5));
+		    trou.add(new Trou(4,10,10));
+		    trou.add(new Trou(5,10,10));
+		    trou.add(new Trou(6,10,15));
+		    trou.add(new Trou(7,10,15));
+		    recharge.add(new Recharge(2,10));
+			recharge.add(new Recharge(3,10));
+			recharge.add(new Recharge(4,10));
+			recharge.add(new Recharge(5,10));
+			recharge.add(new Recharge(6,10));
+			recharge.add(new Recharge(7,10));
+			setDuree(95);
+			
+		}
+		if (idNiveau==5) {
+			trou.add(new Trou(2,10,5));
+			trou.add(new Trou(3,10,5));
+		    trou.add(new Trou(4,10,10));
+		    trou.add(new Trou(5,10,10));
+		    trou.add(new Trou(6,10,15));
+		    trou.add(new Trou(7,10,15));
+		    trou.add(new Trou(8,10,15));
+		    recharge.add(new Recharge(2,10));
+			recharge.add(new Recharge(3,10));
+			recharge.add(new Recharge(4,10));
+			recharge.add(new Recharge(5,10));
+			recharge.add(new Recharge(6,10));
+			recharge.add(new Recharge(7,10));
+			recharge.add(new Recharge(8,10));
+			setDuree(90);
+			
+		}
+		if (idNiveau==6) {
+			trou.add(new Trou(2,10,5));
+			trou.add(new Trou(3,10,5));
+		    trou.add(new Trou(4,10,10));
+		    trou.add(new Trou(5,10,10));
+		    trou.add(new Trou(6,10,15));
+		    trou.add(new Trou(7,10,15));
+		    trou.add(new Trou(8,10,15));
+		    trou.add(new Trou(9,10,15));
+		    recharge.add(new Recharge(2,10));
+			recharge.add(new Recharge(3,10));
+			recharge.add(new Recharge(4,10));
+			recharge.add(new Recharge(5,10));
+			recharge.add(new Recharge(6,10));
+			recharge.add(new Recharge(7,10));
+			recharge.add(new Recharge(8,10));
+			recharge.add(new Recharge(9,10));
+			setDuree(85);
+			
+		}
+		if (idNiveau==7) {
+			trou.add(new Trou(2,10,5));
+			trou.add(new Trou(3,10,5));
+		    trou.add(new Trou(4,10,10));
+		    trou.add(new Trou(5,10,10));
+		    trou.add(new Trou(6,10,15));
+		    trou.add(new Trou(7,10,15));
+		    trou.add(new Trou(8,10,15));
+		    trou.add(new Trou(9,10,20));
+		    trou.add(new Trou(10,10,20));
+		    recharge.add(new Recharge(2,10));
+			recharge.add(new Recharge(3,10));
+			recharge.add(new Recharge(4,10));
+			recharge.add(new Recharge(5,10));
+			recharge.add(new Recharge(6,10));
+			recharge.add(new Recharge(7,10));
+			recharge.add(new Recharge(8,10));
+			recharge.add(new Recharge(9,10));
+			recharge.add(new Recharge(10,10));
+			
+			setDuree(80);
+			
+		}
+		if (idNiveau==8) {
+			trou.add(new Trou(2,10,5));
+			trou.add(new Trou(3,10,5));
+		    trou.add(new Trou(4,10,10));
+		    trou.add(new Trou(5,10,10));
+		    trou.add(new Trou(6,10,15));
+		    trou.add(new Trou(7,10,15));
+		    trou.add(new Trou(8,10,20));
+		    trou.add(new Trou(9,10,25));
+		    trou.add(new Trou(10,10,25));
+		    recharge.add(new Recharge(2,10));
+			recharge.add(new Recharge(3,10));
+			recharge.add(new Recharge(4,10));
+			recharge.add(new Recharge(5,10));
+			recharge.add(new Recharge(6,10));
+			recharge.add(new Recharge(7,10));
+			recharge.add(new Recharge(8,10));
+			recharge.add(new Recharge(9,10));
+			recharge.add(new Recharge(10,10));
+			setDuree(70);
+			
+		}
+		if (idNiveau==9) {
+			trou.add(new Trou(2,10,5));
+			trou.add(new Trou(3,10,5));
+		    trou.add(new Trou(4,10,10));
+		    trou.add(new Trou(5,10,10));
+		    trou.add(new Trou(6,10,15));
+		    trou.add(new Trou(7,10,20));
+		    trou.add(new Trou(8,10,25));
+		    trou.add(new Trou(9,10,30));
+		    trou.add(new Trou(10,10,30));
+		    recharge.add(new Recharge(2,10));
+			recharge.add(new Recharge(3,10));
+			recharge.add(new Recharge(4,10));
+			recharge.add(new Recharge(5,10));
+			recharge.add(new Recharge(6,10));
+			recharge.add(new Recharge(7,10));
+			recharge.add(new Recharge(8,10));
+			recharge.add(new Recharge(9,10));
+			recharge.add(new Recharge(10,10));
+			setDuree(60);
+			
+		}
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -124,110 +271,6 @@ public class Niveau {
 		this.duree = duree;
 	}
 
-
-    public void niveau() {
-    	setIdNiveau(1);
-    	
-    	setNbRecharges(3);
-    	setNbBonus(0);
-    	setDuree(120);
-    	
-    	
-    }
-    public void niveau2() {
-    	setIdNiveau(2);
-    	
-    	setNbRecharges(5);
-    	setNbBonus(1);
-    	setDuree(100);
-    	
-    	
-    }
-    public void niveau3() {
-    	setIdNiveau(3);
-    	
-    	setNbRecharges(3);
-    	setNbBonus(2);
-    	setDuree(90);
-    	
-    	
-    }
-    public void niveau4() {
-    	setIdNiveau(4);
-    	
-    	setNbRecharges(7);
-    	setNbBonus(3);
-    	setDuree(80);
-    	
-    	
-    }
-    public void niveau5() {
-    	setIdNiveau(5);
-    	
-    	setNbRecharges(9);
-    	setNbBonus(4);
-    	setDuree(70);
-    	
-    	
-    }
-    public void niveau6() {
-    	setIdNiveau(6);
-    	setNbAsteroides(9);
-    	setNbTrouNoir(11);
-    	setNbTrouBlanc(11);
-    	setNbRecharges(11);
-    	setNbBonus(5);
-    	setDuree(60);
-    	
-    	
-    }
-    public void niveau7() {
-    	setIdNiveau(7);
-    	setNbAsteroides(11);
-    	setNbTrouNoir(11);
-    	setNbTrouBlanc(11);
-    	setNbRecharges(11);
-    	setNbBonus(5);
-    	setDuree(60);
-    	
-    	
-    }
-    public void niveau8() {
-    	setIdNiveau(8);
-    	setNbAsteroides(13);
-    	setNbTrouNoir(13);
-    	setNbTrouBlanc(13);
-    	setNbRecharges(13);
-    	setNbBonus(6);
-    	setDuree(50);
-    	
-    	
-    }
-    public void niveau9() {
-    	this.setIdNiveau(9);
-    	setNbAsteroides(13);
-    	setNbTrouNoir(15);
-    	setNbTrouBlanc(15);
-    	setNbRecharges(15);
-    	setNbBonus(7);
-    	setDuree(70);
-    	
-    	
-    }
-	
-    
-    public void placerRecharges() {
-    	positionRecharges.positioninitiale();
-    }
-    
-    public void placerBonus() {
-    	positionBonus.positioninitiale();
-    }
-    
-    public void placerTesla() {
-    	pointDepart.position(0, 0);
-    	
-    }
 
 
 

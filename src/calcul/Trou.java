@@ -9,7 +9,13 @@ public class Trou {
 	private Position positionTrou;
 	private float coeffGravite;
 	
-	
+	public Trou(int idTrou,int diametre,int diamInfluence
+			) {
+		   this.idTrou=idTrou;
+		   this.diametre=diametre;
+		   this.diamInfluence=diamInfluence;
+		  
+	}
 	public Trou(int idTrou,int diametre,Position positionTrou
 			) {
 		   this.idTrou=idTrou;

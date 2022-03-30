@@ -1,6 +1,6 @@
 package calcul;
 import java.util.Random;
-import java.awt.event.*;
+
 
 
 public class Position {

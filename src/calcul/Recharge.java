@@ -7,7 +7,7 @@ public class Recharge {
 	public void recharge(int idRecharge,int diametre,Position positionRecharge) {
 		this.idRecharge=idRecharge;
 		this.diametre=diametre;
-		this.positionRecharge=positionRecharge;
+		positionRecharge.positioninitiale();
 		
 	}
 	
