@@ -4,23 +4,14 @@ public class Trou {
 	
 	private int idTrou;
 	private String nom;
-	private int diametre;
 	private int diamInfluence;
 	private Position positionTrou;
 	private float coeffGravite;
 	
-	public Trou(int idTrou,int diametre,int diamInfluence
-			) {
-		   this.idTrou=idTrou;
-		   this.diametre=diametre;
-		   this.diamInfluence=diamInfluence;
-		  
-	}
-	public Trou(int idTrou,int diametre,Position positionTrou
-			) {
-		   this.idTrou=idTrou;
-		   this.diametre=diametre;
-		   positionTrou.positioninitiale();
+	
+	public Trou(int idTrou,int diamInfluence,Position positionTrou) {
+		this.idTrou=idTrou;
+		this.positionTrou=positionTrou;
 	}
 	public int getIdTrou() {
 		return idTrou;
@@ -30,10 +21,6 @@ public class Trou {
     	return nom;
     }
     
-    public int getDiametre() {
-    	return diametre;
-    	
-    }
     public int getDiamInfluence() {
     	return diamInfluence;
     }
@@ -49,9 +36,6 @@ public class Trou {
     }
     public void setNom(String nom) {
     	this.nom=nom;
-    }
-    public void setDiametre(int diametre) {
-    	this.diametre=diametre;
     }
     public void setDiamInfluence(int diamInfluence) {
     	this.diamInfluence=diamInfluence;

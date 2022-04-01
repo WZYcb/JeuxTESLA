@@ -7,13 +7,12 @@ public class Position {
 	private int x;
 	private int y;
 		
-	public Position(int x,int y){
+	public Position(int x,int y) {
 		this.x=x;
 		this.y=y;		
 	}
 	
-	public int getX()
-	{
+	public int getX() {
 		return x;
 	}
 	
@@ -21,14 +20,13 @@ public class Position {
 		x=xParam;
 	}
 	
-    public int getY()
-	{
+    public int getY() {
 		return y;
 	}
     public void setY(int yParam) {
 		y=yParam;
 	}
-    public void positioninitiale(){
+    public void positionInitiale(){
 		
 		Random r = new Random();
 		

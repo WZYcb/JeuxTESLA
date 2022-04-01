@@ -2,16 +2,18 @@ package interfaceGraphiqueTesla;
 
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-import calcul.Niveau;
+
+import calcul.Recharge;
 import calcul.Simulateur;
+import calcul.Trou;
 
 public class JPanelDessin extends JPanel {
 	private static final long serialVersionUID = -4704888296894874299L;
@@ -20,6 +22,9 @@ public class JPanelDessin extends JPanel {
 	private int lambdaY;
 	private Image voitureImg= null;
 	private Image planeteLivraisonImg=null;
+	private Image trouNoirImg=null;
+	private Image trouBlancImg=null;
+	private Image superchargerImg=null;
 	private LinkedList<Image> listeTrouImg= new LinkedList<Image>();
 	private LinkedList<Image> listeSuperchargerImg= new LinkedList<Image>();
 	
@@ -91,6 +96,31 @@ public class JPanelDessin extends JPanel {
 	       } catch (IOException ex) {
 	    	   voitureImg=null;
 	       }
+		sNomFile=".\\images\\"+"planete_livraison.png";
+		try {                
+	          planeteLivraisonImg = ImageIO.read(new File(sNomFile));
+	       } catch (IOException ex) {
+	    	   planeteLivraisonImg=null;
+	       }
+		sNomFile=".\\images\\"+"trou_noir.png";
+		try {                
+	          trouNoirImg = ImageIO.read(new File(sNomFile));
+	       } catch (IOException ex) {
+	    	   trouNoirImg=null;
+	       }
+		sNomFile=".\\images\\"+"trou_blanc.png";
+		try {                
+	          trouBlancImg = ImageIO.read(new File(sNomFile));
+	       } catch (IOException ex) {
+	    	   trouBlancImg=null;
+	       }
+		sNomFile=".\\images\\"+"supercharger_tesla.png";
+		try {                
+	          superchargerImg = ImageIO.read(new File(sNomFile));
+	       } catch (IOException ex) {
+	    	   superchargerImg=null;
+	       }
+		
 	}
 	
 
@@ -101,13 +131,31 @@ public class JPanelDessin extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		if (simul!=null) {
+			Iterator<Trou> iT = simul.getNiv().getListeTrou().iterator();
+			int i=0;
 			lambdaX=this.getWidth()/1000;
 			lambdaY=this.getHeight()/1000;
 			g.drawImage(voitureImg, simul.getNiv().getTesla().getPositionTesla().getX()*lambdaX,simul.getNiv().getTesla().getPositionTesla().getY()*lambdaY,this.getWidth()/25,this.getHeight()/50, null);
+			g.drawImage(planeteLivraisonImg, simul.getNiv().getPointArrivee().getX()*lambdaX, simul.getNiv().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+			while(iT.hasNext()) {
+				if(iT.next().getCoeffGravite()>0) {
+					g.drawImage(trouNoirImg, simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX , simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+					
+				} else {
+					g.drawImage(trouBlancImg, simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX , simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+				}
+				i=i+1;
+				
+			}
+			Iterator<Recharge >iR = simul.getNiv().getListeRecharge().iterator();
+			i=0;
+			while(iR.hasNext()) {
+				g.drawImage(superchargerImg, simul.getNiv().getListeRecharge().get(i).getPositionRecharge().getX()*lambdaX , simul.getNiv().getListeRecharge().get(i).getPositionRecharge().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+				i=i+1;
+				
+			}
+			
 		}
-		//g.drawImage(planeteLivraisonImg, simul.getNiveau().getPointArrivee().getX()*lambdaX, simul.getNiveau().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
-		//g.drawImage(trouNoirImg1, simul.getTrouNoir().getPositionTrouNoir().getX()*lambdaX , simul.getTrouNoir().getPositionTrouNoir().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
-		//g.drawImage(trouBlancImg1, simul.getTrouBlanc().getPositionTrouBlanc().getX()*lambdaX , simul.getTrouBlanc().getPositionTrouBlanc().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
 		//g.drawImage(listeTrouImg.get(0),0, 0,this.getWidth()/20,this.getHeight()/20, null);
 	}
 	

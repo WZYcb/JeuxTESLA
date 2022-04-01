@@ -26,11 +26,11 @@ public class Tesla {
     	
     }
     
-    public Tesla(int idTesla) {
+    public Tesla(int idTesla, Position positionTesla) {
     	this.idTesla=idTesla;
-    	
-    	
+    	this.positionTesla=positionTesla;
     }
+    
     public int getIdTesla() {
     	return idTesla;
     }
