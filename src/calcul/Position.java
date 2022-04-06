@@ -26,14 +26,6 @@ public class Position {
     public void setY(int yParam) {
 		y=yParam;
 	}
-    public void positionInitiale(){
-		
-		Random r = new Random();
-		
-		this.x = r.nextInt(40);
-		
-		this.y = r.nextInt(40);
-    }
     
     
 }

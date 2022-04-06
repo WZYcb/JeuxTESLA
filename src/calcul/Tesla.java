@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 public class Tesla {
 	
 	private int idTesla;
-	private int nivBattrie;
+	private int nivBatterie;
 	private float vMax;
 	private float couple;
     private String nom;
@@ -13,10 +13,10 @@ public class Tesla {
     private Position positionTesla;
     private int vitesseTesla = 20;
     
-    public Tesla(int idTesla,int nivBattrie,float vMax, float couple,String nom,String couleur,
+    public Tesla(int idTesla,int nivBatterie,float vMax, float couple,String nom,String couleur,
     		Position positionTesla,int vitesseTesla) {
     	this.idTesla=idTesla;
-    	this.nivBattrie=nivBattrie;
+    	this.nivBatterie=nivBatterie;
     	this.vMax=vMax;
     	this.couple=couple;
     	this.nom=nom;
@@ -34,8 +34,8 @@ public class Tesla {
     public int getIdTesla() {
     	return idTesla;
     }
-    public int getNivBattrie() {
-    	return nivBattrie;
+    public int getNivBatterie() {
+    	return nivBatterie;
     }
     public float getVMax() {
     	return vMax;
@@ -59,8 +59,8 @@ public class Tesla {
     public void setIdTesla(int idTesla) {
     	this.idTesla=idTesla;
     }
-    public void setNivBattrie(int nivBattrie) {
-    	this.nivBattrie=nivBattrie;
+    public void setNivBatterie(int nivBatterie) {
+    	this.nivBatterie=nivBatterie;
     }
     public void setVMax(float vMax) {
     	this.vMax=vMax;
@@ -90,13 +90,13 @@ public class Tesla {
     
     
     public void rechargerTesla() {
-    	nivBattrie=nivBattrie+20;
+    	nivBatterie=nivBatterie+20;
 
     }
     
 
     public void dechargerTesla() {
-    	nivBattrie=nivBattrie-1;
+    	nivBatterie=nivBatterie-1;
 
     }
     

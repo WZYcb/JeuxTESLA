@@ -17,7 +17,7 @@ public class Niveau {
 	
 	public Niveau(int idNiv) {
 		int i;
-		this.idNiveau = idNiv;
+		idNiveau = idNiv;
 		tailleNiveau=1000;
 		Random ran = new Random();
 		pointDepart= new Position(0,0);
@@ -25,7 +25,7 @@ public class Niveau {
 		tesla=new Tesla(1, pointDepart);
 		if (idNiveau==1) {
 			for(i=0;i<3;i++) {
-				listeTrou.add(new Trou (i,100,new Position(ran.nextInt(tailleNiveau),ran.nextInt(tailleNiveau))));
+				listeTrou.add(new Trou(i,100,new Position(ran.nextInt(tailleNiveau),ran.nextInt(tailleNiveau))));
 			}
 			for(i=0;i<1;i++) {
 				listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau),ran.nextInt(tailleNiveau))));

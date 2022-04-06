@@ -1,12 +1,6 @@
 package calcul;
 
-
-import java.awt.event.*;
-
 import interfaceGraphiqueTesla.InterfaceJeu;
-import interfaceGraphiqueTesla.InterfaceNiveaux;
-import interfaceGraphiqueTesla.JPanelDessin;
-
 
 public class Simulateur extends Thread{
 	

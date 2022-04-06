@@ -1,5 +1,7 @@
 package calcul;
 
+import java.util.Random;
+
 public class Trou {
 	
 	private int idTrou;
@@ -12,6 +14,12 @@ public class Trou {
 	public Trou(int idTrou,int diamInfluence,Position positionTrou) {
 		this.idTrou=idTrou;
 		this.positionTrou=positionTrou;
+		Random rd = new Random();
+		if(rd.nextBoolean()) {
+			coeffGravite=1;
+		} else {
+			coeffGravite=-1;
+		}
 	}
 	public int getIdTrou() {
 		return idTrou;

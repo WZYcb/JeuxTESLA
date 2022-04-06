@@ -18,8 +18,8 @@ import calcul.Trou;
 public class JPanelDessin extends JPanel {
 	private static final long serialVersionUID = -4704888296894874299L;
 	private Simulateur simul;
-	private int lambdaX;//coefficients lambda entre la taille du niveau dans le simulateur et la taille de la fenêtre
-	private int lambdaY;
+	private double lambdaX;//coefficients lambda entre la taille du niveau dans le simulateur et la taille de la fenêtre
+	private double lambdaY;
 	private Image voitureImg= null;
 	private Image planeteLivraisonImg=null;
 	private Image trouNoirImg=null;
@@ -56,19 +56,19 @@ public class JPanelDessin extends JPanel {
 		this.simul = simul;
 	}
 
-	public int getLambdaX() {
+	public double getLambdaX() {
 		return lambdaX;
 	}
 
-	public void setLambdaX(int lambdaX) {
+	public void setLambdaX(double lambdaX) {
 		this.lambdaX = lambdaX;
 	}
 
-	public int getLambdaY() {
+	public double getLambdaY() {
 		return lambdaY;
 	}
 
-	public void setLambdaY(int lambdaY) {
+	public void setLambdaY(double lambdaY) {
 		this.lambdaY = lambdaY;
 	}
 
@@ -133,30 +133,38 @@ public class JPanelDessin extends JPanel {
 		if (simul!=null) {
 			Iterator<Trou> iT = simul.getNiv().getListeTrou().iterator();
 			int i=0;
-			lambdaX=this.getWidth()/1000;
-			lambdaY=this.getHeight()/1000;
+			lambdaX=this.getWidth()/simul.getNiv().getTailleNiveau();
+			lambdaY=this.getHeight()/simul.getNiv().getTailleNiveau();
 			g.drawImage(voitureImg, simul.getNiv().getTesla().getPositionTesla().getX()*lambdaX,simul.getNiv().getTesla().getPositionTesla().getY()*lambdaY,this.getWidth()/25,this.getHeight()/50, null);
-			g.drawImage(planeteLivraisonImg, simul.getNiv().getPointArrivee().getX()*lambdaX, simul.getNiv().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+			//g.drawImage(planeteLivraisonImg, simul.getNiv().getPointArrivee().getX()*lambdaX, simul.getNiv().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+			
 			while(iT.hasNext()) {
 				if(iT.next().getCoeffGravite()>0) {
 					g.drawImage(trouNoirImg, simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX , simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
-					
+					//System.out.println(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()+"   "+simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY);
 				} else {
-					g.drawImage(trouBlancImg, simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX , simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+					g.drawImage(trouBlancImg, Math.floor(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX) , simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+					//System.out.println(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()+"   "+simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY);
+					//pb avec les lambda qui doivent être des réel et on doit obtenir des coordonnées entières
 				}
+				System.out.println(this.getWidth()+" "+this.getHeight());
+				System.out.println(lambdaX+"    "+lambdaY);
 				i=i+1;
 				
 			}
-			Iterator<Recharge >iR = simul.getNiv().getListeRecharge().iterator();
+			/*
 			i=0;
+			Iterator<Recharge> iR = simul.getNiv().getListeRecharge().iterator();
 			while(iR.hasNext()) {
-				g.drawImage(superchargerImg, simul.getNiv().getListeRecharge().get(i).getPositionRecharge().getX()*lambdaX , simul.getNiv().getListeRecharge().get(i).getPositionRecharge().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+				//g.drawImage(superchargerImg, simul.getNiv().getListeRecharge().get(i).getPositionRecharge().getX()*lambdaX , simul.getNiv().getListeRecharge().get(i).getPositionRecharge().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+				System.out.println(i);
 				i=i+1;
-				
 			}
+			*/
+			g.drawImage(planeteLivraisonImg, 1000*lambdaX, 500*lambdaY, this.getWidth()/20,this.getHeight()/20, null);
 			
 		}
-		//g.drawImage(listeTrouImg.get(0),0, 0,this.getWidth()/20,this.getHeight()/20, null);
+		
 	}
 	
 
