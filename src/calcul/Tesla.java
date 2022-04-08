@@ -132,10 +132,10 @@ public class Tesla {
     
     void action(int numeroTouche) { 
         if ( numeroTouche== KeyEvent.VK_UP) { 
-        	positionTesla.setY(positionTesla.getY()+vitesseTesla);
+        	positionTesla.setY(positionTesla.getY()-vitesseTesla);
         } 
         else if (numeroTouche == KeyEvent.VK_DOWN) { 
-        	positionTesla.setY(positionTesla.getY()-vitesseTesla);
+        	positionTesla.setY(positionTesla.getY()+vitesseTesla);
         } 
         else if (numeroTouche == KeyEvent.VK_RIGHT) { 
         	positionTesla.setX(positionTesla.getX()+vitesseTesla);
