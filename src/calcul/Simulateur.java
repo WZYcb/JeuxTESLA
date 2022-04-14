@@ -1,5 +1,7 @@
 package calcul;
 
+import java.util.Iterator;
+
 import interfaceGraphiqueTesla.InterfaceJeu;
 
 public class Simulateur extends Thread{
@@ -66,9 +68,22 @@ public class Simulateur extends Thread{
 			key=-1;
 			}
 		// etape 2 : trous noirs
-		
+		//influenceTrouNoir();
 		//deplacement des objets
 			
+	}
+	public void influenceTrouNoir() {
+		Iterator<Trou> iT = niv.getListeTrou().iterator();
+		while(iT.hasNext()) {
+			Trou trouTemp = iT.next();
+			int influence = trouTemp.getRayonInfluence();
+			Position posActuelleTesla = niv.getTesla().getPositionTesla(); 
+			if((posActuelleTesla.getX()<(trouTemp.getPositionTrou().getX()+influence)) && (posActuelleTesla.getX()>(trouTemp.getPositionTrou().getX()-influence)) && (posActuelleTesla.getY()<(trouTemp.getPositionTrou().getY()+influence)) && (posActuelleTesla.getY()>(trouTemp.getPositionTrou().getY()-influence))) {
+				//le if sert à vérifier que la tesla est dans le périmètre d'influence du trou
+				//niv.getTesla().setPositionTesla(new Position());
+				// utiliser le coeffGravite pour déplacer la tesla vers le trou
+			}
+		}
 	}
 
 	public void arret() {

@@ -6,12 +6,12 @@ public class Trou {
 	
 	private int idTrou;
 	private String nom;
-	private int diamInfluence;
+	private int rayonInfluence;
 	private Position positionTrou;
 	private float coeffGravite;
 	
 	
-	public Trou(int idTrou,int diamInfluence,Position positionTrou) {
+	public Trou(int idTrou,int rayonInfluence,Position positionTrou) {
 		this.idTrou=idTrou;
 		this.positionTrou=positionTrou;
 		Random rd = new Random();
@@ -29,8 +29,8 @@ public class Trou {
     	return nom;
     }
     
-    public int getDiamInfluence() {
-    	return diamInfluence;
+    public int getRayonInfluence() {
+    	return rayonInfluence;
     }
     public Position getPositionTrou() {
     	return positionTrou;
@@ -45,8 +45,8 @@ public class Trou {
     public void setNom(String nom) {
     	this.nom=nom;
     }
-    public void setDiamInfluence(int diamInfluence) {
-    	this.diamInfluence=diamInfluence;
+    public void setRayonInfluence(int rayonInfluence) {
+    	this.rayonInfluence=rayonInfluence;
     }
     public void setPositionTrou(Position positionTrou) {
         this.positionTrou=positionTrou;
