@@ -132,36 +132,37 @@ public class JPanelDessin extends JPanel {
 		super.paintComponent(g);
 		if (simul!=null) {
 			Iterator<Trou> iT = simul.getNiv().getListeTrou().iterator();
+			Iterator<Recharge> iR = simul.getNiv().getListeRecharge().iterator();
 			int i=0;
-			lambdaX=(float) this.getWidth()/simul.getNiv().getTailleNiveau();
-			lambdaY=(float) this.getHeight()/simul.getNiv().getTailleNiveau();
-			g.drawImage(voitureImg, Math.round(simul.getNiv().getTesla().getPositionTesla().getX()*lambdaX), Math.round(simul.getNiv().getTesla().getPositionTesla().getY()*lambdaY),this.getWidth()/25,this.getHeight()/50, null);
-			//g.drawImage(planeteLivraisonImg, simul.getNiv().getPointArrivee().getX()*lambdaX, simul.getNiv().getPointArrivee().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
+			int j=0;
+			lambdaX=(float) this.getWidth()/simul.getNiv().getTailleNiveau().getX();
+			lambdaY=(float) this.getHeight()/simul.getNiv().getTailleNiveau().getY();
+			g.drawImage(voitureImg, Math.round(simul.getNiv().getTesla().getPositionTesla().getX()*lambdaX), Math.round(simul.getNiv().getTesla().getPositionTesla().getY()*lambdaY),40,20, null);
+			g.drawImage(planeteLivraisonImg, Math.round(simul.getNiv().getPointArrivee().getX()*lambdaX), Math.round(simul.getNiv().getPointArrivee().getY()*lambdaY), 50,50, null);
+			
+			while(iR.hasNext()) {
+				g.drawImage(superchargerImg, Math.round(simul.getNiv().getListeRecharge().get(j).getPositionRecharge().getX()*lambdaX) , Math.round(simul.getNiv().getListeRecharge().get(j).getPositionRecharge().getY()*lambdaY),50,50, null);
+				iR.next();
+				
+			}
 			
 			while(iT.hasNext()) {
 				if(iT.next().getCoeffGravite()>0) {
-					g.drawImage(trouNoirImg, Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX) , Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY),this.getWidth()/20,this.getHeight()/20, null);
-					//System.out.println(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()+"   "+simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY);
+					g.drawImage(trouNoirImg, Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX) , Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY),50,50, null);
+					
 				} else {
-					g.drawImage(trouBlancImg, Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX) , Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY),this.getWidth()/20,this.getHeight()/20, null);
-					//System.out.println(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()+"   "+simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY);
-					//pb avec les lambda qui doivent être des réel et on doit obtenir des coordonnées entières
+					g.drawImage(trouBlancImg, Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX) , Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY),50,50, null);
+					
 				}
+				/*
 				System.out.println(this.getWidth()+" "+this.getHeight());
 				System.out.println(lambdaX+"    "+lambdaY);
 				i=i+1;
-				
+				*/
 			}
 			/*
-			i=0;
-			Iterator<Recharge> iR = simul.getNiv().getListeRecharge().iterator();
-			while(iR.hasNext()) {
-				//g.drawImage(superchargerImg, simul.getNiv().getListeRecharge().get(i).getPositionRecharge().getX()*lambdaX , simul.getNiv().getListeRecharge().get(i).getPositionRecharge().getY()*lambdaY,this.getWidth()/20,this.getHeight()/20, null);
-				System.out.println(i);
-				i=i+1;
-			}
+			
 			*/
-			g.drawImage(planeteLivraisonImg, Math.round(1000*lambdaX), Math.round(500*lambdaY), this.getWidth()/20,this.getHeight()/20, null);
 			
 		}
 		

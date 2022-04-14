@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Niveau {
 	private int idNiveau;
-	private int tailleNiveau;
+	private Position tailleNiveau;
 	private String nom;
 	private Tesla tesla;
 	private Position pointDepart;
@@ -17,18 +17,19 @@ public class Niveau {
 	
 	public Niveau(int idNiv) {
 		int i;
+		int j;
 		idNiveau = idNiv;
-		tailleNiveau=1000;
+		tailleNiveau= new Position(1920,1080);
 		Random ran = new Random();
 		pointDepart= new Position(0,0);
-		pointArrivee= new Position(tailleNiveau,tailleNiveau);
+		pointArrivee= new Position(tailleNiveau.getX()-100,tailleNiveau.getY()-100) ;
 		tesla=new Tesla(1, pointDepart);
 		if (idNiveau==1) {
 			for(i=0;i<3;i++) {
-				listeTrou.add(new Trou(i,100,new Position(ran.nextInt(tailleNiveau),ran.nextInt(tailleNiveau))));
+				listeTrou.add(new Trou(i,100,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 			}
-			for(i=0;i<1;i++) {
-				listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau),ran.nextInt(tailleNiveau))));
+			for(j=0;j<2;j++) {
+				listeRecharge.add(new Recharge(j,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 			}
 		} else {
 			if (idNiveau==2) {
@@ -81,11 +82,11 @@ public class Niveau {
 		this.nom = nom;
 	}
 
-	public int getTailleNiveau() {
+	public Position getTailleNiveau() {
 		return tailleNiveau;
 	}
 
-	public void setTailleNiveau(int tailleNiveau) {
+	public void setTailleNiveau(Position tailleNiveau) {
 		this.tailleNiveau = tailleNiveau;
 	}
 
