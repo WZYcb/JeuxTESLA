@@ -2,6 +2,7 @@ package calcul;
 
 import java.util.Iterator;
 
+import interfaceGraphiqueTesla.InterfaceGameOver;
 import interfaceGraphiqueTesla.InterfaceJeu;
 import interfaceGraphiqueTesla.InterfaceNiveaux;
 
@@ -77,6 +78,8 @@ public class Simulateur extends Thread{
 		
 		//recharge 
 		recupererRecharge();
+		//check collision
+		collision();
 		//check niveau réussi
 		isFinished();
 	}
@@ -106,6 +109,29 @@ public class Simulateur extends Thread{
 			}
 		}
 		
+	}
+	public boolean collision() {
+		boolean flag=false;
+		//collision avec les trous
+		Iterator<Trou> iT = niv.getListeTrou().iterator();
+		while(iT.hasNext() && !flag) {
+			Trou trouTemp = iT.next();
+			Position posActuelleTesla = niv.getTesla().getPositionTesla();
+			if((posActuelleTesla.getX()>(trouTemp.getPositionTrou().getX())) && (posActuelleTesla.getX()<(trouTemp.getPositionTrou().getX()+30)) && (posActuelleTesla.getY()>(trouTemp.getPositionTrou().getY())) && (posActuelleTesla.getY()<(trouTemp.getPositionTrou().getY()+30))) {
+				flag=true;
+				gameOver();
+			}
+		}
+		//collision avec les astéroïdes
+		
+		return flag;
+	}
+	
+	public void gameOver() {
+		arret();
+		InterfaceGameOver youLost= new InterfaceGameOver();
+		youLost.setVisible(true);
+		mjf.dispose();
 	}
 	
 	public boolean isFinished() {
