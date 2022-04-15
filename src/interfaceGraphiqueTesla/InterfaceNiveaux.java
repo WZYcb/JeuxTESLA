@@ -104,12 +104,10 @@ public class InterfaceNiveaux extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
+				clicNiveau1();
 				
-				InterfaceJeu niveau1 = new InterfaceJeu();//cree une frame
-				niveau1.setVisible(true);
 				// TODO Auto-generated method stub
 				
-				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+100);
 			}
 		});
 		
@@ -244,12 +242,19 @@ public class InterfaceNiveaux extends JFrame {
 		avanceeNiveaux.setForeground(Color.GREEN);
 		grilleBoutonsNiveaux.add(avanceeNiveaux);
 	}
+	public void clicNiveau1() {
+		InterfaceJeu niveau1 = new InterfaceJeu();//cree une frame
+		niveau1.setVisible(true);
+		this.dispose();//ferme la frame actuelle
+		
+		
+	}
+	
 	public void clicNiveau2() {
 		InterfaceJeu niveau2 = new InterfaceJeu();//cree une frame
 		niveau2.setVisible(true);
 		this.dispose();//ferme la frame actuelle
 		// TODO Auto-generated method stub
-		avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 	}
 	
 	public void clicNiveau7() {
@@ -257,7 +262,6 @@ public class InterfaceNiveaux extends JFrame {
 		niveau7.setVisible(true);
 		this.dispose();//ferme la frame actuelle
 		// TODO Auto-generated method stub
-		avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 	}
 		
 	public void clicNiveau(ActionEvent e) {

@@ -89,10 +89,6 @@ public class Tesla {
         	
     
     
-    public void rechargerTesla() {
-    	nivBatterie=nivBatterie+20;
-
-    }
     
 
     public void dechargerTesla() {
@@ -113,16 +109,14 @@ public class Tesla {
     	
     }
     
-    public boolean contactRecharge() {
-		return false;
-    	
-    }
     
     public void recupererRecharge() {
-    	if (contactRecharge()==true) {
-    		nivBatterie=nivBatterie + 20;
-    	}
-    	
+    	if(nivBatterie<80) {
+			nivBatterie=nivBatterie + 20;
+		} else {
+			nivBatterie = 100;
+		}
+		
     	
     }
     

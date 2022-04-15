@@ -84,10 +84,10 @@ public class InterfaceJeu extends JFrame {
 		
 		JProgressBar niveauBatterie = new JProgressBar();
 		niveauBatterie.setForeground(new Color(0, 128, 0));
-		niveauBatterie.setValue(100); //éventuellement supprimer à l'intégration
-		if(niveauBatterie.getValue()>0) {// ajouter un retour du niveau de la batterie de l'algorithmique
-			//perte progressive de batterie lorsqu'on déplace la voiture
-			//gain instantané de batterie lorsqu'on passe sur un supercharger
+		if(simul!=null) {
+			niveauBatterie.setValue(simul.getNiv().getTesla().getNivBatterie());
+		} else {
+			niveauBatterie.setValue(100);
 		}
 		infosEnJeu.add(niveauBatterie);
 		
@@ -112,7 +112,6 @@ public class InterfaceJeu extends JFrame {
 	}
 	public void clicRetourMenu() {
 		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// créer la frame du menu avec les niveaux
-		this.simul.arret();
 		menuNiveaux.setVisible(true);// l'ouvrir
 		this.dispose();//ferme la frame
 	}

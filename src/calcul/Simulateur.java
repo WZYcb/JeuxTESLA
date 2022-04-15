@@ -65,13 +65,15 @@ public class Simulateur extends Thread{
 	public void faireUneEtape() {
 		// deplacer voiture en fonction de la touche et des trous
 		//etape 1 : touches
-		if (key!=-1) {
-			niv.getTesla().action(key);		
+		if ((key!=-1) && niv.getTesla().getNivBatterie()>0) {
+			niv.getTesla().action(key);
+			niv.getTesla().dechargerTesla();
 			key=-1;
 			}
 		// etape 2 : trous noirs
 		influenceTrouNoir();
 		//deplacement des objets
+		
 		
 		//check niveau réussi
 		isFinished();
