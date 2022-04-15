@@ -154,7 +154,7 @@ public class JPanelDessin extends JPanel {
 			  
 				Trou trouTmp=iT.next();
 
-				if(trouTmp.getCoeffGravite()<0) {
+				
 
 				if(trouTmp.getCoeffGravite()<0) {
 					g.drawImage(trouNoirImg, Math.round(trouTmp.getPositionTrou().getX()*lambdaX) , Math.round(trouTmp.getPositionTrou().getY()*lambdaY),50,50, null);
@@ -188,4 +188,4 @@ public class JPanelDessin extends JPanel {
 
 	}	
 	
-	}
+	

@@ -25,7 +25,7 @@ public class Niveau {
 		pointArrivee= new Position(tailleNiveau.getX()-100,tailleNiveau.getY()-100) ;
 		tesla=new Tesla(1, pointDepart);
 		if (idNiveau==1) {
-			for(i=0;i<1;i++) {
+			for(i=1;i<2;i++) {
 				listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 			}
 			for(j=0;j<1;j++) {
