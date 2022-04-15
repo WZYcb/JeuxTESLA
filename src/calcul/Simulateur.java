@@ -1,12 +1,8 @@
 package calcul;
 
-
-import java.awt.event.*;
+import java.util.Iterator;
 
 import interfaceGraphiqueTesla.InterfaceJeu;
-import interfaceGraphiqueTesla.InterfaceNiveaux;
-import interfaceGraphiqueTesla.JPanelDessin;
-
 
 public class Simulateur extends Thread{
 	
@@ -56,7 +52,7 @@ public class Simulateur extends Thread{
 
 			try {
 				// Mise en pause pendant 250ms
-				Thread.sleep(250);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -72,9 +68,25 @@ public class Simulateur extends Thread{
 			key=-1;
 			}
 		// etape 2 : trous noirs
-		
+		influenceTrouNoir();
 		//deplacement des objets
 			
+	}
+	public void influenceTrouNoir() {
+		Iterator<Trou> iT = niv.getListeTrou().iterator();
+		while(iT.hasNext()) {
+			Trou trouTemp = iT.next();
+			double influence = trouTemp.getRayonInfluence();
+			Position posActuelleTesla = niv.getTesla().getPositionTesla();
+			double distance = Math.sqrt(Math.pow((double) posActuelleTesla.getX()-trouTemp.getPositionTrou().getX(), (double) 2)+Math.pow((double) posActuelleTesla.getY()-trouTemp.getPositionTrou().getY(), (double) 2));
+			if(distance < influence) {
+				niv.getTesla().setPositionTesla(new Position((int) ( posActuelleTesla.getX() +trouTemp.getCoeffGravite()*(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX())), (int) (posActuelleTesla.getY() +trouTemp.getCoeffGravite()*(posActuelleTesla.getY()-trouTemp.getPositionTrou().getY()))));
+				float temp = trouTemp.getCoeffGravite()*(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX());
+				System.out.println(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX()+"  "+temp);
+				//le if sert à vérifier que la tesla est dans le périmètre d'influence du trou
+				// on utilise le coeffGravite pour déplacer la tesla vers le trou ou la repousser
+			}
+		}
 	}
 
 	public void arret() {

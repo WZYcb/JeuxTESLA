@@ -7,18 +7,12 @@ public class Position {
 	private int x;
 	private int y;
 		
-	public void position(int x,int y){
+	public Position(int x,int y) {
 		this.x=x;
 		this.y=y;		
 	}
 	
-	public void positionTesla(int x,int y){
-		x=0;
-		y=0;	
-	}
-	
-	public int getX()
-	{
+	public int getX() {
 		return x;
 	}
 	
@@ -26,21 +20,12 @@ public class Position {
 		x=xParam;
 	}
 	
-    public int getY()
-	{
+    public int getY() {
 		return y;
 	}
-    public void setY(int YParam) {
-		y=YParam;
+    public void setY(int yParam) {
+		y=yParam;
 	}
-    public void positioninitiale(){
-		
-		Random r = new Random();
-		
-		this.x = r.nextInt(40);
-		
-		this.y = r.nextInt(40);
-    }
     
     
 }

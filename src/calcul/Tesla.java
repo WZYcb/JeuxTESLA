@@ -5,18 +5,18 @@ import java.awt.event.KeyEvent;
 public class Tesla {
 	
 	private int idTesla;
-	private int nivBattrie;
+	private int nivBatterie;
 	private float vMax;
 	private float couple;
     private String nom;
 	private String couleur;
     private Position positionTesla;
-    private int vitesseTesla = 5;
+    private int vitesseTesla = 20;
     
-    public Tesla(int idTesla,int nivBattrie,float vMax, float couple,String nom,String couleur,
+    public Tesla(int idTesla,int nivBatterie,float vMax, float couple,String nom,String couleur,
     		Position positionTesla,int vitesseTesla) {
     	this.idTesla=idTesla;
-    	this.nivBattrie=nivBattrie;
+    	this.nivBatterie=nivBatterie;
     	this.vMax=vMax;
     	this.couple=couple;
     	this.nom=nom;
@@ -26,16 +26,16 @@ public class Tesla {
     	
     }
     
-    public Tesla(int idTesla) {
+    public Tesla(int idTesla, Position positionTesla) {
     	this.idTesla=idTesla;
-    	
-    	
+    	this.positionTesla=positionTesla;
     }
+    
     public int getIdTesla() {
     	return idTesla;
     }
-    public int getNivBattrie() {
-    	return nivBattrie;
+    public int getNivBatterie() {
+    	return nivBatterie;
     }
     public float getVMax() {
     	return vMax;
@@ -59,8 +59,8 @@ public class Tesla {
     public void setIdTesla(int idTesla) {
     	this.idTesla=idTesla;
     }
-    public void setNivBattrie(int nivBattrie) {
-    	this.nivBattrie=nivBattrie;
+    public void setNivBatterie(int nivBatterie) {
+    	this.nivBatterie=nivBatterie;
     }
     public void setVMax(float vMax) {
     	this.vMax=vMax;
@@ -90,13 +90,13 @@ public class Tesla {
     
     
     public void rechargerTesla() {
-    	nivBattrie=nivBattrie+20;
+    	nivBatterie=nivBatterie+20;
 
     }
     
 
     public void dechargerTesla() {
-    	nivBattrie=nivBattrie-1;
+    	nivBatterie=nivBatterie-1;
 
     }
     
@@ -132,16 +132,16 @@ public class Tesla {
     
     void action(int numeroTouche) { 
         if ( numeroTouche== KeyEvent.VK_UP) { 
-        	positionTesla.setX(positionTesla.getX()+vitesseTesla);
+        	positionTesla.setY(positionTesla.getY()-vitesseTesla);
         } 
         else if (numeroTouche == KeyEvent.VK_DOWN) { 
-        	positionTesla.setX(positionTesla.getX()-vitesseTesla);
-        } 
-        else if (numeroTouche == KeyEvent.VK_RIGHT) { 
         	positionTesla.setY(positionTesla.getY()+vitesseTesla);
         } 
+        else if (numeroTouche == KeyEvent.VK_RIGHT) { 
+        	positionTesla.setX(positionTesla.getX()+vitesseTesla);
+        } 
         else if (numeroTouche == KeyEvent.VK_LEFT) { 
-        	positionTesla.setY(positionTesla.getY()-vitesseTesla);
+        	positionTesla.setX(positionTesla.getX()-vitesseTesla);
         } 
         
     }  
