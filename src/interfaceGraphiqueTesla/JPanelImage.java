@@ -53,6 +53,7 @@ public class JPanelImage extends JPanel {
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		g.setColor(Color.black);
 		this.setBackground(Color.white);
 		if(image!=null) {
 			 g.drawImage(image, 0, 0, this.getWidth(),this.getHeight(), null);

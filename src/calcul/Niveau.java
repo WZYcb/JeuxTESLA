@@ -25,39 +25,56 @@ public class Niveau {
 		pointArrivee= new Position(tailleNiveau.getX()-100,tailleNiveau.getY()-100) ;
 		tesla=new Tesla(1, pointDepart);
 		if (idNiveau==1) {
-			for(i=0;i<3;i++) {
+			for(i=1;i<2;i++) {
 				listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 			}
-			for(j=0;j<2;j++) {
+			for(j=0;j<1;j++) {
 				listeRecharge.add(new Recharge(j,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 			}
 		} else {
 			if (idNiveau==2) {
-				for(i=0;i<5;i++) {
+				for(i=0;i<2;i++) {
 					listeTrou.add(new Trou(i,100,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+				}
+				for(j=0;j<2;j++) {
+					listeRecharge.add(new Recharge(j,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 				}
 				
 			} else {
 				if (idNiveau==3) {
-					
+					for(i=0;i<3;i++) {
+						listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+					}
 				} else {
 					if (idNiveau==4) {
-						
+						for(i=0;i<4;i++) {
+							listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+						}
 					} else {
 						if (idNiveau==5) {
-							
+							for(i=0;i<5;i++) {
+								listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+							}
 						} else {
 							if (idNiveau==6) {
-								
+								for(i=0;i<6;i++) {
+									listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+								}
 							} else {
 								if (idNiveau==7) {
-									
+									for(i=0;i<7;i++) {
+										listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+									}
 								} else {
 									if (idNiveau==8) {
-										
+										for(i=0;i<8;i++) {
+											listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+										}
 									} else {
 										if (idNiveau==9) {
-											
+											for(i=0;i<9;i++) {
+												listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+											}
 										}
 									}
 								}
