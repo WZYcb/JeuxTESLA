@@ -92,8 +92,8 @@ public class Simulateur extends Thread{
 			double distance = Math.sqrt(Math.pow((double) posActuelleTesla.getX()-trouTemp.getPositionTrou().getX(), (double) 2)+Math.pow((double) posActuelleTesla.getY()-trouTemp.getPositionTrou().getY(), (double) 2));
 			if(distance < influence) {
 				int coeffGravInt = Math.round(trouTemp.getCoeffGravite());
-				posActuelleTesla.setX(posActuelleTesla.getX() +coeffGravInt*(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX()));
-				posActuelleTesla.setY(posActuelleTesla.getY() +coeffGravInt*(posActuelleTesla.getY()-trouTemp.getPositionTrou().getY()));
+				posActuelleTesla.setX(posActuelleTesla.getX() +coeffGravInt*(trouTemp.getPositionTrou().getX()-posActuelleTesla.getX()));
+				posActuelleTesla.setY(posActuelleTesla.getY() +coeffGravInt*(trouTemp.getPositionTrou().getY()-posActuelleTesla.getY()));
 				float temp = trouTemp.getCoeffGravite()*(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX());
 				System.out.println(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX()+"  "+temp);
 				//le if sert � v�rifier que la tesla est dans le p�rim�tre d'influence du trou
