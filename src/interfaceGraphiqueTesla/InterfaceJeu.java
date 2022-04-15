@@ -23,9 +23,11 @@ import java.awt.Dimension;
 public class InterfaceJeu extends JFrame {
 
 	private JPanel contentPane;
-	private boolean niveauReussi = false;
 	private Simulateur simul;
+
     private int niveau;
+
+	private JProgressBar niveauBatterie;
 
 	/**
 	 * Launch the application.
@@ -84,13 +86,15 @@ public class InterfaceJeu extends JFrame {
 		panelLogoBatterie.setOpaque(false);
 		infosEnJeu.add(panelLogoBatterie);
 		
-		JProgressBar niveauBatterie = new JProgressBar();
+		niveauBatterie = new JProgressBar();
 		niveauBatterie.setForeground(new Color(0, 128, 0));
+
 		niveauBatterie.setValue(100); //関entuellement supprimer � l'int間ration
 		if(niveauBatterie.getValue()>0) {// ajouter un retour du niveau de la batterie de l'algorithmique
 			//perte progressive de batterie lorsqu'on d閜lace la voiture
 			//gain instantan� de batterie lorsqu'on passe sur un supercharger
 		}
+
 		infosEnJeu.add(niveauBatterie);
 		
 		JPanel panelBonusActif = new JPanelImage("logo_bonus.png");
@@ -112,20 +116,26 @@ public class InterfaceJeu extends JFrame {
 		manager.addKeyEventDispatcher(new MyDispatcher());
 		
 	}
+	
+	public void afficherNivBatterie() {
+		if(simul!=null) {
+			niveauBatterie.setValue(simul.getNiv().getTesla().getNivBatterie());
+		} else {
+			niveauBatterie.setValue(100);
+		}
+	}
 	public void clicRetourMenu() {
+
 		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// cr閑r la frame du menu avec les niveaux
 		this.setNiveauReussi(false);//indiquer que le niveau n'est pas r閡ssi car on retourne au menu avant
+
+		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// cr�er la frame du menu avec les niveaux
+
 		menuNiveaux.setVisible(true);// l'ouvrir
 		this.dispose();//ferme la frame
 	}
-
-	public boolean isNiveauReussi() {
-		return niveauReussi;
-	}
-
-	public void setNiveauReussi(boolean niveauReussi) {
-		this.niveauReussi = niveauReussi;
-	}
+	
+	
 	public void clicClavier(KeyEvent arg0) {
 		// Valeur de la touche
 		simul.setKey(arg0.getKeyCode());

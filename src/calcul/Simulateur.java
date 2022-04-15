@@ -2,6 +2,7 @@ package calcul;
 
 import java.util.Iterator;
 
+import interfaceGraphiqueTesla.InterfaceGameOver;
 import interfaceGraphiqueTesla.InterfaceJeu;
 
 
@@ -54,7 +55,7 @@ public class Simulateur extends Thread{
 
 			try {
 				// Mise en pause pendant 250ms
-				Thread.sleep(100);
+				Thread.sleep(1000/120);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -65,14 +66,22 @@ public class Simulateur extends Thread{
 	public void faireUneEtape() {
 		// deplacer voiture en fonction de la touche et des trous
 		//etape 1 : touches
-		if (key!=-1) {
-			niv.getTesla().action(key);		
+		if ((key!=-1) && niv.getTesla().getNivBatterie()>0) {
+			niv.getTesla().action(key);
+			niv.getTesla().dechargerTesla();
 			key=-1;
 			}
+		mjf.afficherNivBatterie();
 		// etape 2 : trous noirs
 		influenceTrouNoir();
 		//deplacement des objets
-			
+		
+		//recharge 
+		recupererRecharge();
+		//check collision
+		collision();
+		//check niveau réussi
+		isFinished();
 	}
 	public void influenceTrouNoir() {
 		Iterator<Trou> iT = niv.getListeTrou().iterator();
@@ -90,7 +99,50 @@ public class Simulateur extends Thread{
 			}
 		}
 	}
-
+	
+	public void recupererRecharge() {
+		Iterator<Recharge> iR = niv.getListeRecharge().iterator();
+		while(iR.hasNext()) {
+			Recharge rechargeTemp = iR.next();
+			if((niv.getTesla().getPositionTesla().getX()>(rechargeTemp.getPositionRecharge().getX()-30)) && (niv.getTesla().getPositionTesla().getX()<(rechargeTemp.getPositionRecharge().getX()+30)) && (niv.getTesla().getPositionTesla().getY()>(rechargeTemp.getPositionRecharge().getY()-30)) && (niv.getTesla().getPositionTesla().getY()<(rechargeTemp.getPositionRecharge().getY()+30))) {
+				niv.getTesla().recupererRecharge();
+			}
+		}
+		
+	}
+	public boolean collision() {
+		boolean flag=false;
+		//collision avec les trous
+		Iterator<Trou> iT = niv.getListeTrou().iterator();
+		while(iT.hasNext() && !flag) {
+			Trou trouTemp = iT.next();
+			Position posActuelleTesla = niv.getTesla().getPositionTesla();
+			if((posActuelleTesla.getX()>(trouTemp.getPositionTrou().getX())) && (posActuelleTesla.getX()<(trouTemp.getPositionTrou().getX()+30)) && (posActuelleTesla.getY()>(trouTemp.getPositionTrou().getY())) && (posActuelleTesla.getY()<(trouTemp.getPositionTrou().getY()+30))) {
+				flag=true;
+				gameOver();
+			}
+		}
+		//collision avec les astéroïdes
+		
+		return flag;
+	}
+	
+	public void gameOver() {
+		arret();
+		InterfaceGameOver youLost= new InterfaceGameOver();
+		youLost.setVisible(true);
+		mjf.dispose();
+	}
+	
+	public boolean isFinished() {
+		boolean flag=false;
+		if((niv.getTesla().getPositionTesla().getX()>(niv.getPointArrivee().getX()-30)) && (niv.getTesla().getPositionTesla().getX()<(niv.getPointArrivee().getX()+30)) && (niv.getTesla().getPositionTesla().getY()>(niv.getPointArrivee().getY()-30)) && (niv.getTesla().getPositionTesla().getY()<(niv.getPointArrivee().getY()+30))) {
+			flag=true;
+			arret();
+		}
+		return flag;
+	}
+	
 	public void arret() {
 		stop=true;
 	}

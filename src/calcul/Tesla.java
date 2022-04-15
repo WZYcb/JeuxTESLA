@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 public class Tesla {
 	
 	private int idTesla;
-	private int nivBatterie;
+	private int nivBatterie = 100;
 	private float vMax;
 	private float couple;
     private String nom;
@@ -89,10 +89,6 @@ public class Tesla {
         	
     
     
-    public void rechargerTesla() {
-    	nivBatterie=nivBatterie+20;
-
-    }
     
 
     public void dechargerTesla() {
@@ -113,17 +109,9 @@ public class Tesla {
     	
     }
     
-    public boolean contactRecharge() {
-		return false;
-    	
-    }
     
     public void recupererRecharge() {
-    	if (contactRecharge()==true) {
-    		
-    	}
-    	
-    	
+		nivBatterie = 100;
     }
     
     public void recupererBonus() {

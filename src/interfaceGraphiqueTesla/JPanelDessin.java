@@ -136,7 +136,6 @@ public class JPanelDessin extends JPanel {
 			Iterator<Trou> iT = simul.getNiv().getListeTrou().iterator();
 			Iterator<Recharge> iR = simul.getNiv().getListeRecharge().iterator();
 			int i=0;
-			int j=0;
 			lambdaX=(float) this.getWidth()/simul.getNiv().getTailleNiveau().getX();
 			lambdaY=(float) this.getHeight()/simul.getNiv().getTailleNiveau().getY();
 			g.drawImage(voitureImg, Math.round(simul.getNiv().getTesla().getPositionTesla().getX()*lambdaX), Math.round(simul.getNiv().getTesla().getPositionTesla().getY()*lambdaY),40,20, null);
@@ -144,27 +143,38 @@ public class JPanelDessin extends JPanel {
 			//System.out.println(simul.getNiv().getListeTrou().size()+" "+simul.getNiv().getListeRecharge().size()+" "+simul.getNiv().getListeTrou().size());
 			
 			while(iR.hasNext()) {
-				g.drawImage(superchargerImg, Math.round(simul.getNiv().getListeRecharge().get(j).getPositionRecharge().getX()*lambdaX) , Math.round(simul.getNiv().getListeRecharge().get(j).getPositionRecharge().getY()*lambdaY),50,50, null);
-				iR.next();
+				Recharge rechargeTmp = iR.next();
+				g.drawImage(superchargerImg, Math.round(rechargeTmp.getPositionRecharge().getX()*lambdaX) , Math.round(rechargeTmp.getPositionRecharge().getY()*lambdaY),50,50, null);
+				
 				
 			}
 			
 			while(iT.hasNext()) {
+
 				int x= Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX);
 				int y =Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY);
 			
 				if(iT.next().getCoeffGravite()<0) {
-					
+
+				Trou trouTmp=iT.next();
+				if(trouTmp.getCoeffGravite()<0) {
+					g.drawImage(trouNoirImg, Math.round(trouTmp.getPositionTrou().getX()*lambdaX) , Math.round(trouTmp.getPositionTrou().getY()*lambdaY),50,50, null);
+
 					
 					g.fillRect(x, y, 10, 10);
 					g.drawImage(trouNoirImg, x, y,(int) lambdaX,(int)lambdaY, null);
 					g.setColor(Color.red);
 				} else {
+
 				
 					g.fillRect(x, y, 10, 10);
 					g.drawImage(trouBlancImg, x , y,(int)lambdaX,(int)lambdaY, null);
 
 					g.setColor(Color.green);
+
+					g.drawImage(trouBlancImg, Math.round(trouTmp.getPositionTrou().getX()*lambdaX) , Math.round(trouTmp.getPositionTrou().getY()*lambdaY),50,50, null);
+					
+
 				}
 				
 				/*System.out.println(this.getWidth()+" "+this.getHeight()+" "+lambdaX+" "+lambdaY+" "+x+" "+y);
