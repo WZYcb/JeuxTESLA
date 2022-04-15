@@ -3,20 +3,20 @@ package calcul;
 import java.util.Iterator;
 
 import interfaceGraphiqueTesla.InterfaceJeu;
-import interfaceGraphiqueTesla.InterfaceNiveaux;
+
 
 public class Simulateur extends Thread{
-	
+
 
 	private InterfaceJeu mjf;
 	private boolean stop;
 	private int key = -1;
 	private Niveau niv;
-	private InterfaceNiveaux inter;
+
 	
-	public Simulateur(InterfaceJeu interfaceJeu) {
+	public Simulateur(InterfaceJeu interfaceJeu,int niveau) {
 		stop=false;
-		niv = new Niveau(1);
+		niv = new Niveau(niveau);
 		mjf = interfaceJeu;
 	}
 	

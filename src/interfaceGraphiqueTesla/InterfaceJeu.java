@@ -25,7 +25,7 @@ public class InterfaceJeu extends JFrame {
 	private JPanel contentPane;
 	private boolean niveauReussi = false;
 	private Simulateur simul;
-
+    private int niveau;
 
 	/**
 	 * Launch the application.
@@ -34,7 +34,7 @@ public class InterfaceJeu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					InterfaceJeu frame = new InterfaceJeu();
+					InterfaceJeu frame = new InterfaceJeu(1);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,7 +46,8 @@ public class InterfaceJeu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public InterfaceJeu() {
+	public InterfaceJeu(int niveau) {
+		this.setNiveau(niveau);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -75,7 +76,7 @@ public class InterfaceJeu extends JFrame {
 		});
 		infosEnJeu.add(btnRetourMenu);
 		
-		JLabel lblTempsRestant = new JLabel("Temps restant : 00:00"); // modifier avec un retour du temps écoule de l'algorithmique
+		JLabel lblTempsRestant = new JLabel("Temps restant : 00:00"); // modifier avec un retour du temps é–oule de l'algorithmique
 		lblTempsRestant.setForeground(new Color(255, 0, 0));
 		infosEnJeu.add(lblTempsRestant);
 		
@@ -85,16 +86,16 @@ public class InterfaceJeu extends JFrame {
 		
 		JProgressBar niveauBatterie = new JProgressBar();
 		niveauBatterie.setForeground(new Color(0, 128, 0));
-		niveauBatterie.setValue(100); //éventuellement supprimer à l'intégration
+		niveauBatterie.setValue(100); //é–¢entuellement supprimer ï¿½ l'inté–“ration
 		if(niveauBatterie.getValue()>0) {// ajouter un retour du niveau de la batterie de l'algorithmique
-			//perte progressive de batterie lorsqu'on déplace la voiture
-			//gain instantané de batterie lorsqu'on passe sur un supercharger
+			//perte progressive de batterie lorsqu'on dé–œlace la voiture
+			//gain instantanï¿½ de batterie lorsqu'on passe sur un supercharger
 		}
 		infosEnJeu.add(niveauBatterie);
 		
 		JPanel panelBonusActif = new JPanelImage("logo_bonus.png");
 		panelBonusActif.setOpaque(false);
-		if(true) { // condition à ajouter : savoir si bonus récupéré récemment ou pas
+		if(true) { // condition ï¿½ ajouter : savoir si bonus ré–upé–ï¿½ ré–emment ou pas
 			//panelBonusActif.setImage("logo_bonus.png");
 		}
 		infosEnJeu.add(panelBonusActif);
@@ -102,7 +103,7 @@ public class InterfaceJeu extends JFrame {
 		JPanelDessin mapJeu = new JPanelDessin();
 		mapJeu.setOpaque(false);
 		affichageJeu.add(mapJeu, BorderLayout.CENTER);
-		simul = new Simulateur(this);
+		simul = new Simulateur(this,niveau);
 		mapJeu.setSimul(simul);
 		simul.start();
 
@@ -112,8 +113,8 @@ public class InterfaceJeu extends JFrame {
 		
 	}
 	public void clicRetourMenu() {
-		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// créer la frame du menu avec les niveaux
-		this.setNiveauReussi(false);//indiquer que le niveau n'est pas réussi car on retourne au menu avant
+		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// cré–‘r la frame du menu avec les niveaux
+		this.setNiveauReussi(false);//indiquer que le niveau n'est pas ré–¡ssi car on retourne au menu avant
 		menuNiveaux.setVisible(true);// l'ouvrir
 		this.dispose();//ferme la frame
 	}
@@ -129,6 +130,13 @@ public class InterfaceJeu extends JFrame {
 		// Valeur de la touche
 		simul.setKey(arg0.getKeyCode());
 		}
+	public int getNiveau() {
+		return niveau;
+	}
+
+	public void setNiveau(int niveau) {
+		this.niveau = niveau;
+	}
 	private class MyDispatcher implements KeyEventDispatcher {
 		@Override
 		public boolean dispatchKeyEvent(KeyEvent e) {
@@ -141,5 +149,8 @@ public class InterfaceJeu extends JFrame {
 		}
 		return false;
 		}
+
 		}
+		
+		
 }

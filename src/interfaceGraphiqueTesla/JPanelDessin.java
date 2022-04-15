@@ -106,7 +106,8 @@ public class JPanelDessin extends JPanel {
 		try {                
 	          trouNoirImg = ImageIO.read(new File(sNomFile));
 	       } catch (IOException ex) {
-	    	   trouNoirImg=null;
+	    	   
+	    	   System.out.println(trouNoirImg);
 	       }
 		sNomFile=".\\images\\"+"trou_blanc.png";
 		try {                
@@ -119,6 +120,7 @@ public class JPanelDessin extends JPanel {
 	          superchargerImg = ImageIO.read(new File(sNomFile));
 	       } catch (IOException ex) {
 	    	   superchargerImg=null;
+	    	   
 	       }
 		
 	}
@@ -139,6 +141,7 @@ public class JPanelDessin extends JPanel {
 			lambdaY=(float) this.getHeight()/simul.getNiv().getTailleNiveau().getY();
 			g.drawImage(voitureImg, Math.round(simul.getNiv().getTesla().getPositionTesla().getX()*lambdaX), Math.round(simul.getNiv().getTesla().getPositionTesla().getY()*lambdaY),40,20, null);
 			g.drawImage(planeteLivraisonImg, Math.round(simul.getNiv().getPointArrivee().getX()*lambdaX), Math.round(simul.getNiv().getPointArrivee().getY()*lambdaY), 50,50, null);
+			//System.out.println(simul.getNiv().getListeTrou().size()+" "+simul.getNiv().getListeRecharge().size()+" "+simul.getNiv().getListeTrou().size());
 			
 			while(iR.hasNext()) {
 				g.drawImage(superchargerImg, Math.round(simul.getNiv().getListeRecharge().get(j).getPositionRecharge().getX()*lambdaX) , Math.round(simul.getNiv().getListeRecharge().get(j).getPositionRecharge().getY()*lambdaY),50,50, null);
@@ -147,18 +150,27 @@ public class JPanelDessin extends JPanel {
 			}
 			
 			while(iT.hasNext()) {
+				int x= Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX);
+				int y =Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY);
+			
 				if(iT.next().getCoeffGravite()<0) {
-					g.drawImage(trouNoirImg, Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX) , Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY),50,50, null);
 					
+					
+					g.fillRect(x, y, 10, 10);
+					g.drawImage(trouNoirImg, x, y,(int) lambdaX,(int)lambdaY, null);
+					g.setColor(Color.red);
 				} else {
-					g.drawImage(trouBlancImg, Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX) , Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY),50,50, null);
-					
+				
+					g.fillRect(x, y, 10, 10);
+					g.drawImage(trouBlancImg, x , y,(int)lambdaX,(int)lambdaY, null);
+
+					g.setColor(Color.green);
 				}
-				/*
-				System.out.println(this.getWidth()+" "+this.getHeight());
+				
+				/*System.out.println(this.getWidth()+" "+this.getHeight()+" "+lambdaX+" "+lambdaY+" "+x+" "+y);
 				System.out.println(lambdaX+"    "+lambdaY);
-				i=i+1;
-				*/
+				i=i+1;*/
+				
 			}
 			/*
 			
