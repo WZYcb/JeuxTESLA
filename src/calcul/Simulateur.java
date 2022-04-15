@@ -54,7 +54,7 @@ public class Simulateur extends Thread{
 
 			try {
 				// Mise en pause pendant 250ms
-				Thread.sleep(100);
+				Thread.sleep(1000/120);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -72,7 +72,9 @@ public class Simulateur extends Thread{
 		// etape 2 : trous noirs
 		influenceTrouNoir();
 		//deplacement des objets
-			
+		
+		//check niveau réussi
+		isFinished();
 	}
 	public void influenceTrouNoir() {
 		Iterator<Trou> iT = niv.getListeTrou().iterator();
@@ -90,7 +92,16 @@ public class Simulateur extends Thread{
 			}
 		}
 	}
-
+	
+	public boolean isFinished() {
+		boolean flag=false;
+		if((niv.getTesla().getPositionTesla().getX()>(niv.getPointArrivee().getX())) && (niv.getTesla().getPositionTesla().getY()>(niv.getPointArrivee().getY()))) {
+			flag=true;
+			arret();
+		}
+		return flag;
+	}
+	
 	public void arret() {
 		stop=true;
 	}
