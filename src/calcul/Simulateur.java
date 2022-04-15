@@ -3,6 +3,7 @@ package calcul;
 import java.util.Iterator;
 
 import interfaceGraphiqueTesla.InterfaceJeu;
+import interfaceGraphiqueTesla.InterfaceNiveaux;
 
 public class Simulateur extends Thread{
 	
@@ -11,10 +12,11 @@ public class Simulateur extends Thread{
 	private boolean stop;
 	private int key = -1;
 	private Niveau niv;
+	private InterfaceNiveaux inter;
 	
 	public Simulateur(InterfaceJeu interfaceJeu) {
 		stop=false;
-		niv= new Niveau(1);
+		niv = new Niveau(1);
 		mjf = interfaceJeu;
 	}
 	
@@ -83,8 +85,8 @@ public class Simulateur extends Thread{
 				niv.getTesla().setPositionTesla(new Position((int) ( posActuelleTesla.getX() +trouTemp.getCoeffGravite()*(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX())), (int) (posActuelleTesla.getY() +trouTemp.getCoeffGravite()*(posActuelleTesla.getY()-trouTemp.getPositionTrou().getY()))));
 				float temp = trouTemp.getCoeffGravite()*(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX());
 				System.out.println(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX()+"  "+temp);
-				//le if sert à vérifier que la tesla est dans le périmètre d'influence du trou
-				// on utilise le coeffGravite pour déplacer la tesla vers le trou ou la repousser
+				//le if sert ï¿½ vï¿½rifier que la tesla est dans le pï¿½rimï¿½tre d'influence du trou
+				// on utilise le coeffGravite pour dï¿½placer la tesla vers le trou ou la repousser
 			}
 		}
 	}

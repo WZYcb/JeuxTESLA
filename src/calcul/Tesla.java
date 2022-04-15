@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 public class Tesla {
 	
 	private int idTesla;
-	private int nivBatterie;
+	private int nivBatterie = 100;
 	private float vMax;
 	private float couple;
     private String nom;
@@ -120,7 +120,7 @@ public class Tesla {
     
     public void recupererRecharge() {
     	if (contactRecharge()==true) {
-    		
+    		nivBatterie=nivBatterie + 20;
     	}
     	
     	

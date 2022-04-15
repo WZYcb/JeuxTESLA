@@ -22,6 +22,9 @@ import javax.swing.JTextField;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import calcul.Niveau;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.FlowLayout;
@@ -35,7 +38,7 @@ import java.awt.Font;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class InterfaceNiveaux extends JFrame {
-
+	public int a;
 	private JPanel contentPane;
 	/**
 	 * @wbp.nonvisual location=-406,209
@@ -255,5 +258,18 @@ public class InterfaceNiveaux extends JFrame {
 		this.dispose();//ferme la frame actuelle
 		// TODO Auto-generated method stub
 		avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
+	}
+		
+	public void clicNiveau(ActionEvent e) {
+		if(e.getActionCommand().equals("Niveau 1")) {
+			a=1;
+		}else if (e.getActionCommand().equals("Niveau 2")) {
+			a=2;
+		}
+	}
+	
+	public int getA() {
+		
+		return a;
 	}
 }
