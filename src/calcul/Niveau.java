@@ -45,6 +45,9 @@ public class Niveau {
 					for(i=0;i<3;i++) {
 						listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 					}
+					for(j=0;j<2;j++) {
+						listeRecharge.add(new Recharge(j,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+					}
 				} else {
 					if (idNiveau==4) {
 						for(i=0;i<4;i++) {

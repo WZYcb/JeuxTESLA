@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import interfaceGraphiqueTesla.InterfaceGameOver;
 import interfaceGraphiqueTesla.InterfaceJeu;
+import interfaceGraphiqueTesla.JFrame;
 
 
 public class Simulateur extends Thread{
@@ -136,11 +137,21 @@ public class Simulateur extends Thread{
 		mjf.dispose();
 	}
 	
+	
+	public void win() {
+		arret();
+		JFrame youwin= new JFrame();
+		youwin.setVisible(true);
+		mjf.dispose();
+	}
+	
+	
+	
 	public boolean isFinished() {
 		boolean flag=false;
 		if((niv.getTesla().getPositionTesla().getX()>(niv.getPointArrivee().getX()-30)) && (niv.getTesla().getPositionTesla().getX()<(niv.getPointArrivee().getX()+30)) && (niv.getTesla().getPositionTesla().getY()>(niv.getPointArrivee().getY()-30)) && (niv.getTesla().getPositionTesla().getY()<(niv.getPointArrivee().getY()+30))) {
 			flag=true;
-			arret();
+			win();
 		}
 		return flag;
 	}
