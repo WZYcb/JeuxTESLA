@@ -70,6 +70,7 @@ public class Simulateur extends Thread{
 			niv.getTesla().dechargerTesla();
 			key=-1;
 			}
+		mjf.afficherNivBatterie();
 		// etape 2 : trous noirs
 		influenceTrouNoir();
 		//deplacement des objets

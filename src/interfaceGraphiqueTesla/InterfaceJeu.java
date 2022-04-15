@@ -24,7 +24,7 @@ public class InterfaceJeu extends JFrame {
 
 	private JPanel contentPane;
 	private Simulateur simul;
-
+	private JProgressBar niveauBatterie;
 
 	/**
 	 * Launch the application.
@@ -82,13 +82,8 @@ public class InterfaceJeu extends JFrame {
 		panelLogoBatterie.setOpaque(false);
 		infosEnJeu.add(panelLogoBatterie);
 		
-		JProgressBar niveauBatterie = new JProgressBar();
+		niveauBatterie = new JProgressBar();
 		niveauBatterie.setForeground(new Color(0, 128, 0));
-		if(simul!=null) {
-			niveauBatterie.setValue(simul.getNiv().getTesla().getNivBatterie());
-		} else {
-			niveauBatterie.setValue(100);
-		}
 		infosEnJeu.add(niveauBatterie);
 		
 		JPanel panelBonusActif = new JPanelImage("logo_bonus.png");
@@ -109,6 +104,14 @@ public class InterfaceJeu extends JFrame {
 		KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
 		manager.addKeyEventDispatcher(new MyDispatcher());
 		
+	}
+	
+	public void afficherNivBatterie() {
+		if(simul!=null) {
+			niveauBatterie.setValue(simul.getNiv().getTesla().getNivBatterie());
+		} else {
+			niveauBatterie.setValue(100);
+		}
 	}
 	public void clicRetourMenu() {
 		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// créer la frame du menu avec les niveaux
