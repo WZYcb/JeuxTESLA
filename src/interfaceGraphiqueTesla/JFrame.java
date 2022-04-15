@@ -9,6 +9,10 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 
 public class JFrame extends javax.swing.JFrame {
 
@@ -45,11 +49,17 @@ public class JFrame extends javax.swing.JFrame {
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setForeground(Color.RED);
-		panel_1.setBackground(Color.GRAY);
-		panel.add(panel_1);
-		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		JButton btnNewButton = new JButton("Retour Menu");
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
+		btnNewButton.setBackground(Color.CYAN);
+		btnNewButton.setForeground(Color.BLACK);
+		panel.add(btnNewButton);
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicRetourMenu();
+			}
+		});
 		
 		JLabel lblNewLabel = new JLabel("FELICITATIONS");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 34));
@@ -57,5 +67,9 @@ public class JFrame extends javax.swing.JFrame {
 		lblNewLabel.setForeground(Color.YELLOW);
 		panel.add(lblNewLabel);
 	}
-
+	public void clicRetourMenu() {
+		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// créer la frame du menu avec les niveaux
+		menuNiveaux.setVisible(true);// l'ouvrir
+		this.dispose();//ferme la frame 
+}
 }
