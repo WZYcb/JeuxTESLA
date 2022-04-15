@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import javax.imageio.ImageIO;
+import javax.imageio.ImageIO; 
 import javax.swing.JPanel;
 
 
@@ -106,8 +106,8 @@ public class JPanelDessin extends JPanel {
 		try {                
 	          trouNoirImg = ImageIO.read(new File(sNomFile));
 	       } catch (IOException ex) {
-	    	   
-	    	   System.out.println(trouNoirImg);
+	    	   trouNoirImg=null;
+	    	  
 	       }
 		sNomFile=".\\images\\"+"trou_blanc.png";
 		try {                
@@ -151,28 +151,23 @@ public class JPanelDessin extends JPanel {
 			
 			while(iT.hasNext()) {
 
-				int x= Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX);
-				int y =Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY);
-			
-				if(iT.next().getCoeffGravite()<0) {
-
+			  
 				Trou trouTmp=iT.next();
+
+				if(trouTmp.getCoeffGravite()<0) {
+
 				if(trouTmp.getCoeffGravite()<0) {
 					g.drawImage(trouNoirImg, Math.round(trouTmp.getPositionTrou().getX()*lambdaX) , Math.round(trouTmp.getPositionTrou().getY()*lambdaY),50,50, null);
 
 					
-					g.fillRect(x, y, 10, 10);
-					g.drawImage(trouNoirImg, x, y,(int) lambdaX,(int)lambdaY, null);
-					g.setColor(Color.red);
+				
+				
 				} else {
 
-				
-					g.fillRect(x, y, 10, 10);
-					g.drawImage(trouBlancImg, x , y,(int)lambdaX,(int)lambdaY, null);
-
-					g.setColor(Color.green);
-
 					g.drawImage(trouBlancImg, Math.round(trouTmp.getPositionTrou().getX()*lambdaX) , Math.round(trouTmp.getPositionTrou().getY()*lambdaY),50,50, null);
+					
+				
+
 					
 
 				}
@@ -191,6 +186,6 @@ public class JPanelDessin extends JPanel {
 	}
 	
 
+	}	
 	
-	
-}
+	}

@@ -17,7 +17,7 @@ import javax.swing.JProgressBar;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
-import java.awt.Color;
+import java.awt.Color; 
 import java.awt.Dimension;
 
 public class InterfaceJeu extends JFrame {
@@ -44,7 +44,7 @@ public class InterfaceJeu extends JFrame {
 			}
 		});
 	}
-
+ 
 	/**
 	 * Create the frame.
 	 */
@@ -70,7 +70,7 @@ public class InterfaceJeu extends JFrame {
 		panelLogoTesla.setOpaque(false);
 		infosEnJeu.add(panelLogoTesla);
 		
-		JButton btnRetourMenu = new JButton("Retour Menu");
+	   JButton btnRetourMenu = new JButton("Retour Menu");
 		btnRetourMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				clicRetourMenu();
@@ -124,12 +124,12 @@ public class InterfaceJeu extends JFrame {
 			niveauBatterie.setValue(100);
 		}
 	}
-	public void clicRetourMenu() {
+    public void clicRetourMenu() {
 
 		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// cr閑r la frame du menu avec les niveaux
-		this.setNiveauReussi(false);//indiquer que le niveau n'est pas r閡ssi car on retourne au menu avant
+	/*    this.setNiveauReussi(false);//indiquer que le niveau n'est pas r閡ssi car on retourne au menu avant
 
-		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// cr�er la frame du menu avec les niveaux
+		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// cr�er la frame du menu avec les niveaux   */
 
 		menuNiveaux.setVisible(true);// l'ouvrir
 		this.dispose();//ferme la frame
