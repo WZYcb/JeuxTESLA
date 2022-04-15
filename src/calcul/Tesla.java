@@ -111,13 +111,7 @@ public class Tesla {
     
     
     public void recupererRecharge() {
-    	if(nivBatterie<80) {
-			nivBatterie=nivBatterie + 20;
-		} else {
-			nivBatterie = 100;
-		}
-		
-    	
+		nivBatterie = 100;
     }
     
     public void recupererBonus() {

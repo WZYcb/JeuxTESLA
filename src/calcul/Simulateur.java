@@ -75,7 +75,8 @@ public class Simulateur extends Thread{
 		influenceTrouNoir();
 		//deplacement des objets
 		
-		
+		//recharge 
+		recupererRecharge();
 		//check niveau réussi
 		isFinished();
 	}
@@ -94,6 +95,17 @@ public class Simulateur extends Thread{
 				// on utilise le coeffGravite pour d�placer la tesla vers le trou ou la repousser
 			}
 		}
+	}
+	
+	public void recupererRecharge() {
+		Iterator<Recharge> iR = niv.getListeRecharge().iterator();
+		while(iR.hasNext()) {
+			Recharge rechargeTemp = iR.next();
+			if((niv.getTesla().getPositionTesla().getX()>(rechargeTemp.getPositionRecharge().getX()-30)) && (niv.getTesla().getPositionTesla().getX()<(rechargeTemp.getPositionRecharge().getX()+30)) && (niv.getTesla().getPositionTesla().getY()>(rechargeTemp.getPositionRecharge().getY()-30)) && (niv.getTesla().getPositionTesla().getY()<(rechargeTemp.getPositionRecharge().getY()+30))) {
+				niv.getTesla().recupererRecharge();
+			}
+		}
+		
 	}
 	
 	public boolean isFinished() {
