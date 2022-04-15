@@ -95,7 +95,7 @@ public class Simulateur extends Thread{
 	
 	public boolean isFinished() {
 		boolean flag=false;
-		if((niv.getTesla().getPositionTesla().getX()>(niv.getPointArrivee().getX())) && (niv.getTesla().getPositionTesla().getY()>(niv.getPointArrivee().getY()))) {
+		if((niv.getTesla().getPositionTesla().getX()>(niv.getPointArrivee().getX()-30)) && (niv.getTesla().getPositionTesla().getX()<(niv.getPointArrivee().getX()+30)) && (niv.getTesla().getPositionTesla().getY()>(niv.getPointArrivee().getY()-30)) && (niv.getTesla().getPositionTesla().getY()<(niv.getPointArrivee().getY()+30))) {
 			flag=true;
 			arret();
 		}

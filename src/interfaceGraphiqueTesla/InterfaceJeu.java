@@ -23,7 +23,6 @@ import java.awt.Dimension;
 public class InterfaceJeu extends JFrame {
 
 	private JPanel contentPane;
-	private boolean niveauReussi = false;
 	private Simulateur simul;
 
 
@@ -113,18 +112,12 @@ public class InterfaceJeu extends JFrame {
 	}
 	public void clicRetourMenu() {
 		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// créer la frame du menu avec les niveaux
-		this.setNiveauReussi(false);//indiquer que le niveau n'est pas réussi car on retourne au menu avant
+		this.simul.arret();
 		menuNiveaux.setVisible(true);// l'ouvrir
 		this.dispose();//ferme la frame
 	}
-
-	public boolean isNiveauReussi() {
-		return niveauReussi;
-	}
-
-	public void setNiveauReussi(boolean niveauReussi) {
-		this.niveauReussi = niveauReussi;
-	}
+	
+	
 	public void clicClavier(KeyEvent arg0) {
 		// Valeur de la touche
 		simul.setKey(arg0.getKeyCode());
