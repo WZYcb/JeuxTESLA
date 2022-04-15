@@ -39,6 +39,7 @@ import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class InterfaceNiveaux extends JFrame {
 	public int a;
+	
 	private JPanel contentPane;
 	/**
 	 * @wbp.nonvisual location=-406,209
@@ -104,12 +105,13 @@ public class InterfaceNiveaux extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
+				clicNiveau1();
 				
-				InterfaceJeu niveau1 = new InterfaceJeu();//cree une frame
+
+				InterfaceJeu niveau1 = new InterfaceJeu(1);//cree une frame
 				niveau1.setVisible(true);
-				// TODO Auto-generated method stub
+
 				
-				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+100);
 			}
 		});
 		
@@ -128,7 +130,7 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_1_2 = new JButton("Niveau 3");
 		btnNewButton_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				InterfaceJeu niveau3 = new InterfaceJeu();//cree une frame
+				InterfaceJeu niveau3 = new InterfaceJeu(3);//cree une frame
 				niveau3.setVisible(true);
 				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
@@ -139,7 +141,7 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_4 = new JButton("Niveau 4");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				InterfaceJeu niveau4 = new InterfaceJeu();//cree une frame
+				InterfaceJeu niveau4 = new InterfaceJeu(4);//cree une frame
 				niveau4.setVisible(true);
 				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
@@ -150,7 +152,7 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_5 = new JButton("Niveau 5");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				InterfaceJeu niveau5 = new InterfaceJeu();//cree une frame
+				InterfaceJeu niveau5 = new InterfaceJeu(5);//cree une frame
 				niveau5.setVisible(true);
 				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
@@ -161,7 +163,7 @@ public class InterfaceNiveaux extends JFrame {
 		JButton btnNewButton_7 = new JButton("Niveau 6");
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				InterfaceJeu niveau6 = new InterfaceJeu();//cree une frame
+				InterfaceJeu niveau6 = new InterfaceJeu(6);//cree une frame
 				niveau6.setVisible(true);
 				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 			}
@@ -184,7 +186,7 @@ public class InterfaceNiveaux extends JFrame {
 		btnNewButton_10.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				InterfaceJeu niveau8 = new InterfaceJeu();//cree une frame
+				InterfaceJeu niveau8 = new InterfaceJeu(8);//cree une frame
 				niveau8.setVisible(true);
 				// TODO Auto-generated method stub
 			}
@@ -198,7 +200,7 @@ public class InterfaceNiveaux extends JFrame {
 		btnNewButton_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				InterfaceJeu niveau9 = new InterfaceJeu();//cree une frame
+				InterfaceJeu niveau9 = new InterfaceJeu(9);//cree une frame
 				niveau9.setVisible(true);
 				// TODO Auto-generated method stub
 				
@@ -244,32 +246,29 @@ public class InterfaceNiveaux extends JFrame {
 		avanceeNiveaux.setForeground(Color.GREEN);
 		grilleBoutonsNiveaux.add(avanceeNiveaux);
 	}
+	public void clicNiveau1() {
+		InterfaceJeu niveau1 = new InterfaceJeu(1);//cree une frame
+		niveau1.setVisible(true);
+		this.dispose();//ferme la frame actuelle
+		
+		
+	}
+	
 	public void clicNiveau2() {
-		InterfaceJeu niveau2 = new InterfaceJeu();//cree une frame
+		InterfaceJeu niveau2 = new InterfaceJeu(2);//cree une frame
 		niveau2.setVisible(true);
 		this.dispose();//ferme la frame actuelle
 		// TODO Auto-generated method stub
-		avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 	}
 	
 	public void clicNiveau7() {
-		InterfaceJeu niveau7 = new InterfaceJeu();//cree une frame
+		InterfaceJeu niveau7 = new InterfaceJeu(7);//cree une frame
 		niveau7.setVisible(true);
 		this.dispose();//ferme la frame actuelle
 		// TODO Auto-generated method stub
-		avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
 	}
 		
-	public void clicNiveau(ActionEvent e) {
-		if(e.getActionCommand().equals("Niveau 1")) {
-			a=1;
-		}else if (e.getActionCommand().equals("Niveau 2")) {
-			a=2;
-		}
-	}
 	
-	public int getA() {
-		
-		return a;
-	}
+	
+	
 }

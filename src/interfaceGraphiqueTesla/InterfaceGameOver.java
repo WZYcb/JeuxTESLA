@@ -33,12 +33,15 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormSpecs;
 import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.JLabel;
 
 public class InterfaceGameOver extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtGameOver;
 	private JPanel panel;
+	private JPanel panel_1;
+	private JPanel panel_3;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -72,8 +75,16 @@ public class InterfaceGameOver extends JFrame {
 		panel.setForeground(Color.GRAY);
 		panel.setBackground(Color.BLACK);
 		contentPane.add(panel, BorderLayout.CENTER);
+		panel.setLayout(new GridLayout(5, 1, 0, 0));
+		
+		panel_1 = new JPanel();
+		panel_1.setBackground(Color.GRAY);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Retour Menu");
+		btnNewButton.setBounds(144, 5, 133, 29);
+		panel_1.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				clicRetourMenu();
@@ -81,21 +92,17 @@ public class InterfaceGameOver extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setBackground(Color.RED);
+		btnNewButton.setBackground(Color.GRAY);
 		
-		txtGameOver = new JTextField();
-		txtGameOver.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		txtGameOver.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-		txtGameOver.setSelectedTextColor(Color.GRAY);
-		txtGameOver.setSelectionColor(Color.RED);
-		txtGameOver.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 44));
-		txtGameOver.setBackground(Color.BLACK);
-		txtGameOver.setForeground(Color.GRAY);
-		txtGameOver.setText("GAME OVER");
-		txtGameOver.setColumns(10);
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		panel.add(btnNewButton);
-		panel.add(txtGameOver);
+		panel_3 = new JPanel();
+		panel_3.setForeground(Color.WHITE);
+		panel_3.setBackground(Color.GRAY);
+		panel.add(panel_3);
+		
+		lblNewLabel = new JLabel("GAME OVER");
+		lblNewLabel.setBackground(Color.BLACK);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
+		panel_3.add(lblNewLabel);
 	}
 
 	public void clicRetourMenu() {
