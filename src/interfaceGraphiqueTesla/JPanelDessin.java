@@ -134,24 +134,25 @@ public class JPanelDessin extends JPanel {
 			Iterator<Trou> iT = simul.getNiv().getListeTrou().iterator();
 			Iterator<Recharge> iR = simul.getNiv().getListeRecharge().iterator();
 			int i=0;
-			int j=0;
 			lambdaX=(float) this.getWidth()/simul.getNiv().getTailleNiveau().getX();
 			lambdaY=(float) this.getHeight()/simul.getNiv().getTailleNiveau().getY();
 			g.drawImage(voitureImg, Math.round(simul.getNiv().getTesla().getPositionTesla().getX()*lambdaX), Math.round(simul.getNiv().getTesla().getPositionTesla().getY()*lambdaY),40,20, null);
 			g.drawImage(planeteLivraisonImg, Math.round(simul.getNiv().getPointArrivee().getX()*lambdaX), Math.round(simul.getNiv().getPointArrivee().getY()*lambdaY), 50,50, null);
 			
 			while(iR.hasNext()) {
-				g.drawImage(superchargerImg, Math.round(simul.getNiv().getListeRecharge().get(j).getPositionRecharge().getX()*lambdaX) , Math.round(simul.getNiv().getListeRecharge().get(j).getPositionRecharge().getY()*lambdaY),50,50, null);
-				iR.next();
+				Recharge rechargeTmp = iR.next();
+				g.drawImage(superchargerImg, Math.round(rechargeTmp.getPositionRecharge().getX()*lambdaX) , Math.round(rechargeTmp.getPositionRecharge().getY()*lambdaY),50,50, null);
+				
 				
 			}
 			
 			while(iT.hasNext()) {
-				if(iT.next().getCoeffGravite()<0) {
-					g.drawImage(trouNoirImg, Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX) , Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY),50,50, null);
+				Trou trouTmp=iT.next();
+				if(trouTmp.getCoeffGravite()<0) {
+					g.drawImage(trouNoirImg, Math.round(trouTmp.getPositionTrou().getX()*lambdaX) , Math.round(trouTmp.getPositionTrou().getY()*lambdaY),50,50, null);
 					
 				} else {
-					g.drawImage(trouBlancImg, Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX) , Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY),50,50, null);
+					g.drawImage(trouBlancImg, Math.round(trouTmp.getPositionTrou().getX()*lambdaX) , Math.round(trouTmp.getPositionTrou().getY()*lambdaY),50,50, null);
 					
 				}
 				/*
