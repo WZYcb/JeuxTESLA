@@ -16,9 +16,9 @@ public class Trou {
 		this.positionTrou=positionTrou;
 		Random rd = new Random();
 		if(rd.nextBoolean()) {
-			coeffGravite=2;
+			coeffGravite=2f;
 		} else {
-			coeffGravite=-2;
+			coeffGravite=-2f;
 		}
 	}
 	public int getIdTrou() {
