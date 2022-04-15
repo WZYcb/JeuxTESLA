@@ -26,7 +26,7 @@ public class Niveau {
 		tesla=new Tesla(1, pointDepart);
 		if (idNiveau==1) {
 			for(i=0;i<3;i++) {
-				listeTrou.add(new Trou(i,100,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+				listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 			}
 			for(j=0;j<2;j++) {
 				listeRecharge.add(new Recharge(j,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));

@@ -147,7 +147,7 @@ public class JPanelDessin extends JPanel {
 			}
 			
 			while(iT.hasNext()) {
-				if(iT.next().getCoeffGravite()>0) {
+				if(iT.next().getCoeffGravite()<0) {
 					g.drawImage(trouNoirImg, Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getX()*lambdaX) , Math.round(simul.getNiv().getListeTrou().get(i).getPositionTrou().getY()*lambdaY),50,50, null);
 					
 				} else {
