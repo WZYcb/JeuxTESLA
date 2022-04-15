@@ -33,6 +33,9 @@ public class Niveau {
 			}
 		} else {
 			if (idNiveau==2) {
+				for(i=0;i<5;i++) {
+					listeTrou.add(new Trou(i,100,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+				}
 				
 			} else {
 				if (idNiveau==3) {
