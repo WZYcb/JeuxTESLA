@@ -70,7 +70,7 @@ public class Simulateur extends Thread{
 			key=-1;
 			}
 		// etape 2 : trous noirs
-		//influenceTrouNoir();
+		influenceTrouNoir();
 		//deplacement des objets
 			
 	}
@@ -78,12 +78,15 @@ public class Simulateur extends Thread{
 		Iterator<Trou> iT = niv.getListeTrou().iterator();
 		while(iT.hasNext()) {
 			Trou trouTemp = iT.next();
-			int influence = trouTemp.getRayonInfluence();
-			Position posActuelleTesla = niv.getTesla().getPositionTesla(); 
-			if((posActuelleTesla.getX()<(trouTemp.getPositionTrou().getX()+influence)) && (posActuelleTesla.getX()>(trouTemp.getPositionTrou().getX()-influence)) && (posActuelleTesla.getY()<(trouTemp.getPositionTrou().getY()+influence)) && (posActuelleTesla.getY()>(trouTemp.getPositionTrou().getY()-influence))) {
-				//le if sert � v閞ifier que la tesla est dans le p閞im鑤re d'influence du trou
-				//niv.getTesla().setPositionTesla(new Position());
-				// utiliser le coeffGravite pour d閜lacer la tesla vers le trou
+			double influence = trouTemp.getRayonInfluence();
+			Position posActuelleTesla = niv.getTesla().getPositionTesla();
+			double distance = Math.sqrt(Math.pow((double) posActuelleTesla.getX()-trouTemp.getPositionTrou().getX(), (double) 2)+Math.pow((double) posActuelleTesla.getY()-trouTemp.getPositionTrou().getY(), (double) 2));
+			if(distance < influence) {
+				niv.getTesla().setPositionTesla(new Position((int) ( posActuelleTesla.getX() +trouTemp.getCoeffGravite()*(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX())), (int) (posActuelleTesla.getY() +trouTemp.getCoeffGravite()*(posActuelleTesla.getY()-trouTemp.getPositionTrou().getY()))));
+				float temp = trouTemp.getCoeffGravite()*(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX());
+				System.out.println(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX()+"  "+temp);
+				//le if sert � v�rifier que la tesla est dans le p�rim�tre d'influence du trou
+				// on utilise le coeffGravite pour d�placer la tesla vers le trou ou la repousser
 			}
 		}
 	}
