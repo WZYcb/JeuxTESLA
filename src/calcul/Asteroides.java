@@ -38,6 +38,8 @@ public class Asteroides {
 		this.vitesseAsteroide=vitesseAsteroide;
 	}
 	 public int mouvement() {
+		 positionAsteroide.setX(positionAsteroide.getX()-vitesseAsteroide.getX());
+		 positionAsteroide.setY(positionAsteroide.getY()-vitesseAsteroide.getY());
 	    	return vitesseAsteroide.directionAngle();
 	    	}
 
