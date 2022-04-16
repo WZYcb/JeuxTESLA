@@ -2,13 +2,11 @@ package calcul;
 
 public class Asteroides {
 	private int idAsteroides;
-	private int diametre;
 	private Position positionAsteroide;
 	private Vitesse vitesseAsteroide;
 	
-	public Asteroides(int idAsteroides,int diametre,Position positionAsteroide,Vitesse vitesseAsteroide) {
+	public Asteroides(int idAsteroides,Position positionAsteroide,Vitesse vitesseAsteroide) {
 		this.idAsteroides=idAsteroides;
-		this.diametre=diametre;
 		this.positionAsteroide=positionAsteroide;
 		this.vitesseAsteroide=vitesseAsteroide;
 		
@@ -16,9 +14,7 @@ public class Asteroides {
 	public int getIdAsteroides() {
 		return idAsteroides;
 	}
-	public int getDiametre() {
-		return diametre;
-	}
+	
 	public Position getPositionAsteroide() {
 		return positionAsteroide;
 	}
@@ -28,9 +24,7 @@ public class Asteroides {
 	public void setIdAsteroides(int idAsteroides) {
 		this.idAsteroides=idAsteroides;
 	}
-	public void setDiametre(int diametre) {
-		this.diametre=diametre;
-	}
+	
 	public void setPositionAsteroide(Position positionAsteroide) {
 		this.positionAsteroide=positionAsteroide;
 	}
