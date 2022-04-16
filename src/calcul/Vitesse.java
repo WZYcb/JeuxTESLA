@@ -10,7 +10,7 @@ public class Vitesse {
 			U, D, L, R, LU, LD, RU, RD, STOP
 		};
 	
-    public void vitesse(int x,int y) {
+    public Vitesse(int x,int y) {
     	this.x=x;
     	this.y=y;
     	

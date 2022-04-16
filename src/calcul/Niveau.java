@@ -13,7 +13,7 @@ public class Niveau {
 	private Position pointArrivee;
 	private LinkedList<Trou> listeTrou = new LinkedList<Trou>();
 	private LinkedList<Recharge> listeRecharge = new LinkedList<Recharge>();
-	
+	private LinkedList<Asteroide>
 	
 	public Niveau(int idNiv) {
 		int i;
