@@ -81,11 +81,7 @@ public class Tesla {
     public void setVitesseTesla(int vitesseTesla) {
     	this.vitesseTesla=vitesseTesla;
     }
-    
-    public void deplacerTesla() {
-    	
-    
-    }		
+    		
         	
     
     
