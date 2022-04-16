@@ -131,6 +131,26 @@ public class Tesla {
         else if (numeroTouche == KeyEvent.VK_LEFT) { 
         	positionTesla.setX(positionTesla.getX()-vitesseTesla);
         } 
+        //diagonale UP-LEFT
+        else if (numeroTouche == KeyEvent.VK_LEFT && numeroTouche== KeyEvent.VK_UP) { 
+        	positionTesla.setX(positionTesla.getX()-vitesseTesla);
+        	positionTesla.setY(positionTesla.getY()-vitesseTesla);
+        } 
+      //diagonale UP-RIGHT
+        else if (numeroTouche == KeyEvent.VK_RIGHT && numeroTouche== KeyEvent.VK_UP) { 
+        	positionTesla.setX(positionTesla.getX()+vitesseTesla);
+        	positionTesla.setY(positionTesla.getY()-vitesseTesla);
+        } 
+      //diagonale DOWN-RIGHT
+        else if (numeroTouche == KeyEvent.VK_RIGHT && numeroTouche== KeyEvent.VK_DOWN) { 
+        	positionTesla.setX(positionTesla.getX()+vitesseTesla);
+        	positionTesla.setY(positionTesla.getY()+vitesseTesla);
+        } 
+      //diagonale DOWN-LEFT
+        else if (numeroTouche == KeyEvent.VK_LEFT && numeroTouche== KeyEvent.VK_DOWN) { 
+        	positionTesla.setX(positionTesla.getX()-vitesseTesla);
+        	positionTesla.setY(positionTesla.getY()+vitesseTesla);
+        } 
         
     }  
     
