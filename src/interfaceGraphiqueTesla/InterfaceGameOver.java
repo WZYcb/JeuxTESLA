@@ -13,8 +13,11 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.FontFormatException;
+
 import javax.swing.JTextPane;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -40,8 +43,10 @@ public class InterfaceGameOver extends JFrame {
 	private JPanel contentPane;
 	private JPanel panel;
 	private JPanel panel_1;
-	private JPanel panel_3;
 	private JLabel lblNewLabel;
+	private JPanel panel_3;
+	private JButton btnNewButton;
+	private JPanel panel_2;
 
 	/**
 	 * Launch the application.
@@ -75,39 +80,53 @@ public class InterfaceGameOver extends JFrame {
 		panel.setForeground(Color.GRAY);
 		panel.setBackground(Color.BLACK);
 		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new GridLayout(5, 1, 0, 0));
+		panel.setLayout(new BorderLayout(0, 0));
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
 		
 		panel_1 = new JPanel();
+		panel_1.setForeground(Color.WHITE);
 		panel_1.setBackground(Color.GRAY);
-		panel.add(panel_1);
-		panel_1.setLayout(null);
-		
-		JButton btnNewButton = new JButton("Retour Menu");
-		btnNewButton.setBounds(144, 5, 133, 29);
-		panel_1.add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				clicRetourMenu();
-			}
-		});
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
-		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setBackground(Color.GRAY);
-		
-		panel_3 = new JPanel();
-		panel_3.setForeground(Color.WHITE);
-		panel_3.setBackground(Color.GRAY);
-		panel.add(panel_3);
+		panel.add(panel_1, BorderLayout.NORTH);
 		
 		lblNewLabel = new JLabel("GAME OVER");
-		lblNewLabel.setBackground(Color.BLACK);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
-		panel_3.add(lblNewLabel);
-	}
-
-	public void clicRetourMenu() {
-		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// créer la frame du menu avec les niveaux
-		menuNiveaux.setVisible(true);// l'ouvrir
-		this.dispose();//ferme la frame
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            lblNewLabel.setFont(font.deriveFont( Font.BOLD, 30));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		lblNewLabel.setForeground(Color.RED);
+		panel_1.add(lblNewLabel);
+		
+		panel_2 = new JPanelImage("tesla_crash.jpg");
+		panel.add(panel_2, BorderLayout.CENTER);
+		panel_2.setLayout(new BorderLayout(0, 0));
+		panel_2.setOpaque(false);
+		
+		panel_3 = new JPanel();
+		panel_3.setBackground(Color.GRAY);
+		panel.add(panel_3, BorderLayout.SOUTH);
+		panel_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		btnNewButton = new JButton("Retour Menu");
+		btnNewButton.setIcon(null);
+		btnNewButton.setToolTipText("");
+		btnNewButton.setOpaque(false);
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            btnNewButton.setFont(font.deriveFont( Font.BOLD, 13));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		btnNewButton.setForeground(Color.BLACK);
+		//enlever la zone de contenu
+		btnNewButton.setContentAreaFilled(false);
+		//enlever la bordure
+		btnNewButton.setBorderPainted(false);
+		panel_3.add(btnNewButton);
 	}
 }

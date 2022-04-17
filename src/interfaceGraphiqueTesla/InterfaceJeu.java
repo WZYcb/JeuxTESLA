@@ -2,6 +2,8 @@ package interfaceGraphiqueTesla;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 
@@ -16,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Color; 
 import java.awt.Dimension;
@@ -71,7 +74,18 @@ public class InterfaceJeu extends JFrame {
 		infosEnJeu.add(panelLogoTesla);
 		
 	   JButton btnRetourMenu = new JButton("Retour Menu");
-		btnRetourMenu.addActionListener(new ActionListener() {
+	   try {
+           Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+           btnRetourMenu.setFont(font.deriveFont( Font.BOLD, 13));
+       } catch (FontFormatException | IOException ex) {
+           ex.printStackTrace();
+       }
+	   btnRetourMenu.setForeground(Color.RED);
+	   btnRetourMenu.setBackground(null);
+	   btnRetourMenu.setOpaque(false);
+	   btnRetourMenu.setContentAreaFilled(false);
+	   btnRetourMenu.setBorderPainted(false);
+	   btnRetourMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				clicRetourMenu();
 			}
@@ -79,7 +93,13 @@ public class InterfaceJeu extends JFrame {
 		infosEnJeu.add(btnRetourMenu);
 		
 		JLabel lblTempsRestant = new JLabel("Temps restant : 00:00"); // modifier avec un retour du temps 閏oule de l'algorithmique
-		lblTempsRestant.setForeground(new Color(255, 0, 0));
+		try {
+	           Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+	           lblTempsRestant.setFont(font.deriveFont( Font.BOLD, 13));
+	       } catch (FontFormatException | IOException ex) {
+	           ex.printStackTrace();
+	       }
+		lblTempsRestant.setForeground(Color.RED);
 		infosEnJeu.add(lblTempsRestant);
 		
 		JPanel panelLogoBatterie = new JPanelImage("logo_batterie.png");
