@@ -168,7 +168,7 @@ public class Simulateur extends Thread{
 	}
 	
 	public void tempsEcoule() {
-		if(timeMin>=niv.getLimiteTemps()) {
+		if(timeMin==niv.getLimiteTemps()) {
 			gameOver();
 		}
 	}

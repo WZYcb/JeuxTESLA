@@ -157,7 +157,7 @@ public class InterfaceJeu extends JFrame {
     public void afficherTempsRestant() {
     	if(simul!=null) {
 			long minutes= (long) (simul.getNiv().getLimiteTemps()-simul.getTimeMin());
-			long secondes=Math.round(-(simul.getTimeSec()-(simul.getTimeSec()/60)));
+			long secondes=Math.round(60 - (simul.getTimeSec()%60));
 			lblTempsRestant.setText("Temps restant "+minutes+":"+secondes);
 		}
     }
