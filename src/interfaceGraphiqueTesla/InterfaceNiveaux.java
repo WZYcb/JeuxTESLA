@@ -115,6 +115,11 @@ public class InterfaceNiveaux extends JFrame {
 		grilleBoutonsNiveaux.add(niveaux_1_2_3);
 		
 		JButton btnNewButton = new JButton("Niveau 1");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicNiveau(1);
+			}
+		});
 		btnNewButton.setForeground(Color.RED);
 		btnNewButton.setBackground(Color.GRAY);
 		try {
@@ -126,6 +131,11 @@ public class InterfaceNiveaux extends JFrame {
 		niveaux_1_2_3.add(btnNewButton);
 		
 		JButton btnNewButton_2 = new JButton("Niveau 2");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicNiveau(2);
+			}
+		});
 		btnNewButton_2.setForeground(Color.RED);
 		btnNewButton_2.setBackground(Color.GRAY);
 		try {
@@ -137,6 +147,11 @@ public class InterfaceNiveaux extends JFrame {
 		niveaux_1_2_3.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Niveau 3");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicNiveau(3);
+			}
+		});
 		btnNewButton_3.setForeground(Color.RED);
 		btnNewButton_3.setBackground(Color.GRAY);
 		try {
@@ -152,6 +167,11 @@ public class InterfaceNiveaux extends JFrame {
 		grilleBoutonsNiveaux.add(niveaux_4_5_6);
 		
 		JButton btnNewButton_4 = new JButton("Niveau 4");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicNiveau(4);
+			}
+		});
 		btnNewButton_4.setForeground(Color.RED);
 		btnNewButton_4.setBackground(Color.GRAY);
 		try {
@@ -163,6 +183,11 @@ public class InterfaceNiveaux extends JFrame {
 		niveaux_4_5_6.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("Niveau 5");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicNiveau(5);
+			}
+		});
 		btnNewButton_5.setForeground(Color.RED);
 		btnNewButton_5.setBackground(Color.GRAY);
 		try {
@@ -174,6 +199,11 @@ public class InterfaceNiveaux extends JFrame {
 		niveaux_4_5_6.add(btnNewButton_5);
 		
 		JButton btnNewButton_6 = new JButton("Niveau 6");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicNiveau(6);
+			}
+		});
 		btnNewButton_6.setForeground(Color.RED);
 		btnNewButton_6.setBackground(Color.GRAY);
 		try {
@@ -189,6 +219,11 @@ public class InterfaceNiveaux extends JFrame {
 		grilleBoutonsNiveaux.add(niveaux_7_8_9);
 		
 		JButton btnNewButton_7 = new JButton("Niveau 7");
+		btnNewButton_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicNiveau(7);
+			}
+		});
 		btnNewButton_7.setForeground(Color.RED);
 		btnNewButton_7.setBackground(Color.GRAY);
 		try {
@@ -200,6 +235,11 @@ public class InterfaceNiveaux extends JFrame {
 		niveaux_7_8_9.add(btnNewButton_7);
 		
 		JButton btnNewButton_8 = new JButton("Niveau 8");
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicNiveau(8);
+			}
+		});
 		btnNewButton_8.setForeground(Color.RED);
 		btnNewButton_8.setBackground(Color.GRAY);
 		try {
@@ -211,6 +251,11 @@ public class InterfaceNiveaux extends JFrame {
 		niveaux_7_8_9.add(btnNewButton_8);
 		
 		JButton btnNewButton_9 = new JButton("Niveau 9");
+		btnNewButton_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicNiveau(9);
+			}
+		});
 		btnNewButton_9.setForeground(Color.RED);
 		btnNewButton_9.setBackground(Color.GRAY);
 		try {
@@ -227,7 +272,12 @@ public class InterfaceNiveaux extends JFrame {
 	}
 	
 		
-	
+	public void clicNiveau(int i) {
+		InterfaceJeu niveau = new InterfaceJeu(i);//cree une frame
+		niveau.setVisible(true);
+		this.dispose();//ferme la frame actuelle
+		// TODO Auto-generated method stub
+	}
 	
 	
 }
