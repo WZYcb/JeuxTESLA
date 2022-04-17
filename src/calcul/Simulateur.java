@@ -86,9 +86,8 @@ public class Simulateur extends Thread{
 		collision();
 		//check niveau réussi
 		isFinished();
-		//faire avancer le timer
+		//faire avancer le timer+check temps écoulé
 		avancerTimer();
-		//check temps écoulé
 	}
 	public void influenceTrouNoir() {
 		Iterator<Trou> iT = niv.getListeTrou().iterator();
@@ -153,8 +152,9 @@ public class Simulateur extends Thread{
 	
 	public void avancerTimer() {
 		timeSec= timeSec+ (1/framerate);
-		timeMin= timeSec/60;
+		timeMin= timeSec%60;
 		mjf.afficherTempsRestant();
+		tempsEcoule();
 	}
 	
 	public double getTimeSec() {
@@ -168,7 +168,7 @@ public class Simulateur extends Thread{
 	}
 	
 	public void tempsEcoule() {
-		if(timeMin==niv.getLimiteTemps()) {
+		if(timeMin>=niv.getLimiteTemps()) {
 			gameOver();
 		}
 	}
