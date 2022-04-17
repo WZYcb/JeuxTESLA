@@ -31,6 +31,7 @@ public class InterfaceJeu extends JFrame {
     private int niveau;
 
 	private JProgressBar niveauBatterie;
+	private JLabel lblTempsRestant;
 
 	/**
 	 * Launch the application.
@@ -92,7 +93,10 @@ public class InterfaceJeu extends JFrame {
 		});
 		infosEnJeu.add(btnAbandonner);
 		
-		JLabel lblTempsRestant = new JLabel("Temps restant :"); // modifier avec un retour du temps 閏oule de l'algorithmique
+		
+		
+		
+		lblTempsRestant = new JLabel("Temps restant "); // modifier avec un retour du temps 閏oule de l'algorithmique
 		try {
 	           Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
 	           lblTempsRestant.setFont(font.deriveFont( Font.BOLD, 13));
@@ -110,11 +114,6 @@ public class InterfaceJeu extends JFrame {
 		niveauBatterie.setForeground(new Color(0, 128, 0));
 
 		niveauBatterie.setValue(100); //関entuellement supprimer � l'int間ration
-		if(niveauBatterie.getValue()>0) {// ajouter un retour du niveau de la batterie de l'algorithmique
-			//perte progressive de batterie lorsqu'on d閜lace la voiture
-			//gain instantan� de batterie lorsqu'on passe sur un supercharger
-		}
-
 		infosEnJeu.add(niveauBatterie);
 		
 		JPanel panelBonusActif = new JPanelImage("logo_bonus.png");
@@ -155,6 +154,14 @@ public class InterfaceJeu extends JFrame {
 		this.dispose();//ferme la frame
 	}
 	
+    public void afficherTempsRestant() {
+    	if(simul!=null) {
+			long minutes= (long) (simul.getNiv().getLimiteTemps()-simul.getTimeMin());
+			long secondes=Math.round(-(simul.getTimeSec()-(simul.getTimeSec()/60)));
+			lblTempsRestant.setText("Temps restant "+minutes+":"+secondes);
+		}
+    }
+    
 	
 	public void clicClavier(KeyEvent arg0) {
 		// Valeur de la touche

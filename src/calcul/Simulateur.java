@@ -14,13 +14,15 @@ public class Simulateur extends Thread{
 	private boolean stop;
 	private int key = -1;
 	private Niveau niv;
-	private long framerate =120;
-
+	private double framerate =120;
+	private double timeSec;
+	private double timeMin;
 	
 	public Simulateur(InterfaceJeu interfaceJeu,int niveau) {
 		stop=false;
 		niv = new Niveau(niveau);
 		mjf = interfaceJeu;
+		timeSec = 0;
 	}
 	
 	
@@ -57,7 +59,7 @@ public class Simulateur extends Thread{
 
 			try {
 				// Mise en pause pendant 250ms
-				Thread.sleep(1000/framerate);
+				Thread.sleep((long) (1000/framerate));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -84,6 +86,9 @@ public class Simulateur extends Thread{
 		collision();
 		//check niveau réussi
 		isFinished();
+		//faire avancer le timer
+		avancerTimer();
+		//check temps écoulé
 	}
 	public void influenceTrouNoir() {
 		Iterator<Trou> iT = niv.getListeTrou().iterator();
@@ -146,8 +151,28 @@ public class Simulateur extends Thread{
 		mjf.dispose();
 	}
 	
+	public void avancerTimer() {
+		timeSec= timeSec+ (1/framerate);
+		timeMin= timeSec/60;
+		mjf.afficherTempsRestant();
+	}
 	
+	public double getTimeSec() {
+		return timeSec;
+	}
+
+
+
+	public double getTimeMin() {
+		return timeMin;
+	}
 	
+	public void tempsEcoule() {
+		if(timeMin>=niv.getLimiteTemps()) {
+			gameOver();
+		}
+	}
+
 	public boolean isFinished() {
 		boolean flag=false;
 		if((niv.getTesla().getPositionTesla().getX()>(niv.getPointArrivee().getX()-30)) && (niv.getTesla().getPositionTesla().getX()<(niv.getPointArrivee().getX()+30)) && (niv.getTesla().getPositionTesla().getY()>(niv.getPointArrivee().getY()-30)) && (niv.getTesla().getPositionTesla().getY()<(niv.getPointArrivee().getY()+30))) {
