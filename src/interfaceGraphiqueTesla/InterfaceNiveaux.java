@@ -16,6 +16,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -35,6 +37,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JProgressBar;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class InterfaceNiveaux extends JFrame {
@@ -45,9 +50,6 @@ public class InterfaceNiveaux extends JFrame {
 	 * @wbp.nonvisual location=-406,209
 	 */
 	private final JTextArea txtNiveauxDeJeu;
-	private JButton btnNewButton; 
-	
-	private JProgressBar avanceeNiveaux;
 
 
 	/**
@@ -80,6 +82,7 @@ public class InterfaceNiveaux extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
+		
 		JPanel panelImageFond = new JPanelImage("fond_jeu_tesla.jpg");
 		contentPane.add(panelImageFond, BorderLayout.CENTER);
 		panelImageFond.setLayout(new BorderLayout(0, 0));
@@ -88,185 +91,141 @@ public class InterfaceNiveaux extends JFrame {
 		panelTitre.setOpaque(false);
 		panelImageFond.add(panelTitre, BorderLayout.NORTH);
 		
-		JLabel lblNewLabel = new JLabel("Tesla Intergalactique");
-		lblNewLabel.setForeground(Color.BLUE);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 19));
-		panelTitre.add(lblNewLabel);
+		
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            JLabel lblNewLabel = new JLabel("TESLA INTERGALACTIQUE");
+    		lblNewLabel.setForeground(Color.RED);
+    		lblNewLabel.setFont(font.deriveFont( Font.BOLD, 24));
+    		panelTitre.add(lblNewLabel);
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
 		
 		JPanel grilleBoutonsNiveaux = new JPanel();
 		grilleBoutonsNiveaux.setForeground(Color.DARK_GRAY);
 		grilleBoutonsNiveaux.setOpaque(false);
 		panelImageFond.add(grilleBoutonsNiveaux, BorderLayout.CENTER);
 		
-		btnNewButton = new JButton("Niveau 1");
-		btnNewButton.setForeground(Color.MAGENTA);
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
+		
+		grilleBoutonsNiveaux.setLayout(new BoxLayout(grilleBoutonsNiveaux, BoxLayout.Y_AXIS));
+		
+		JPanel niveaux_1_2_3 = new JPanel();
+		niveaux_1_2_3.setOpaque(false);
+		grilleBoutonsNiveaux.add(niveaux_1_2_3);
+		
+		JButton btnNewButton = new JButton("Niveau 1");
+		btnNewButton.setForeground(Color.RED);
 		btnNewButton.setBackground(Color.GRAY);
-		btnNewButton.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				clicNiveau1();
-				
-
-				InterfaceJeu niveau1 = new InterfaceJeu(1);//cree une frame
-				niveau1.setVisible(true);
-
-				
-			}
-		});
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            btnNewButton.setFont(font.deriveFont( Font.BOLD, 13));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		niveaux_1_2_3.add(btnNewButton);
 		
+		JButton btnNewButton_2 = new JButton("Niveau 2");
+		btnNewButton_2.setForeground(Color.RED);
+		btnNewButton_2.setBackground(Color.GRAY);
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            btnNewButton_2.setFont(font.deriveFont( Font.BOLD, 13));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		niveaux_1_2_3.add(btnNewButton_2);
 		
+		JButton btnNewButton_3 = new JButton("Niveau 3");
+		btnNewButton_3.setForeground(Color.RED);
+		btnNewButton_3.setBackground(Color.GRAY);
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            btnNewButton_3.setFont(font.deriveFont( Font.BOLD, 13));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		niveaux_1_2_3.add(btnNewButton_3);
 		
-		JButton btnNewButton_1_1 = new JButton("Niveau 2");
-		btnNewButton_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				clicNiveau2();
-			}
-		});
-		btnNewButton_1_1.setForeground(Color.MAGENTA);
-		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnNewButton_1_1.setBackground(Color.GRAY);
+		JPanel niveaux_4_5_6 = new JPanel();
+		niveaux_4_5_6.setOpaque(false);
+		grilleBoutonsNiveaux.add(niveaux_4_5_6);
 		
-		JButton btnNewButton_1_2 = new JButton("Niveau 3");
-		btnNewButton_1_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				InterfaceJeu niveau3 = new InterfaceJeu(3);//cree une frame
-				niveau3.setVisible(true);
-				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
-			}
-		});
-		btnNewButton_1_2.setForeground(Color.MAGENTA);
-		btnNewButton_1_2.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnNewButton_1_2.setBackground(Color.GRAY);
 		JButton btnNewButton_4 = new JButton("Niveau 4");
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				InterfaceJeu niveau4 = new InterfaceJeu(4);//cree une frame
-				niveau4.setVisible(true);
-				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
-			}
-		});
-		btnNewButton_4.setForeground(Color.MAGENTA);
-		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnNewButton_4.setForeground(Color.RED);
 		btnNewButton_4.setBackground(Color.GRAY);
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            btnNewButton_4.setFont(font.deriveFont( Font.BOLD, 13));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		niveaux_4_5_6.add(btnNewButton_4);
+		
 		JButton btnNewButton_5 = new JButton("Niveau 5");
-		btnNewButton_5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				InterfaceJeu niveau5 = new InterfaceJeu(5);//cree une frame
-				niveau5.setVisible(true);
-				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
-			}
-		});
-		btnNewButton_5.setForeground(Color.MAGENTA);
-		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnNewButton_5.setForeground(Color.RED);
 		btnNewButton_5.setBackground(Color.GRAY);
-		JButton btnNewButton_7 = new JButton("Niveau 6");
-		btnNewButton_7.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				InterfaceJeu niveau6 = new InterfaceJeu(6);//cree une frame
-				niveau6.setVisible(true);
-				avanceeNiveaux.setValue(avanceeNiveaux.getValue()+50);
-			}
-		});
-		btnNewButton_7.setForeground(Color.MAGENTA);
-		btnNewButton_7.setFont(new Font("Tahoma", Font.BOLD, 13));
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            btnNewButton_5.setFont(font.deriveFont( Font.BOLD, 13));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		niveaux_4_5_6.add(btnNewButton_5);
+		
+		JButton btnNewButton_6 = new JButton("Niveau 6");
+		btnNewButton_6.setForeground(Color.RED);
+		btnNewButton_6.setBackground(Color.GRAY);
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            btnNewButton_6.setFont(font.deriveFont( Font.BOLD, 13));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		niveaux_4_5_6.add(btnNewButton_6);
+		
+		JPanel niveaux_7_8_9 = new JPanel();
+		niveaux_7_8_9.setOpaque(false);
+		grilleBoutonsNiveaux.add(niveaux_7_8_9);
+		
+		JButton btnNewButton_7 = new JButton("Niveau 7");
+		btnNewButton_7.setForeground(Color.RED);
 		btnNewButton_7.setBackground(Color.GRAY);
-		JButton btnNewButton_8 = new JButton("Niveau 7");
-		btnNewButton_8.setToolTipText("");
-		btnNewButton_8.setForeground(Color.MAGENTA);
-		btnNewButton_8.setFont(new Font("Tahoma", Font.BOLD, 13));
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            btnNewButton_7.setFont(font.deriveFont( Font.BOLD, 13));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		niveaux_7_8_9.add(btnNewButton_7);
+		
+		JButton btnNewButton_8 = new JButton("Niveau 8");
+		btnNewButton_8.setForeground(Color.RED);
 		btnNewButton_8.setBackground(Color.GRAY);
-		btnNewButton_8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				clicNiveau7();
-			}
-		});
-		JButton btnNewButton_10 = new JButton("Niveau 8");
-		btnNewButton_10.setForeground(Color.MAGENTA);
-		btnNewButton_10.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				InterfaceJeu niveau8 = new InterfaceJeu(8);//cree une frame
-				niveau8.setVisible(true);
-				// TODO Auto-generated method stub
-			}
-		});
-		btnNewButton_10.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnNewButton_10.setBackground(Color.GRAY);
-		JButton btnNewButton_11 = new JButton("Niveau 9");
-		btnNewButton_11.setForeground(Color.MAGENTA);
-		btnNewButton_11.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnNewButton_11.setBackground(Color.GRAY);
-		btnNewButton_11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) 
-			{
-				InterfaceJeu niveau9 = new InterfaceJeu(9);//cree une frame
-				niveau9.setVisible(true);
-				// TODO Auto-generated method stub
-				
-				JButton b = new JButton("New Button", new ImageIcon("Cadena.jpg"));
-			}
-		});
-		SpringLayout sl_grilleBoutonsNiveaux = new SpringLayout();
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, btnNewButton_11, 0, SpringLayout.NORTH, btnNewButton_8);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, btnNewButton_11, 0, SpringLayout.WEST, btnNewButton_1_2);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, btnNewButton_11, -82, SpringLayout.EAST, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, btnNewButton_10, 0, SpringLayout.NORTH, btnNewButton_8);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, btnNewButton_10, 0, SpringLayout.EAST, btnNewButton_1_1);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, btnNewButton_7, 0, SpringLayout.NORTH, btnNewButton_4);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, btnNewButton_7, 0, SpringLayout.EAST, btnNewButton_1_2);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.SOUTH, btnNewButton_4, -104, SpringLayout.SOUTH, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, btnNewButton_8, 19, SpringLayout.SOUTH, btnNewButton_4);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, btnNewButton_8, 0, SpringLayout.EAST, btnNewButton);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, btnNewButton_5, 0, SpringLayout.NORTH, btnNewButton_4);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, btnNewButton_5, 0, SpringLayout.WEST, btnNewButton_1_1);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, btnNewButton_4, 0, SpringLayout.WEST, btnNewButton);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, btnNewButton_1_2, 253, SpringLayout.WEST, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, btnNewButton_1_1, -27, SpringLayout.WEST, btnNewButton_1_2);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, btnNewButton_1_2, 0, SpringLayout.NORTH, btnNewButton);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, btnNewButton, 44, SpringLayout.NORTH, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, btnNewButton_1_1, 0, SpringLayout.NORTH, btnNewButton);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, btnNewButton, 23, SpringLayout.WEST, grilleBoutonsNiveaux);
-		grilleBoutonsNiveaux.setLayout(sl_grilleBoutonsNiveaux);
-		grilleBoutonsNiveaux.add(btnNewButton);
-		grilleBoutonsNiveaux.add(btnNewButton_1_1);
-		grilleBoutonsNiveaux.add(btnNewButton_1_2);
-		grilleBoutonsNiveaux.add(btnNewButton_4);
-		grilleBoutonsNiveaux.add(btnNewButton_5);
-		grilleBoutonsNiveaux.add(btnNewButton_7);
-		grilleBoutonsNiveaux.add(btnNewButton_8);
-		grilleBoutonsNiveaux.add(btnNewButton_10);
-		grilleBoutonsNiveaux.add(btnNewButton_11);
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            btnNewButton_8.setFont(font.deriveFont( Font.BOLD, 13));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		niveaux_7_8_9.add(btnNewButton_8);
 		
-	 avanceeNiveaux = new JProgressBar();
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.NORTH, avanceeNiveaux, 25, SpringLayout.SOUTH, btnNewButton_8);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.WEST, avanceeNiveaux, 8, SpringLayout.WEST, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.SOUTH, avanceeNiveaux, -10, SpringLayout.SOUTH, grilleBoutonsNiveaux);
-		sl_grilleBoutonsNiveaux.putConstraint(SpringLayout.EAST, avanceeNiveaux, -244, SpringLayout.EAST, grilleBoutonsNiveaux);
-		avanceeNiveaux.setForeground(Color.GREEN);
+		JButton btnNewButton_9 = new JButton("Niveau 9");
+		btnNewButton_9.setForeground(Color.RED);
+		btnNewButton_9.setBackground(Color.GRAY);
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            btnNewButton_9.setFont(font.deriveFont( Font.BOLD, 13));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		niveaux_7_8_9.add(btnNewButton_9);
+		
+		JProgressBar avanceeNiveaux = new JProgressBar();
 		grilleBoutonsNiveaux.add(avanceeNiveaux);
-	}
-	public void clicNiveau1() {
-		InterfaceJeu niveau1 = new InterfaceJeu(1);//cree une frame
-		niveau1.setVisible(true);
-		this.dispose();//ferme la frame actuelle
-		
 		
 	}
 	
-	public void clicNiveau2() {
-		InterfaceJeu niveau2 = new InterfaceJeu(2);//cree une frame
-		niveau2.setVisible(true);
-		this.dispose();//ferme la frame actuelle
-		// TODO Auto-generated method stub
-	}
-	
-	public void clicNiveau7() {
-		InterfaceJeu niveau7 = new InterfaceJeu(7);//cree une frame
-		niveau7.setVisible(true);
-		this.dispose();//ferme la frame actuelle
-		// TODO Auto-generated method stub
-	}
 		
 	
 	
