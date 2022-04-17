@@ -113,6 +113,11 @@ public class InterfaceGameOver extends JFrame {
 		panel_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		btnNewButton = new JButton("Retour Menu");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicRetourMenu();
+			}
+		});
 		btnNewButton.setIcon(null);
 		btnNewButton.setToolTipText("");
 		btnNewButton.setOpaque(false);
@@ -129,4 +134,11 @@ public class InterfaceGameOver extends JFrame {
 		btnNewButton.setBorderPainted(false);
 		panel_3.add(btnNewButton);
 	}
+	
+	public void clicRetourMenu() {
+		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// créer la frame du menu avec les niveaux
+		menuNiveaux.setVisible(true);// l'ouvrir
+		this.dispose();//ferme la frame 
+	}
+	
 }

@@ -73,26 +73,26 @@ public class InterfaceJeu extends JFrame {
 		panelLogoTesla.setOpaque(false);
 		infosEnJeu.add(panelLogoTesla);
 		
-	   JButton btnRetourMenu = new JButton("Retour Menu");
+	   JButton btnAbandonner = new JButton("Abandonner");
 	   try {
            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
-           btnRetourMenu.setFont(font.deriveFont( Font.BOLD, 13));
+           btnAbandonner.setFont(font.deriveFont( Font.BOLD, 13));
        } catch (FontFormatException | IOException ex) {
            ex.printStackTrace();
        }
-	   btnRetourMenu.setForeground(Color.RED);
-	   btnRetourMenu.setBackground(null);
-	   btnRetourMenu.setOpaque(false);
-	   btnRetourMenu.setContentAreaFilled(false);
-	   btnRetourMenu.setBorderPainted(false);
-	   btnRetourMenu.addActionListener(new ActionListener() {
+	   btnAbandonner.setForeground(Color.RED);
+	   btnAbandonner.setBackground(null);
+	   btnAbandonner.setOpaque(false);
+	   btnAbandonner.setContentAreaFilled(false);
+	   btnAbandonner.setBorderPainted(false);
+	   btnAbandonner.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				clicRetourMenu();
+				clicAbandonner();
 			}
 		});
-		infosEnJeu.add(btnRetourMenu);
+		infosEnJeu.add(btnAbandonner);
 		
-		JLabel lblTempsRestant = new JLabel("Temps restant : 00:00"); // modifier avec un retour du temps 閏oule de l'algorithmique
+		JLabel lblTempsRestant = new JLabel("Temps restant :"); // modifier avec un retour du temps 閏oule de l'algorithmique
 		try {
 	           Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
 	           lblTempsRestant.setFont(font.deriveFont( Font.BOLD, 13));
@@ -144,14 +144,14 @@ public class InterfaceJeu extends JFrame {
 			niveauBatterie.setValue(100);
 		}
 	}
-    public void clicRetourMenu() {
+    public void clicAbandonner() {
 
-		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// cr閑r la frame du menu avec les niveaux
+		InterfaceGameOver abandon = new InterfaceGameOver();// cr閑r la frame du menu avec les niveaux
 	/*    this.setNiveauReussi(false);//indiquer que le niveau n'est pas r閡ssi car on retourne au menu avant
 
 		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// cr�er la frame du menu avec les niveaux   */
 
-		menuNiveaux.setVisible(true);// l'ouvrir
+		abandon.setVisible(true);// l'ouvrir
 		this.dispose();//ferme la frame
 	}
 	

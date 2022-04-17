@@ -14,6 +14,7 @@ public class Simulateur extends Thread{
 	private boolean stop;
 	private int key = -1;
 	private Niveau niv;
+	private long framerate =120;
 
 	
 	public Simulateur(InterfaceJeu interfaceJeu,int niveau) {
@@ -56,7 +57,7 @@ public class Simulateur extends Thread{
 
 			try {
 				// Mise en pause pendant 250ms
-				Thread.sleep(1000/120);
+				Thread.sleep(1000/framerate);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
