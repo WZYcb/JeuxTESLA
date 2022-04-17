@@ -17,7 +17,7 @@ public class Simulateur extends Thread{
 	private double framerate =120;
 	private double timeSec;
 	private double timeMin;
-	
+
 	public Simulateur(InterfaceJeu interfaceJeu,int niveau) {
 		stop=false;
 		niv = new Niveau(niveau);
@@ -152,7 +152,8 @@ public class Simulateur extends Thread{
 	
 	public void avancerTimer() {
 		timeSec= timeSec+ (1/framerate);
-		timeMin= timeSec%60;
+		timeMin= timeSec/60;
+	
 		mjf.afficherTempsRestant();
 		tempsEcoule();
 	}
