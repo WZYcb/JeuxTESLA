@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import javax.imageio.ImageIO; 
 import javax.swing.JPanel;
 
-
+import calcul.Asteroide;
 import calcul.Recharge;
 import calcul.Simulateur;
 import calcul.Trou;
@@ -25,9 +25,10 @@ public class JPanelDessin extends JPanel {
 	private Image trouNoirImg=null;
 	private Image trouBlancImg=null;
 	private Image superchargerImg=null;
+	private Image asteroideImg=null;
 	private LinkedList<Image> listeTrouImg= new LinkedList<Image>();
 	private LinkedList<Image> listeSuperchargerImg= new LinkedList<Image>();
-	
+	private LinkedList<Image> listeAsteroideImg = new LinkedList<Image>();
 	
 	
 
@@ -122,7 +123,13 @@ public class JPanelDessin extends JPanel {
 	    	   superchargerImg=null;
 	    	   
 	       }
-		
+		sNomFile=".\\images\\"+"asteroide.png";
+		try {                
+	          asteroideImg = ImageIO.read(new File(sNomFile));
+	       } catch (IOException ex) {
+	    	   asteroideImg=null;
+	    	   
+	       }
 	}
 	
 
@@ -135,7 +142,7 @@ public class JPanelDessin extends JPanel {
 		if (simul!=null) {
 			Iterator<Trou> iT = simul.getNiv().getListeTrou().iterator();
 			Iterator<Recharge> iR = simul.getNiv().getListeRecharge().iterator();
-			int i=0;
+			Iterator<Asteroide> iA = simul.getNiv().getListeAsteroide().iterator();
 			lambdaX=(float) this.getWidth()/simul.getNiv().getTailleNiveau().getX();
 			lambdaY=(float) this.getHeight()/simul.getNiv().getTailleNiveau().getY();
 			g.drawImage(voitureImg, Math.round(simul.getNiv().getTesla().getPositionTesla().getX()*lambdaX), Math.round(simul.getNiv().getTesla().getPositionTesla().getY()*lambdaY),40,20, null);
@@ -144,43 +151,26 @@ public class JPanelDessin extends JPanel {
 			
 			while(iR.hasNext()) {
 				Recharge rechargeTmp = iR.next();
-				g.drawImage(superchargerImg, Math.round(rechargeTmp.getPositionRecharge().getX()*lambdaX) , Math.round(rechargeTmp.getPositionRecharge().getY()*lambdaY),50,50, null);
+				g.drawImage(superchargerImg, Math.round(rechargeTmp.getPositionRecharge().getX()*lambdaX) , Math.round(rechargeTmp.getPositionRecharge().getY()*lambdaY),25,40, null);
 				
 				
 			}
 			
 			while(iT.hasNext()) {
-
-			  
 				Trou trouTmp=iT.next();
-
-				
-
 				if(trouTmp.getCoeffGravite()<0) {
-					g.drawImage(trouNoirImg, Math.round(trouTmp.getPositionTrou().getX()*lambdaX) , Math.round(trouTmp.getPositionTrou().getY()*lambdaY),50,50, null);
-
-					
-				
-				
+					g.drawImage(trouNoirImg, Math.round(trouTmp.getPositionTrou().getX()*lambdaX) , Math.round(trouTmp.getPositionTrou().getY()*lambdaY),60,60, null);
 				} else {
-
-					g.drawImage(trouBlancImg, Math.round(trouTmp.getPositionTrou().getX()*lambdaX) , Math.round(trouTmp.getPositionTrou().getY()*lambdaY),50,50, null);
-					
-				
-
-					
-
+					g.drawImage(trouBlancImg, Math.round(trouTmp.getPositionTrou().getX()*lambdaX) , Math.round(trouTmp.getPositionTrou().getY()*lambdaY),60,60, null);
 				}
+			}
+			
+			while(iA.hasNext()) {
+				Asteroide asteroTmp= iA.next();
+				g.drawImage(asteroideImg, Math.round(asteroTmp.getPositionAsteroide().getX()*lambdaX) , Math.round(asteroTmp.getPositionAsteroide().getY()*lambdaY),28,25, null);
 				
-				/*System.out.println(this.getWidth()+" "+this.getHeight()+" "+lambdaX+" "+lambdaY+" "+x+" "+y);
-				System.out.println(lambdaX+"    "+lambdaY);
-				i=i+1;*/
 				
 			}
-			/*
-			
-			*/
-			
 		}
 		
 	}

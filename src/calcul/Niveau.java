@@ -13,11 +13,10 @@ public class Niveau {
 	private Position pointArrivee;
 	private LinkedList<Trou> listeTrou = new LinkedList<Trou>();
 	private LinkedList<Recharge> listeRecharge = new LinkedList<Recharge>();
-	private LinkedList<Asteroide>
+	private LinkedList<Asteroide> listeAsteroide = new LinkedList<Asteroide>();
 	
 	public Niveau(int idNiv) {
 		int i;
-		int j;
 		idNiveau = idNiv;
 		tailleNiveau= new Position(1920,1080);
 		Random ran = new Random();
@@ -28,16 +27,19 @@ public class Niveau {
 			for(i=1;i<2;i++) {
 				listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 			}
-			for(j=0;j<1;j++) {
-				listeRecharge.add(new Recharge(j,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+			for(i=0;i<1;i++) {
+				listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+			}
+			for(i=0;i<1;i++) {
+				listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 			}
 		} else {
 			if (idNiveau==2) {
 				for(i=0;i<2;i++) {
 					listeTrou.add(new Trou(i,100,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 				}
-				for(j=0;j<2;j++) {
-					listeRecharge.add(new Recharge(j,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+				for(i=0;i<2;i++) {
+					listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 				}
 				
 			} else {
@@ -45,8 +47,8 @@ public class Niveau {
 					for(i=0;i<3;i++) {
 						listeTrou.add(new Trou(i,1000,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 					}
-					for(j=0;j<2;j++) {
-						listeRecharge.add(new Recharge(j,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+					for(i=0;i<2;i++) {
+						listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 					}
 				} else {
 					if (idNiveau==4) {
@@ -89,6 +91,14 @@ public class Niveau {
 		}
 	}
 	
+	public LinkedList<Asteroide> getListeAsteroide() {
+		return listeAsteroide;
+	}
+
+	public void setListeAsteroide(LinkedList<Asteroide> listeAsteroide) {
+		this.listeAsteroide = listeAsteroide;
+	}
+
 	public int getIdNiveau() {
 		return idNiveau;
 	}
