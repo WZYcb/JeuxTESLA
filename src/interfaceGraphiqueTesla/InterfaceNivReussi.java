@@ -79,6 +79,11 @@ public class InterfaceNivReussi extends JFrame {
         }
 		btnNewButton.setForeground(Color.RED);
 		btnNewButton.setBackground(Color.BLACK);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clicRetourMenu();
+			}
+		});
 		panelSouth.add(btnNewButton);
 		
 		JPanel panelCenter = new JPanelImage("elon_musk_thumbsup.png");
@@ -90,6 +95,10 @@ public class InterfaceNivReussi extends JFrame {
 		
 		
 	}
-	
+	public void clicRetourMenu() {
+		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// créer la frame du menu avec les niveaux
+		menuNiveaux.setVisible(true);// l'ouvrir
+		this.dispose();//ferme la frame 
+	}
 
 }
