@@ -31,9 +31,8 @@ public class Asteroide {
 	public void setVitesseAsteroide(Vitesse vitesseAsteroide) {
 		this.vitesseAsteroide=vitesseAsteroide;
 	}
-	 public int mouvement() {
+	 public void mouvement() {
 		 positionAsteroide.setX(positionAsteroide.getX()-vitesseAsteroide.getX());
 		 positionAsteroide.setY(positionAsteroide.getY()-vitesseAsteroide.getY());
-		return vitesseAsteroide.directionAngle();
 	}
 }

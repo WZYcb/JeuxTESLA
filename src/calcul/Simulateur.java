@@ -79,7 +79,11 @@ public class Simulateur extends Thread{
 		// etape 2 : trous noirs
 		influenceTrouNoir();
 		//deplacement des asteroides
-		
+		Iterator<Asteroide> iA = niv.getListeAsteroide().iterator();
+		while(iA.hasNext()) {
+			Asteroide asteroTmp=iA.next();
+			asteroTmp.mouvement();
+			}
 		//recharge 
 		recupererRecharge();
 		//check collision

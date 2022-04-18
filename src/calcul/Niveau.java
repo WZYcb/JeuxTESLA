@@ -33,7 +33,7 @@ public class Niveau {
 				listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 			}
 			for(i=0;i<1;i++) {
-				listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+				listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(2,2)));
 			}
 		} else {
 			if (idNiveau==2) {
@@ -44,7 +44,7 @@ public class Niveau {
 					listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 				}
 				for(i=0;i<2;i++) {
-					listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+					listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(2,2)));
 				}
 				
 			} else {
@@ -56,7 +56,7 @@ public class Niveau {
 						listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 					}
 					for(i=0;i<2;i++) {
-						listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+						listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(2,2)));
 					}
 				} else {
 					if (idNiveau==4) {
@@ -67,7 +67,7 @@ public class Niveau {
 							listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 						}
 						for(i=0;i<2;i++) {
-							listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+							listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(2,2)));
 						}
 					} else {
 						if (idNiveau==5) {
@@ -78,7 +78,7 @@ public class Niveau {
 								listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 							}
 							for(i=0;i<2;i++) {
-								listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+								listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(2,2)));
 							}
 						} else {
 							if (idNiveau==6) {
