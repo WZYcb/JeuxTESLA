@@ -274,9 +274,9 @@ public class InterfaceNiveaux extends JFrame {
 		
 	public void clicNiveau(int i) {
 		InterfaceJeu niveau = new InterfaceJeu(i);//cree une frame
+		niveau.setExtendedState(JFrame.MAXIMIZED_BOTH);// la frame prend tout l'écran
 		niveau.setVisible(true);
 		this.dispose();//ferme la frame actuelle
-		// TODO Auto-generated method stub
 	}
 	
 	
