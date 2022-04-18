@@ -94,7 +94,7 @@ public class InterfaceNiveaux extends JFrame {
 		
 		try {
             Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
-            JLabel lblNewLabel = new JLabel("TESLA INTERGALACTIQUE");
+            JLabel lblNewLabel = new JLabel("UberSpaceEATS");
     		lblNewLabel.setForeground(Color.RED);
     		lblNewLabel.setFont(font.deriveFont( Font.BOLD, 24));
     		panelTitre.add(lblNewLabel);
