@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import interfaceGraphiqueTesla.InterfaceGameOver;
 import interfaceGraphiqueTesla.InterfaceJeu;
-import interfaceGraphiqueTesla.JFrame;
+import interfaceGraphiqueTesla.InterfaceNivReussi;
 
 
 public class Simulateur extends Thread{
@@ -145,7 +145,7 @@ public class Simulateur extends Thread{
 	
 	public void win() {
 		arret();
-		JFrame youwin= new JFrame();
+		InterfaceNivReussi youwin= new InterfaceNivReussi();
 		youwin.setVisible(true);
 		mjf.dispose();
 	}
