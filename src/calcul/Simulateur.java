@@ -1,6 +1,7 @@
 package calcul;
 
 import java.util.Iterator;
+import java.util.Random;
 
 import interfaceGraphiqueTesla.InterfaceGameOver;
 import interfaceGraphiqueTesla.InterfaceJeu;
@@ -82,7 +83,12 @@ public class Simulateur extends Thread{
 		Iterator<Asteroide> iA = niv.getListeAsteroide().iterator();
 		while(iA.hasNext()) {
 			Asteroide asteroTmp=iA.next();
-			asteroTmp.mouvement();
+			if ((asteroTmp.getPositionAsteroide().getX()<=(niv.getTailleNiveau().getX())) && (asteroTmp.getPositionAsteroide().getX()>=0) && (asteroTmp.getPositionAsteroide().getY()<=(niv.getTailleNiveau().getY())) && (asteroTmp.getPositionAsteroide().getY()>=0)) {
+				asteroTmp.mouvement();
+			} else {
+				Random ran = new Random();
+				asteroTmp.setPositionAsteroide(new Position(ran.nextInt(niv.getTailleNiveau().getX()),ran.nextInt(niv.getTailleNiveau().getY())));
+			}
 		}
 		//recharge 
 		recupererRecharge();

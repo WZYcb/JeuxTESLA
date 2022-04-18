@@ -33,7 +33,7 @@ public class Niveau {
 				listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 			}
 			for(i=0;i<1;i++) {
-				listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(2,2)));
+				listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(1,1)));
 			}
 		} else {
 			if (idNiveau==2) {
@@ -89,7 +89,7 @@ public class Niveau {
 									listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 								}
 								for(i=0;i<3;i++) {
-									listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
+									listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(3,1)));
 								}
 							} else {
 								if (idNiveau==7) {
@@ -110,7 +110,7 @@ public class Niveau {
 										for(i=0;i<2;i++) {
 											listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 										}
-										for(i=0;i<4;i++) {
+										for(i=0;i<3;i++) {
 											listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(-3,2)));
 										}
 									} else {
@@ -118,11 +118,11 @@ public class Niveau {
 											for(i=0;i<9;i++) {
 												listeTrou.add(new Trou(i,300,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 											}
-											for(i=0;i<1;i++) {
+											for(i=0;i<2;i++) {
 												listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 											}
-											for(i=0;i<5;i++) {
-												listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(5,0)));
+											for(i=0;i<4;i++) {
+												listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(3,0)));
 											}
 										}
 									}
