@@ -83,7 +83,7 @@ public class Simulateur extends Thread{
 		while(iA.hasNext()) {
 			Asteroide asteroTmp=iA.next();
 			asteroTmp.mouvement();
-			}
+		}
 		//recharge 
 		recupererRecharge();
 		//check collision
@@ -104,7 +104,6 @@ public class Simulateur extends Thread{
 				float coeffGrav = trouTemp.getCoeffGravite();
 				posActuelleTesla.setX((int) (posActuelleTesla.getX() +coeffGrav*((float) (trouTemp.getPositionTrou().getX()-posActuelleTesla.getX()))));
 				posActuelleTesla.setY((int) (posActuelleTesla.getY() +coeffGrav*((float) (trouTemp.getPositionTrou().getY()-posActuelleTesla.getY()))));
-				float temp = trouTemp.getCoeffGravite()*(posActuelleTesla.getX()-trouTemp.getPositionTrou().getX());
 			}
 		}
 	}
