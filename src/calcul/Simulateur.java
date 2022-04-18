@@ -117,18 +117,33 @@ public class Simulateur extends Thread{
 	}
 	public boolean collision() {
 		boolean flag=false;
+		Position posActuelleTesla = niv.getTesla().getPositionTesla();
+		Position tailleTesla = new Position( (int) (((float)40)/mjf.getMapJeu().getLambdaX()),(int) (((float)20)/mjf.getMapJeu().getLambdaY()));
+		posActuelleTesla = new Position(posActuelleTesla.getX()+(tailleTesla.getX()/2),posActuelleTesla.getY()+(tailleTesla.getY()/2));
 		//collision avec les trous
 		Iterator<Trou> iT = niv.getListeTrou().iterator();
 		while(iT.hasNext() && !flag) {
 			Trou trouTemp = iT.next();
-			Position posActuelleTesla = niv.getTesla().getPositionTesla();
-			if((posActuelleTesla.getX()>(trouTemp.getPositionTrou().getX())) && (posActuelleTesla.getX()<(trouTemp.getPositionTrou().getX()+30)) && (posActuelleTesla.getY()>(trouTemp.getPositionTrou().getY())) && (posActuelleTesla.getY()<(trouTemp.getPositionTrou().getY()+30))) {
+			//Recupération de la taille de l'image pour définir la taille de la hitbox du trou
+			Position tailleTrou = new Position( (int) (((float)60)/mjf.getMapJeu().getLambdaX()),(int) (((float)60)/mjf.getMapJeu().getLambdaY()));
+			
+			if((posActuelleTesla.getX()>(trouTemp.getPositionTrou().getX())) && (posActuelleTesla.getX()<(trouTemp.getPositionTrou().getX()+tailleTrou.getX())) && (posActuelleTesla.getY()>(trouTemp.getPositionTrou().getY())) && (posActuelleTesla.getY()<(trouTemp.getPositionTrou().getY()+tailleTrou.getY()))) {
 				flag=true;
 				gameOver();
 			}
 		}
 		//collision avec les astéroïdes
-		
+		Iterator<Asteroide> iA = niv.getListeAsteroide().iterator();
+		while(iA.hasNext()) {
+			Asteroide asteroTemp= iA.next();
+			
+			Position tailleAst = new Position( (int) (((float) 28)/mjf.getMapJeu().getLambdaX()),(int) (((float) 25)/mjf.getMapJeu().getLambdaY()));
+			if((posActuelleTesla.getX()>(asteroTemp.getPositionAsteroide().getX())) && (posActuelleTesla.getX()<(asteroTemp.getPositionAsteroide().getX()+tailleAst.getX())) && (posActuelleTesla.getY()>(asteroTemp.getPositionAsteroide().getY())) && (posActuelleTesla.getY()<(asteroTemp.getPositionAsteroide().getY()+tailleAst.getY()))) {
+				flag=true;
+				gameOver();
+			}
+			
+		}
 		return flag;
 	}
 	

@@ -25,13 +25,25 @@ public class JPanelDessin extends JPanel {
 	private Image trouNoirImg=null;
 	private Image trouBlancImg=null;
 	private Image superchargerImg=null;
+
+
 	private Image asteroideImg=null;
 	private LinkedList<Image> listeTrouImg= new LinkedList<Image>();
 	private LinkedList<Image> listeSuperchargerImg= new LinkedList<Image>();
 	private LinkedList<Image> listeAsteroideImg = new LinkedList<Image>();
 	
-	
 
+	public Image getTrouBlancImg() {
+		return trouBlancImg;
+	}
+
+	public Image getSuperchargerImg() {
+		return superchargerImg;
+	}
+
+	public Image getAsteroideImg() {
+		return asteroideImg;
+	}
 
 	public LinkedList<Image> getListeTrouImg() {
 		return listeTrouImg;

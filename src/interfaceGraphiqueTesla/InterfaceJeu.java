@@ -28,7 +28,7 @@ public class InterfaceJeu extends JFrame {
 
 	private JPanel contentPane;
 	private Simulateur simul;
-
+	private JPanelDessin mapJeu;
     private int niveau;
 
 	private JProgressBar niveauBatterie;
@@ -146,7 +146,7 @@ public class InterfaceJeu extends JFrame {
 		}
 		infosEnJeu.add(panelBonusActif);
 		
-		JPanelDessin mapJeu = new JPanelDessin();
+		mapJeu = new JPanelDessin();
 		mapJeu.setOpaque(false);
 		affichageJeu.add(mapJeu, BorderLayout.CENTER);
 		simul = new Simulateur(this,niveau);
@@ -202,6 +202,15 @@ public class InterfaceJeu extends JFrame {
 	public void setNiveau(int niveau) {
 		this.niveau = niveau;
 	}
+	
+	public JPanelDessin getMapJeu() {
+		return mapJeu;
+	}
+
+	public void setMapJeu(JPanelDessin mapJeu) {
+		this.mapJeu = mapJeu;
+	}
+
 	private class MyDispatcher implements KeyEventDispatcher {
 		@Override
 		public boolean dispatchKeyEvent(KeyEvent e) {
