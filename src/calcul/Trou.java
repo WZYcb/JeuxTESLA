@@ -6,7 +6,7 @@ public class Trou {
 	
 	private int idTrou;
 	private String nom;
-	private int rayonInfluence;
+	private int rayonInfluence=500;
 	private Position positionTrou;
 	private float coeffGravite;
 	
