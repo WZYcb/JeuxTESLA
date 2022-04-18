@@ -20,7 +20,7 @@ public class Niveau {
 		int i;
 		idNiveau = idNiv;
 		tailleNiveau= new Position(1920,1080);
-		limiteTemps = 2;//minutes
+		limiteTemps = 1;//minutes
 		Random ran = new Random();
 		pointDepart= new Position(0,0);
 		pointArrivee= new Position(tailleNiveau.getX()-100,tailleNiveau.getY()-100) ;

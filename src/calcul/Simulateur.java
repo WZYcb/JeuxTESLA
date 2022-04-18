@@ -106,10 +106,14 @@ public class Simulateur extends Thread{
 	}
 	
 	public void recupererRecharge() {
+		Position posActuelleTesla = niv.getTesla().getPositionTesla();
+		Position tailleTesla = new Position( (int) (((float)40)/mjf.getMapJeu().getLambdaX()),(int) (((float)20)/mjf.getMapJeu().getLambdaY()));
+		posActuelleTesla = new Position(posActuelleTesla.getX()+(tailleTesla.getX()/2),posActuelleTesla.getY()+(tailleTesla.getY()/2));
+		Position tailleRecharge = new Position( (int) (((float)25)/mjf.getMapJeu().getLambdaX()),(int) (((float)40)/mjf.getMapJeu().getLambdaY()));
 		Iterator<Recharge> iR = niv.getListeRecharge().iterator();
 		while(iR.hasNext()) {
 			Recharge rechargeTemp = iR.next();
-			if((niv.getTesla().getPositionTesla().getX()>(rechargeTemp.getPositionRecharge().getX()-30)) && (niv.getTesla().getPositionTesla().getX()<(rechargeTemp.getPositionRecharge().getX()+30)) && (niv.getTesla().getPositionTesla().getY()>(rechargeTemp.getPositionRecharge().getY()-30)) && (niv.getTesla().getPositionTesla().getY()<(rechargeTemp.getPositionRecharge().getY()+30))) {
+			if((posActuelleTesla.getX()>(rechargeTemp.getPositionRecharge().getX())) && (posActuelleTesla.getX()<(rechargeTemp.getPositionRecharge().getX()+tailleRecharge.getX())) && (posActuelleTesla.getY()>(rechargeTemp.getPositionRecharge().getY())) && (posActuelleTesla.getY()<(rechargeTemp.getPositionRecharge().getY()+tailleRecharge.getY()))) {
 				niv.getTesla().recupererRecharge();
 			}
 		}
@@ -118,14 +122,14 @@ public class Simulateur extends Thread{
 	public boolean collision() {
 		boolean flag=false;
 		Position posActuelleTesla = niv.getTesla().getPositionTesla();
+		//Recupération de la taille de l'image pour définir la taille de la hitbox des objets
 		Position tailleTesla = new Position( (int) (((float)40)/mjf.getMapJeu().getLambdaX()),(int) (((float)20)/mjf.getMapJeu().getLambdaY()));
 		posActuelleTesla = new Position(posActuelleTesla.getX()+(tailleTesla.getX()/2),posActuelleTesla.getY()+(tailleTesla.getY()/2));
+		Position tailleTrou = new Position( (int) (((float)60)/mjf.getMapJeu().getLambdaX()),(int) (((float)60)/mjf.getMapJeu().getLambdaY()));
 		//collision avec les trous
 		Iterator<Trou> iT = niv.getListeTrou().iterator();
 		while(iT.hasNext() && !flag) {
 			Trou trouTemp = iT.next();
-			//Recupération de la taille de l'image pour définir la taille de la hitbox du trou
-			Position tailleTrou = new Position( (int) (((float)60)/mjf.getMapJeu().getLambdaX()),(int) (((float)60)/mjf.getMapJeu().getLambdaY()));
 			
 			if((posActuelleTesla.getX()>(trouTemp.getPositionTrou().getX())) && (posActuelleTesla.getX()<(trouTemp.getPositionTrou().getX()+tailleTrou.getX())) && (posActuelleTesla.getY()>(trouTemp.getPositionTrou().getY())) && (posActuelleTesla.getY()<(trouTemp.getPositionTrou().getY()+tailleTrou.getY()))) {
 				flag=true;
