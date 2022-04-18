@@ -104,6 +104,27 @@ public class InterfaceJeu extends JFrame {
 	       } catch (FontFormatException | IOException ex) {
 	           ex.printStackTrace();
 	       }
+		
+		JButton btnInstructions = new JButton("Instructions");
+		try {
+	           Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+	           btnInstructions.setFont(font.deriveFont( Font.BOLD, 13));
+	       } catch (FontFormatException | IOException ex) {
+	           ex.printStackTrace();
+	       }
+			btnInstructions.setForeground(Color.RED);
+			btnInstructions.setBackground(null);
+			btnInstructions.setOpaque(false);
+			btnInstructions.setContentAreaFilled(false);
+			btnInstructions.setBorderPainted(false);
+			btnInstructions.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					clicInstructions();
+				}
+			});
+		infosEnJeu.add(btnInstructions);
+		
+		
 		lblTempsRestant.setForeground(Color.RED);
 		infosEnJeu.add(lblTempsRestant);
 		
@@ -155,6 +176,11 @@ public class InterfaceJeu extends JFrame {
 		abandon.setVisible(true);// l'ouvrir
 		this.dispose();//ferme la frame
 	}
+    
+    public void clicInstructions() {
+    	InterfaceTuto instructions = new InterfaceTuto();
+    	instructions.setVisible(true);
+    }
 	
     public void afficherTempsRestant() {
     	if(simul!=null) {
