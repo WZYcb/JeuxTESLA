@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Color; 
 import java.awt.Dimension;
+import java.awt.Component;
 
 public class InterfaceJeu extends JFrame {
 
@@ -111,6 +112,7 @@ public class InterfaceJeu extends JFrame {
 		infosEnJeu.add(panelLogoBatterie);
 		
 		niveauBatterie = new JProgressBar();
+		niveauBatterie.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		niveauBatterie.setForeground(new Color(0, 128, 0));
 
 		niveauBatterie.setValue(100); //関entuellement supprimer � l'int間ration
