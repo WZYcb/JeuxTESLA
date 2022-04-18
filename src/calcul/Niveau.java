@@ -100,7 +100,7 @@ public class Niveau {
 										listeRecharge.add(new Recharge(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY()))));
 									}
 									for(i=0;i<3;i++) {
-										listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(4,1)));
+										listeAsteroide.add(new Asteroide(i,new Position(ran.nextInt(tailleNiveau.getX()),ran.nextInt(tailleNiveau.getY())),new Vitesse(3,1)));
 									}
 								} else {
 									if (idNiveau==8) {
