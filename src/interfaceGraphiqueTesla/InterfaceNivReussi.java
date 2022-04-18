@@ -43,31 +43,16 @@ public class InterfaceNivReussi extends JFrame {
 	public InterfaceNivReussi() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
+		contentPane = new JPanelImage("fond_jeu_tesla.jpg");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panel = new JPanelImage("fond_jeu_tesla.jpg");
-		contentPane.add(panel, BorderLayout.CENTER);
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		JPanel panelNorth = new JPanel();
+		panelNorth.setOpaque(false);
+		contentPane.add(panelNorth, BorderLayout.NORTH);
+		panelNorth.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		
-		JButton btnNewButton = new JButton("Retour Menu");
-		try {
-            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
-            btnNewButton.setFont(font.deriveFont( Font.BOLD, 13));
-        } catch (FontFormatException | IOException ex) {
-            ex.printStackTrace();
-        }
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				clicRetourMenu();
-			}
-		});
-		btnNewButton.setForeground(Color.RED);
-		btnNewButton.setBackground(Color.BLACK);
-		panel.add(btnNewButton);
 		
 		
 		JLabel lblNewLabel = new JLabel("FELICITATIONS !!!");
@@ -79,17 +64,31 @@ public class InterfaceNivReussi extends JFrame {
         }
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setBackground(Color.GRAY);
-		panel.add(lblNewLabel);
+		panelNorth.add(lblNewLabel);
+		
+		JPanel panelSouth = new JPanel();
+		panelSouth.setOpaque(false);
+		contentPane.add(panelSouth, BorderLayout.SOUTH);
+		
+		JButton btnNewButton = new JButton("Retour Menu");
+		try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Tesla.ttf"));
+            btnNewButton.setFont(font.deriveFont( Font.BOLD, 13));
+        } catch (FontFormatException | IOException ex) {
+            ex.printStackTrace();
+        }
+		btnNewButton.setForeground(Color.RED);
+		btnNewButton.setBackground(Color.BLACK);
+		panelSouth.add(btnNewButton);
+		
+		JPanel panelCenter = new JPanelImage("elon_musk_thumbsup.png");
+		panelCenter.setOpaque(false);
+		contentPane.add(panelCenter, BorderLayout.CENTER);
 		
 		
 		
 		
 		
-	}
-	public void clicRetourMenu() {
-		InterfaceNiveaux menuNiveaux = new InterfaceNiveaux();// créer la frame du menu avec les niveaux
-		menuNiveaux.setVisible(true);// l'ouvrir
-		this.dispose();//ferme la frame 
 	}
 	
 
