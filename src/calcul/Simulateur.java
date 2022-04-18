@@ -192,7 +192,11 @@ public class Simulateur extends Thread{
 
 	public boolean isFinished() {
 		boolean flag=false;
-		if((niv.getTesla().getPositionTesla().getX()>(niv.getPointArrivee().getX()-30)) && (niv.getTesla().getPositionTesla().getX()<(niv.getPointArrivee().getX()+30)) && (niv.getTesla().getPositionTesla().getY()>(niv.getPointArrivee().getY()-30)) && (niv.getTesla().getPositionTesla().getY()<(niv.getPointArrivee().getY()+30))) {
+		Position posActuelleTesla = niv.getTesla().getPositionTesla();
+		Position tailleTesla = new Position( (int) (((float)40)/mjf.getMapJeu().getLambdaX()),(int) (((float)20)/mjf.getMapJeu().getLambdaY()));
+		posActuelleTesla = new Position(posActuelleTesla.getX()+(tailleTesla.getX()/2),posActuelleTesla.getY()+(tailleTesla.getY()/2));
+		Position taillePlanete = new Position( (int) (((float)40)/mjf.getMapJeu().getLambdaX()),(int) (((float)40)/mjf.getMapJeu().getLambdaY()));
+		if((posActuelleTesla.getX()>(niv.getPointArrivee().getX())) && (posActuelleTesla.getX()<(niv.getPointArrivee().getX()+taillePlanete.getX())) && (posActuelleTesla.getY()>(niv.getPointArrivee().getY())) && (posActuelleTesla.getY()<(niv.getPointArrivee().getY()+taillePlanete.getY()))) {
 			flag=true;
 			win();
 		}

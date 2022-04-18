@@ -158,7 +158,7 @@ public class JPanelDessin extends JPanel {
 			lambdaX=(float) this.getWidth()/simul.getNiv().getTailleNiveau().getX();
 			lambdaY=(float) this.getHeight()/simul.getNiv().getTailleNiveau().getY();
 			g.drawImage(voitureImg, Math.round(simul.getNiv().getTesla().getPositionTesla().getX()*lambdaX), Math.round(simul.getNiv().getTesla().getPositionTesla().getY()*lambdaY),40,20, null);
-			g.drawImage(planeteLivraisonImg, Math.round(simul.getNiv().getPointArrivee().getX()*lambdaX), Math.round(simul.getNiv().getPointArrivee().getY()*lambdaY), 50,50, null);
+			g.drawImage(planeteLivraisonImg, Math.round(simul.getNiv().getPointArrivee().getX()*lambdaX), Math.round(simul.getNiv().getPointArrivee().getY()*lambdaY), 40,40, null);
 			//System.out.println(simul.getNiv().getListeTrou().size()+" "+simul.getNiv().getListeRecharge().size()+" "+simul.getNiv().getListeTrou().size());
 			
 			while(iR.hasNext()) {
