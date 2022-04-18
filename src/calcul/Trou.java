@@ -6,19 +6,20 @@ public class Trou {
 	
 	private int idTrou;
 	private String nom;
-	private int rayonInfluence=500;
+	private int rayonInfluence;
 	private Position positionTrou;
 	private float coeffGravite;
 	
 	
 	public Trou(int idTrou,int rayonInfluence,Position positionTrou) {
 		this.idTrou=idTrou;
+		this.rayonInfluence=rayonInfluence;
 		this.positionTrou=positionTrou;
 		Random rd = new Random();
 		if(rd.nextBoolean()) {
-			coeffGravite=0.1f;
+			coeffGravite=0.01f;
 		} else {
-			coeffGravite=-0.1f;
+			coeffGravite=-0.01f;
 		}
 	}
 	public int getIdTrou() {
