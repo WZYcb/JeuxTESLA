@@ -78,7 +78,7 @@ public class Simulateur extends Thread{
 		mjf.afficherNivBatterie();
 		// etape 2 : trous noirs
 		influenceTrouNoir();
-		//deplacement des objets
+		//deplacement des asteroides
 		
 		//recharge 
 		recupererRecharge();
